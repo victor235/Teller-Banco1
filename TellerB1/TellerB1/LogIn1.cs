@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Processor;
+
 
 namespace TellerB1
 {
@@ -15,6 +17,20 @@ namespace TellerB1
         public LogIn1()
         {
             InitializeComponent();
+        }   
+            
+        
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            int user=int.Parse(tbUser.Text);
+            string password=tbPassword.Text;
+            string tipo=cmbTipoUser.Text;
+
+            bool Login;
+
+            ClsProcessor processor = new ClsProcessor();
+            Login = processor.VerifyPassword(user, password, tipo);
+            MessageBox.Show(processor.Message);
         }
     }
 }

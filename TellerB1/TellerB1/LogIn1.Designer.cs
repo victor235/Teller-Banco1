@@ -29,53 +29,59 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn1));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lbUser = new System.Windows.Forms.Label();
+            this.lbPassword = new System.Windows.Forms.Label();
+            this.tbUser = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.gbLogin = new System.Windows.Forms.GroupBox();
+            this.lbTipoUser = new System.Windows.Forms.Label();
+            this.cmbTipoUser = new System.Windows.Forms.ComboBox();
+            this.gbLogin.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // lbUser
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(98, 132);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Usuario";
+            this.lbUser.AutoSize = true;
+            this.lbUser.Location = new System.Drawing.Point(48, 64);
+            this.lbUser.Name = "lbUser";
+            this.lbUser.Size = new System.Drawing.Size(43, 13);
+            this.lbUser.TabIndex = 1;
+            this.lbUser.Text = "Usuario";
             // 
-            // label2
+            // lbPassword
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(98, 184);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Contraseña";
+            this.lbPassword.AutoSize = true;
+            this.lbPassword.Location = new System.Drawing.Point(48, 120);
+            this.lbPassword.Name = "lbPassword";
+            this.lbPassword.Size = new System.Drawing.Size(61, 13);
+            this.lbPassword.TabIndex = 2;
+            this.lbPassword.Text = "Contraseña";
             // 
-            // textBox1
+            // tbUser
             // 
-            this.textBox1.Location = new System.Drawing.Point(192, 128);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(204, 20);
-            this.textBox1.TabIndex = 3;
+            this.tbUser.Location = new System.Drawing.Point(142, 61);
+            this.tbUser.Name = "tbUser";
+            this.tbUser.Size = new System.Drawing.Size(204, 20);
+            this.tbUser.TabIndex = 3;
             // 
-            // textBox2
+            // tbPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(192, 184);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(204, 20);
-            this.textBox2.TabIndex = 4;
+            this.tbPassword.Location = new System.Drawing.Point(142, 117);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
+            this.tbPassword.Size = new System.Drawing.Size(204, 20);
+            this.tbPassword.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(232, 50);
+            this.label3.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(174, -5);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.Size = new System.Drawing.Size(73, 25);
             this.label3.TabIndex = 5;
             this.label3.Text = "Teller";
             // 
@@ -85,53 +91,91 @@
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(413, 12);
+            this.button3.Location = new System.Drawing.Point(455, 12);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(44, 44);
+            this.button3.Size = new System.Drawing.Size(31, 34);
             this.button3.TabIndex = 7;
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnLogin
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Transparent;
-            this.button2.Location = new System.Drawing.Point(171, 279);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(149, 29);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Iniciar Sesion";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnLogin.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.ForeColor = System.Drawing.Color.Transparent;
+            this.btnLogin.Location = new System.Drawing.Point(133, 246);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(149, 29);
+            this.btnLogin.TabIndex = 8;
+            this.btnLogin.Text = "Iniciar Sesion";
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // gbLogin
+            // 
+            this.gbLogin.Controls.Add(this.lbTipoUser);
+            this.gbLogin.Controls.Add(this.cmbTipoUser);
+            this.gbLogin.Controls.Add(this.btnLogin);
+            this.gbLogin.Controls.Add(this.label3);
+            this.gbLogin.Controls.Add(this.tbPassword);
+            this.gbLogin.Controls.Add(this.tbUser);
+            this.gbLogin.Controls.Add(this.lbPassword);
+            this.gbLogin.Controls.Add(this.lbUser);
+            this.gbLogin.Location = new System.Drawing.Point(42, 47);
+            this.gbLogin.Name = "gbLogin";
+            this.gbLogin.Size = new System.Drawing.Size(410, 295);
+            this.gbLogin.TabIndex = 9;
+            this.gbLogin.TabStop = false;
+            // 
+            // lbTipoUser
+            // 
+            this.lbTipoUser.AutoSize = true;
+            this.lbTipoUser.Location = new System.Drawing.Point(48, 176);
+            this.lbTipoUser.Name = "lbTipoUser";
+            this.lbTipoUser.Size = new System.Drawing.Size(77, 13);
+            this.lbTipoUser.TabIndex = 10;
+            this.lbTipoUser.Text = "Ingresar como:";
+            // 
+            // cmbTipoUser
+            // 
+            this.cmbTipoUser.FormattingEnabled = true;
+            this.cmbTipoUser.Items.AddRange(new object[] {
+            "Cajero",
+            "Administrador"});
+            this.cmbTipoUser.Location = new System.Drawing.Point(142, 173);
+            this.cmbTipoUser.Name = "cmbTipoUser";
+            this.cmbTipoUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cmbTipoUser.Size = new System.Drawing.Size(204, 21);
+            this.cmbTipoUser.TabIndex = 9;
+            this.cmbTipoUser.Text = "                       --Seleccionar--";
             // 
             // LogIn1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(498, 445);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.gbLogin);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LogIn1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LogIn";
+            this.gbLogin.ResumeLayout(false);
+            this.gbLogin.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label lbUser;
+        private System.Windows.Forms.Label lbPassword;
+        private System.Windows.Forms.TextBox tbUser;
+        private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.GroupBox gbLogin;
+        private System.Windows.Forms.Label lbTipoUser;
+        private System.Windows.Forms.ComboBox cmbTipoUser;
     }
 }

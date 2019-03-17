@@ -52,6 +52,12 @@
     <Compile Include="LogIn1.Designer.cs">
       <DependentUpon>LogIn1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuAdministrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuAdministrar.Designer.cs">
+      <DependentUpon>MenuAdministrar.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClasesBanco1\ClasesBanco1.csproj">
+      <Project>{aeb4278f-94d4-4852-9f9e-002e1775378d}</Project>
+      <Name>ClasesBanco1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ConnectionDB\ConnectionDB.csproj">
+      <Project>{bfd7fb43-4305-47c7-a86f-70e7c2f2fbe2}</Project>
+      <Name>ConnectionDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Processor\Processor.csproj">
+      <Project>{10d16478-fa13-40f1-a4e2-2417da18f7ce}</Project>
+      <Name>Processor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
