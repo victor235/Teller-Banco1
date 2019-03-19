@@ -32,5 +32,15 @@ namespace TellerB1
             Login = processor.VerifyPassword(user, password, tipo);
             MessageBox.Show(processor.Message);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void LogIn1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

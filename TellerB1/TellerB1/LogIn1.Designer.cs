@@ -96,14 +96,15 @@
             this.button3.Size = new System.Drawing.Size(31, 34);
             this.button3.TabIndex = 7;
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.Transparent;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.ForeColor = System.Drawing.Color.Transparent;
-            this.btnLogin.Location = new System.Drawing.Point(133, 246);
+            this.btnLogin.ForeColor = System.Drawing.Color.Black;
+            this.btnLogin.Location = new System.Drawing.Point(154, 222);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(149, 29);
             this.btnLogin.TabIndex = 8;
@@ -130,7 +131,7 @@
             // lbTipoUser
             // 
             this.lbTipoUser.AutoSize = true;
-            this.lbTipoUser.Location = new System.Drawing.Point(48, 176);
+            this.lbTipoUser.Location = new System.Drawing.Point(21, 176);
             this.lbTipoUser.Name = "lbTipoUser";
             this.lbTipoUser.Size = new System.Drawing.Size(77, 13);
             this.lbTipoUser.TabIndex = 10;
@@ -160,6 +161,7 @@
             this.Name = "LogIn1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LogIn";
+            this.Load += new System.EventHandler(this.LogIn1_Load);
             this.gbLogin.ResumeLayout(false);
             this.gbLogin.PerformLayout();
             this.ResumeLayout(false);

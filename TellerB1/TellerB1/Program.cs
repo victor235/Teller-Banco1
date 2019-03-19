@@ -16,7 +16,7 @@ namespace TellerB1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LogIn1());
+            Application.Run(new MenuP());
         }
     }
 }

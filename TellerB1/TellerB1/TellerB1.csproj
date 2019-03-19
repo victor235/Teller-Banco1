@@ -46,6 +46,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cuadre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cuadre.Designer.cs">
+      <DependentUpon>Cuadre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deposito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deposito.Designer.cs">
+      <DependentUpon>Deposito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Historial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Historial.Designer.cs">
+      <DependentUpon>Historial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario.Designer.cs">
+      <DependentUpon>Inventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogIn1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,13 +88,43 @@
     <Compile Include="MenuP.Designer.cs">
       <DependentUpon>MenuP.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pendientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pendientes.Designer.cs">
+      <DependentUpon>Pendientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Retiro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Retiro.Designer.cs">
+      <DependentUpon>Retiro.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Cuadre.resx">
+      <DependentUpon>Cuadre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deposito.resx">
+      <DependentUpon>Deposito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Historial.resx">
+      <DependentUpon>Historial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario.resx">
+      <DependentUpon>Inventario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogIn1.resx">
       <DependentUpon>LogIn1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MenuAdministrar.resx">
+      <DependentUpon>MenuAdministrar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MenuP.resx">
       <DependentUpon>MenuP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pendientes.resx">
+      <DependentUpon>Pendientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -81,6 +135,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Retiro.resx">
+      <DependentUpon>Retiro.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -95,10 +152,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClasesBanco1\ClasesBanco1.csproj">
-      <Project>{aeb4278f-94d4-4852-9f9e-002e1775378d}</Project>
-      <Name>ClasesBanco1</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ConnectionDB\ConnectionDB.csproj">
       <Project>{bfd7fb43-4305-47c7-a86f-70e7c2f2fbe2}</Project>
       <Name>ConnectionDB</Name>
