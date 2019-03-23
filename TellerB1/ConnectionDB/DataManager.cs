@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
+
 namespace ConnectionDB
 {
     public class DataManager
@@ -13,13 +14,13 @@ namespace ConnectionDB
         private SqlCommand Command = new SqlCommand();
         private SqlDataReader Reader;
 
-        public string[] Password(int id)
+        public string[] DatosUsuario(int id)
         {
-            string[] datos = new string[2];
-            int count=0;
+            string[] datos = new string[5];
+            
 
             Command.Connection = Connection.OpenConnection();
-            Command.CommandText = ConfigurationManager.AppSettings["PasswordById"];
+            Command.CommandText = "tblUsuarios_GetById";
             Command.CommandType = CommandType.StoredProcedure;
             Command.Parameters.AddWithValue("@Codigo_Usuario", id);
             Reader = Command.ExecuteReader();
@@ -27,7 +28,9 @@ namespace ConnectionDB
             {
                 datos[0] = Reader[0].ToString();
                 datos[1] = Reader[1].ToString();
-                count++;
+                datos[2] = Reader[2].ToString();
+                datos[3] = Reader[3].ToString();
+                datos[4] = Reader[4].ToString();
             }
             
             Command.Parameters.Clear();

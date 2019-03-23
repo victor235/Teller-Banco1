@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Caja_AppDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Caja_AppDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Cuadre.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +143,17 @@
     <EmbeddedResource Include="Retiro.resx">
       <DependentUpon>Retiro.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Caja_AppDataSet.xsc">
+      <DependentUpon>Caja_AppDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Caja_AppDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Caja_AppDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Caja_AppDataSet.xss">
+      <DependentUpon>Caja_AppDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

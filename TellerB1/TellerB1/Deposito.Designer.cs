@@ -34,6 +34,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dmonto = new System.Windows.Forms.TextBox();
             this.btnDeposito = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
             // label1
@@ -94,11 +95,21 @@
             this.btnDeposito.Text = "Realizar Deposito";
             this.btnDeposito.UseVisualStyleBackColor = false;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(529, 46);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(367, 305);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
             // Deposito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(957, 536);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnDeposito);
             this.Controls.Add(this.dmonto);
             this.Controls.Add(this.label3);
@@ -121,5 +132,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox dmonto;
         private System.Windows.Forms.Button btnDeposito;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

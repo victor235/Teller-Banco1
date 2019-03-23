@@ -10,7 +10,7 @@ namespace ConnectionDB
 {
     public class ConnectionDB
     {
-        static private string ConnectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+        static private string ConnectionString = ConfigurationManager.ConnectionStrings[2].ConnectionString;
 
        
         public SqlConnection Connection= new SqlConnection(ConnectionString);

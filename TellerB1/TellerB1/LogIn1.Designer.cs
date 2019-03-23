@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn1));
             this.lbUser = new System.Windows.Forms.Label();
             this.lbPassword = new System.Windows.Forms.Label();
@@ -39,7 +40,12 @@
             this.gbLogin = new System.Windows.Forms.GroupBox();
             this.lbTipoUser = new System.Windows.Forms.Label();
             this.cmbTipoUser = new System.Windows.Forms.ComboBox();
+            this.caja_AppDataSet = new TellerB1.Caja_AppDataSet();
+            this.tblTiposDeUsuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tblTiposDeUsuarioTableAdapter = new TellerB1.Caja_AppDataSetTableAdapters.tblTiposDeUsuarioTableAdapter();
             this.gbLogin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.caja_AppDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblTiposDeUsuarioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lbUser
@@ -139,16 +145,29 @@
             // 
             // cmbTipoUser
             // 
+            this.cmbTipoUser.DataSource = this.tblTiposDeUsuarioBindingSource;
+            this.cmbTipoUser.DisplayMember = "Descripcion";
             this.cmbTipoUser.FormattingEnabled = true;
-            this.cmbTipoUser.Items.AddRange(new object[] {
-            "Cajero",
-            "Administrador"});
             this.cmbTipoUser.Location = new System.Drawing.Point(142, 173);
             this.cmbTipoUser.Name = "cmbTipoUser";
             this.cmbTipoUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbTipoUser.Size = new System.Drawing.Size(204, 21);
             this.cmbTipoUser.TabIndex = 9;
-            this.cmbTipoUser.Text = "                       --Seleccionar--";
+            this.cmbTipoUser.ValueMember = "Descripcion";
+            // 
+            // caja_AppDataSet
+            // 
+            this.caja_AppDataSet.DataSetName = "Caja_AppDataSet";
+            this.caja_AppDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblTiposDeUsuarioBindingSource
+            // 
+            this.tblTiposDeUsuarioBindingSource.DataMember = "tblTiposDeUsuario";
+            this.tblTiposDeUsuarioBindingSource.DataSource = this.caja_AppDataSet;
+            // 
+            // tblTiposDeUsuarioTableAdapter
+            // 
+            this.tblTiposDeUsuarioTableAdapter.ClearBeforeFill = true;
             // 
             // LogIn1
             // 
@@ -164,6 +183,8 @@
             this.Load += new System.EventHandler(this.LogIn1_Load);
             this.gbLogin.ResumeLayout(false);
             this.gbLogin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.caja_AppDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblTiposDeUsuarioBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -179,5 +200,8 @@
         private System.Windows.Forms.GroupBox gbLogin;
         private System.Windows.Forms.Label lbTipoUser;
         private System.Windows.Forms.ComboBox cmbTipoUser;
+        private Caja_AppDataSet caja_AppDataSet;
+        private System.Windows.Forms.BindingSource tblTiposDeUsuarioBindingSource;
+        private Caja_AppDataSetTableAdapters.tblTiposDeUsuarioTableAdapter tblTiposDeUsuarioTableAdapter;
     }
 }

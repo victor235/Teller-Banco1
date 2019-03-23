@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Processor;
 
 namespace TellerB1
 {
     public partial class MenuAdministrar : Form
     {
-        public MenuAdministrar()
+        public MenuAdministrar(Usuario usuario)
         {
             InitializeComponent();
         }
