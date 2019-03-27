@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="aCajero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="aCajero.Designer.cs">
+      <DependentUpon>aCajero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="aHistorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="aHistorial.Designer.cs">
+      <DependentUpon>aHistorial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="aInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="aInventario.Designer.cs">
+      <DependentUpon>aInventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Caja_AppDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -107,6 +125,15 @@
     <Compile Include="Retiro.Designer.cs">
       <DependentUpon>Retiro.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="aCajero.resx">
+      <DependentUpon>aCajero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="aHistorial.resx">
+      <DependentUpon>aHistorial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="aInventario.resx">
+      <DependentUpon>aInventario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cuadre.resx">
       <DependentUpon>Cuadre.cs</DependentUpon>
     </EmbeddedResource>
