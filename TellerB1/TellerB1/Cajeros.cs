@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace TellerB1
 {
-    public partial class aCajero : Form
+    public partial class Cajeros : Form
     {
-        public aCajero()
+        public Cajeros()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
