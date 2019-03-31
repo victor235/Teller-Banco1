@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Mensajes;
+using Processor;
 
 namespace TellerB1
 {
@@ -30,6 +32,24 @@ namespace TellerB1
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnVerificarCuenta_Click(object sender, EventArgs e)
+        {
+            string cuenta = tbVerificarCuenta.Text;
+            
+            ClsProcessor processor = new ClsProcessor();
+            Cliente cliente = processor.VerificarCliente(cuenta);
+            if (cliente.Apellidos != null)
+            {
+                tbClienteVerificado.Text = cliente.Nombres + cliente.Apellidos;
+                tbCuentaVerificada.Text = cliente.Codigo;
+                tbCuenta.Text = cliente.Codigo;
+            }
+            else
+            {
+                MessageBox.Show("La cuenta ingresada no existe");
+            }
         }
     }
 }

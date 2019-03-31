@@ -250,6 +250,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClasesBanco\ClasesBanco.csproj">
+      <Project>{538d7fc2-966f-4ba2-88f6-cad62247610a}</Project>
+      <Name>ClasesBanco</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ConnectionDB\ConnectionDB.csproj">
       <Project>{bfd7fb43-4305-47c7-a86f-70e7c2f2fbe2}</Project>
       <Name>ConnectionDB</Name>

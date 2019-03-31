@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mensajes
+namespace WebApplication
 {
     //Para añadir esta librería a sus çodigos, creen un proyecto de tipo class Library dentro de su solucion y 
     //despues hagan referencias de ella en las partes de su programa que vayan a usar.
@@ -28,12 +28,10 @@ namespace Mensajes
         public decimal Balance { get => balance; set => balance = value; }
         public string Cedula { get => cedula; set => cedula = value; }
 
-        public Cliente(string cuenta)
+        public void PedirDatosCliente()
         {
-            this.codigo = cuenta;
+            
         }
-
-        public Cliente() { }
     }
 
     public enum TipoPedido { transferencia, retiro, deposito, datosPersonales }
