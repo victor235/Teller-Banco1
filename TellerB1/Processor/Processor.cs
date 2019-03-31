@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using ConnectionDB;
 using Mensajes;
+using Processor.ServiceReference;
+
 
 
 namespace Processor
@@ -14,19 +16,25 @@ namespace Processor
         string message;
         public string Message { get => message; private set { } }
 
-        ServiceReference.SimulacionSoapClient simulacionSoapClient = new ServiceReference.SimulacionSoapClient();
+        SimulacionSoapClient client = new SimulacionSoapClient();
 
-        public Cliente VerificarCliente(string cuenta)
+        public LocalCliente VerificarCliente(string cuenta)
         {
-            Cliente cliente = new Cliente(cuenta);
-            ServiceReference.Cliente webCliente = new ServiceReference.Cliente();
-            webCliente.Codigo = cliente.Codigo;
-            webCliente = simulacionSoapClient.CompletarCliente(webCliente);
-            cliente.Codigo = webCliente.Codigo;
-            cliente.Nombres = webCliente.Nombres;
-            cliente.Apellidos = webCliente.Apellidos;
+            LocalCliente cliente = new LocalCliente(cuenta);
+            RequestDatosPersonales request = new RequestDatosPersonales();
+            ResponseDatosPersonales datosPersonales = new ResponseDatosPersonales();
+
+            request.datos = new Cliente();
+            request.datos.Codigo = cuenta;
+            datosPersonales = client.CompletarCliente(request);
+
+            cliente.Codigo = datosPersonales.datos.Codigo;
+            cliente.Nombres = datosPersonales.datos.Nombres;
+            cliente.Apellidos = datosPersonales.datos.Apellidos;
             return cliente;
         }
+
+       
         
     }
 }

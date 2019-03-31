@@ -28,10 +28,7 @@ namespace WebApplication
         public decimal Balance { get => balance; set => balance = value; }
         public string Cedula { get => cedula; set => cedula = value; }
 
-        public void PedirDatosCliente()
-        {
-            
-        }
+        
     }
 
     public enum TipoPedido { transferencia, retiro, deposito, datosPersonales }
@@ -51,7 +48,7 @@ namespace WebApplication
 
     public class Transferencia : Pedido
     {
-        Transferencia()
+        public Transferencia()
         {
             tipo = (TipoPedido)0;
         }
@@ -68,7 +65,7 @@ namespace WebApplication
 
     public class Retiro : Pedido
     {
-        Retiro()
+        public Retiro()
         {
             tipo = (TipoPedido)1;
         }
@@ -83,7 +80,7 @@ namespace WebApplication
 
     public class Deposito : Pedido
     {
-        Deposito()
+        public Deposito()
         {
             tipo = (TipoPedido)2;
         }
@@ -97,11 +94,11 @@ namespace WebApplication
     }
     public class RequestDatosPersonales : Pedido
     {
-        RequestDatosPersonales()
+        public RequestDatosPersonales()
         {
             tipo = (TipoPedido)3;
         }
-        public Cliente datos; //Aqui me dan un cliente con algun campo incompleto(null) y yo les devuelvo el cliente completo (es como un find).
+        public Cliente datos = new Cliente(); //Aqui me dan un cliente con algun campo incompleto(null) y yo les devuelvo el cliente completo (es como un find).
     }
     #endregion
 
@@ -109,7 +106,7 @@ namespace WebApplication
 
     public class Confirmacion : Respuesta
     {
-        Confirmacion()
+        public Confirmacion()
         {
             tipo = (TipoRespuesta)0;
         }
@@ -118,11 +115,11 @@ namespace WebApplication
 
     public class ResponseDatosPersonales : Respuesta
     {
-        ResponseDatosPersonales()
+        public ResponseDatosPersonales()
         {
             tipo = (TipoRespuesta)1;
         }
-        public Cliente datos; //Aqui me dan un cliente con algun campo incompleto(null) y yo les devuelvo el cliente completo (es como un find).
+        public Cliente datos = new Cliente(); //Aqui me dan un cliente con algun campo incompleto(null) y yo les devuelvo el cliente completo (es como un find).
     }
     #endregion
 

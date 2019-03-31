@@ -14,7 +14,7 @@ namespace Mensajes
     //algun dato de un cliente(como la cuenta a la que se le va a transferir dinero), es bueno darle un valor null.
     //Usar el reloj del sistema para rellenar los datetime de las transacciones.
 
-    public class Cliente
+    public class LocalCliente
     {
         string codigo;
         string nombres;
@@ -28,103 +28,103 @@ namespace Mensajes
         public decimal Balance { get => balance; set => balance = value; }
         public string Cedula { get => cedula; set => cedula = value; }
 
-        public Cliente(string cuenta)
+        public LocalCliente(string cuenta)
         {
             this.codigo = cuenta;
         }
 
-        public Cliente() { }
+        public LocalCliente() { }
     }
 
-    public enum TipoPedido { transferencia, retiro, deposito, datosPersonales }
-    public enum TipoRespuesta { confimacion, DatosPersonales }
+    public enum LocalTipoPedido { transferencia, retiro, deposito, datosPersonales }
+    public enum LocalTipoRespuesta { confimacion, DatosPersonales }
 
-    public class Pedido
+    public class LocalPedido
     {
-        public TipoPedido tipo { get; internal set; }
+        public LocalTipoPedido tipo { get; internal set; }
     }
 
-    public class Respuesta
+    public class LocalRespuesta
     {
-        public TipoRespuesta tipo { get; internal set; }
+        public LocalTipoRespuesta tipo { get; internal set; }
     }
 
     #region Pedidos
 
-    public class Transferencia : Pedido
+    public class LocalTransferencia : LocalPedido
     {
-        Transferencia()
+        LocalTransferencia()
         {
-            tipo = (TipoPedido)0;
+            tipo = (LocalTipoPedido)0;
         }
-        Cliente cuentaOrigen;
-        Cliente cuentaDestino;
+        LocalCliente cuentaOrigen;
+        LocalCliente cuentaDestino;
         decimal monto;
         DateTime fecha;
 
-        public Cliente CuentaOrigen { get => cuentaOrigen; set => cuentaOrigen = value; }
-        public Cliente CuentaDestino { get => cuentaDestino; set => cuentaDestino = value; }
+        public LocalCliente CuentaOrigen { get => cuentaOrigen; set => cuentaOrigen = value; }
+        public LocalCliente CuentaDestino { get => cuentaDestino; set => cuentaDestino = value; }
         public decimal Monto { get => monto; set => monto = value; }
         public DateTime Fecha { get => fecha; set => fecha = value; }
     }
 
-    public class Retiro : Pedido
+    public class LocalRetiro : LocalPedido
     {
-        Retiro()
+        LocalRetiro()
         {
-            tipo = (TipoPedido)1;
+            tipo = (LocalTipoPedido)1;
         }
-        Cliente cuenta;
+        LocalCliente cuenta;
         decimal monto;
         DateTime fecha;
 
-        public Cliente Cuenta { get => cuenta; set => cuenta = value; }
+        public LocalCliente Cuenta { get => cuenta; set => cuenta = value; }
         public decimal Monto { get => monto; set => monto = value; }
         public DateTime Fecha { get => fecha; set => fecha = value; }
     }
 
-    public class Deposito : Pedido
+    public class LocalDeposito : LocalPedido
     {
-        Deposito()
+        LocalDeposito()
         {
-            tipo = (TipoPedido)2;
+            tipo = (LocalTipoPedido)2;
         }
-        Cliente cuenta;
+        LocalCliente cuenta;
         decimal monto;
         DateTime fecha;
 
-        public Cliente Cuenta { get => cuenta; set => cuenta = value; }
+        public LocalCliente Cuenta { get => cuenta; set => cuenta = value; }
         public decimal Monto { get => monto; set => monto = value; }
         public DateTime Fecha { get => fecha; set => fecha = value; }
     }
-    public class RequestDatosPersonales : Pedido
+    public class LocalRequestDatosPersonales : LocalPedido
     {
-        RequestDatosPersonales()
+        LocalRequestDatosPersonales()
         {
-            tipo = (TipoPedido)3;
+            tipo = (LocalTipoPedido)3;
         }
-        public Cliente datos; //Aqui me dan un cliente con algun campo incompleto(null) y yo les devuelvo el cliente completo (es como un find).
+        public LocalCliente datos; //Aqui me dan un cliente con algun campo incompleto(null) y yo les devuelvo el cliente completo (es como un find).
     }
     #endregion
 
-    #region Respuestas
+    #region LocalRespuestas
 
-    public class Confirmacion : Respuesta
+    public class LocalConfirmacion : LocalRespuesta
     {
-        Confirmacion()
+        LocalConfirmacion()
         {
-            tipo = (TipoRespuesta)0;
+            tipo = (LocalTipoRespuesta)0;
         }
         public string mensajeConfirmación { get; internal set; }
     }
 
-    public class ResponseDatosPersonales : Respuesta
+    public class LocalResponseDatosPersonales : LocalRespuesta
     {
-        ResponseDatosPersonales()
+        LocalResponseDatosPersonales()
         {
-            tipo = (TipoRespuesta)1;
+            tipo = (LocalTipoRespuesta)1;
         }
-        public Cliente datos; //Aqui me dan un cliente con algun campo incompleto(null) y yo les devuelvo el cliente completo (es como un find).
+        public LocalCliente datos=new LocalCliente(); //Aqui me dan un cliente con algun campo incompleto(null) y yo les devuelvo el cliente completo (es como un find).
     }
     #endregion
 

@@ -15,6 +15,91 @@ namespace Processor.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Pedido", Namespace="http://Simulador.org/")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Processor.ServiceReference.RequestDatosPersonales))]
+    public partial class Pedido : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Processor.ServiceReference.TipoPedido tipoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Processor.ServiceReference.TipoPedido tipo {
+            get {
+                return this.tipoField;
+            }
+            set {
+                if ((this.tipoField.Equals(value) != true)) {
+                    this.tipoField = value;
+                    this.RaisePropertyChanged("tipo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RequestDatosPersonales", Namespace="http://Simulador.org/")]
+    [System.SerializableAttribute()]
+    public partial class RequestDatosPersonales : Processor.ServiceReference.Pedido {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Processor.ServiceReference.Cliente datosField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public Processor.ServiceReference.Cliente datos {
+            get {
+                return this.datosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.datosField, value) != true)) {
+                    this.datosField = value;
+                    this.RaisePropertyChanged("datos");
+                }
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TipoPedido", Namespace="http://Simulador.org/")]
+    public enum TipoPedido : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        transferencia = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        retiro = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        deposito = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        datosPersonales = 3,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Cliente", Namespace="http://Simulador.org/")]
     [System.SerializableAttribute()]
     public partial class Cliente : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -121,11 +206,90 @@ namespace Processor.ServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Respuesta", Namespace="http://Simulador.org/")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Processor.ServiceReference.ResponseDatosPersonales))]
+    public partial class Respuesta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private Processor.ServiceReference.TipoRespuesta tipoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Processor.ServiceReference.TipoRespuesta tipo {
+            get {
+                return this.tipoField;
+            }
+            set {
+                if ((this.tipoField.Equals(value) != true)) {
+                    this.tipoField = value;
+                    this.RaisePropertyChanged("tipo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResponseDatosPersonales", Namespace="http://Simulador.org/")]
+    [System.SerializableAttribute()]
+    public partial class ResponseDatosPersonales : Processor.ServiceReference.Respuesta {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Processor.ServiceReference.Cliente datosField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public Processor.ServiceReference.Cliente datos {
+            get {
+                return this.datosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.datosField, value) != true)) {
+                    this.datosField = value;
+                    this.RaisePropertyChanged("datos");
+                }
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TipoRespuesta", Namespace="http://Simulador.org/")]
+    public enum TipoRespuesta : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        confimacion = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DatosPersonales = 1,
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://Simulador.org/", ConfigurationName="ServiceReference.SimulacionSoap")]
     public interface SimulacionSoap {
         
-        // CODEGEN: Generating message contract since element name cliente from namespace http://Simulador.org/ is not marked nillable
+        // CODEGEN: Generating message contract since element name request from namespace http://Simulador.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://Simulador.org/CompletarCliente", ReplyAction="*")]
         Processor.ServiceReference.CompletarClienteResponse CompletarCliente(Processor.ServiceReference.CompletarClienteRequest request);
         
@@ -157,13 +321,13 @@ namespace Processor.ServiceReference {
     public partial class CompletarClienteRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Processor.ServiceReference.Cliente cliente;
+        public Processor.ServiceReference.RequestDatosPersonales request;
         
         public CompletarClienteRequestBody() {
         }
         
-        public CompletarClienteRequestBody(Processor.ServiceReference.Cliente cliente) {
-            this.cliente = cliente;
+        public CompletarClienteRequestBody(Processor.ServiceReference.RequestDatosPersonales request) {
+            this.request = request;
         }
     }
     
@@ -191,12 +355,12 @@ namespace Processor.ServiceReference {
     public partial class CompletarClienteResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Processor.ServiceReference.Cliente CompletarClienteResult;
+        public Processor.ServiceReference.ResponseDatosPersonales CompletarClienteResult;
         
         public CompletarClienteResponseBody() {
         }
         
-        public CompletarClienteResponseBody(Processor.ServiceReference.Cliente CompletarClienteResult) {
+        public CompletarClienteResponseBody(Processor.ServiceReference.ResponseDatosPersonales CompletarClienteResult) {
             this.CompletarClienteResult = CompletarClienteResult;
         }
     }
@@ -233,10 +397,10 @@ namespace Processor.ServiceReference {
             return base.Channel.CompletarCliente(request);
         }
         
-        public Processor.ServiceReference.Cliente CompletarCliente(Processor.ServiceReference.Cliente cliente) {
+        public Processor.ServiceReference.ResponseDatosPersonales CompletarCliente(Processor.ServiceReference.RequestDatosPersonales request) {
             Processor.ServiceReference.CompletarClienteRequest inValue = new Processor.ServiceReference.CompletarClienteRequest();
             inValue.Body = new Processor.ServiceReference.CompletarClienteRequestBody();
-            inValue.Body.cliente = cliente;
+            inValue.Body.request = request;
             Processor.ServiceReference.CompletarClienteResponse retVal = ((Processor.ServiceReference.SimulacionSoap)(this)).CompletarCliente(inValue);
             return retVal.Body.CompletarClienteResult;
         }
@@ -246,10 +410,10 @@ namespace Processor.ServiceReference {
             return base.Channel.CompletarClienteAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Processor.ServiceReference.CompletarClienteResponse> CompletarClienteAsync(Processor.ServiceReference.Cliente cliente) {
+        public System.Threading.Tasks.Task<Processor.ServiceReference.CompletarClienteResponse> CompletarClienteAsync(Processor.ServiceReference.RequestDatosPersonales request) {
             Processor.ServiceReference.CompletarClienteRequest inValue = new Processor.ServiceReference.CompletarClienteRequest();
             inValue.Body = new Processor.ServiceReference.CompletarClienteRequestBody();
-            inValue.Body.cliente = cliente;
+            inValue.Body.request = request;
             return ((Processor.ServiceReference.SimulacionSoap)(this)).CompletarClienteAsync(inValue);
         }
     }

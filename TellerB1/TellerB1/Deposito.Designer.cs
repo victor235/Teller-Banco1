@@ -119,6 +119,7 @@
             this.btnDeposito.TabIndex = 15;
             this.btnDeposito.Text = "Realizar Deposito";
             this.btnDeposito.UseVisualStyleBackColor = false;
+            this.btnDeposito.Click += new System.EventHandler(this.btnDeposito_Click);
             // 
             // groupBox1
             // 

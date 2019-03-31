@@ -18,15 +18,17 @@ namespace WebApplication
     {
 
         [WebMethod]
-        public Cliente CompletarCliente(Cliente cliente)
+        public ResponseDatosPersonales CompletarCliente(RequestDatosPersonales request)
         {
-            if (cliente.Codigo.Length < 5)
-                return cliente;
+            ResponseDatosPersonales datosPersonales = new ResponseDatosPersonales();
+            datosPersonales.datos = request.datos;
+            if (request.datos.Codigo.Length < 5)
+                return datosPersonales;
             else
             {
-                cliente.Nombres = "Fulanito";
-                cliente.Apellidos = "De Tal";
-                return cliente;
+                datosPersonales.datos.Nombres = "Fulanito";
+                datosPersonales.datos.Apellidos = "De Tal";
+                return datosPersonales;
             }
         }
     }

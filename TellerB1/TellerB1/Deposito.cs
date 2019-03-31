@@ -39,7 +39,7 @@ namespace TellerB1
             string cuenta = tbVerificarCuenta.Text;
             
             ClsProcessor processor = new ClsProcessor();
-            Cliente cliente = processor.VerificarCliente(cuenta);
+            LocalCliente cliente = processor.VerificarCliente(cuenta);
             if (cliente.Apellidos != null)
             {
                 tbClienteVerificado.Text = cliente.Nombres + cliente.Apellidos;
@@ -49,6 +49,19 @@ namespace TellerB1
             else
             {
                 MessageBox.Show("La cuenta ingresada no existe");
+            }
+        }
+
+        private void btnDeposito_Click(object sender, EventArgs e)
+        {
+            decimal monto;
+            ClsProcessor processor = new ClsProcessor();
+
+            if (!decimal.TryParse(tbMonto.Text, out monto))
+                MessageBox.Show("El monto ingresado no es valido");
+            else
+            {
+
             }
         }
     }
