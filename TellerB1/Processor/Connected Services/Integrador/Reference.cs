@@ -8,22 +8,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Processor.ServiceReference {
+namespace Processor.Integrador {
     using System.Runtime.Serialization;
     using System;
     
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Pedido", Namespace="http://Simulador.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Pedido", Namespace="http://tellerBanco1.org/")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Processor.ServiceReference.RequestDatosPersonales))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Processor.Integrador.RequestDatosPersonales))]
     public partial class Pedido : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Processor.ServiceReference.TipoPedido tipoField;
+        private Processor.Integrador.TipoPedido tipoField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -36,7 +36,7 @@ namespace Processor.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Processor.ServiceReference.TipoPedido tipo {
+        public Processor.Integrador.TipoPedido tipo {
             get {
                 return this.tipoField;
             }
@@ -60,15 +60,15 @@ namespace Processor.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RequestDatosPersonales", Namespace="http://Simulador.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RequestDatosPersonales", Namespace="http://tellerBanco1.org/")]
     [System.SerializableAttribute()]
-    public partial class RequestDatosPersonales : Processor.ServiceReference.Pedido {
+    public partial class RequestDatosPersonales : Processor.Integrador.Pedido {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Processor.ServiceReference.Cliente datosField;
+        private Processor.Integrador.Cliente datosField;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public Processor.ServiceReference.Cliente datos {
+        public Processor.Integrador.Cliente datos {
             get {
                 return this.datosField;
             }
@@ -82,11 +82,11 @@ namespace Processor.ServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TipoPedido", Namespace="http://Simulador.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TipoPedido", Namespace="http://tellerBanco1.org/")]
     public enum TipoPedido : int {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        transferencia = 0,
+        transaccion = 0,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         retiro = 1,
@@ -100,7 +100,7 @@ namespace Processor.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Cliente", Namespace="http://Simulador.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Cliente", Namespace="http://tellerBanco1.org/")]
     [System.SerializableAttribute()]
     public partial class Cliente : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -108,7 +108,7 @@ namespace Processor.ServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CodigoField;
+        private string codigoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NombresField;
@@ -116,10 +116,7 @@ namespace Processor.ServiceReference {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ApellidosField;
         
-        private decimal BalanceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CedulaField;
+        private System.Nullable<decimal> BalanceField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -132,19 +129,19 @@ namespace Processor.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string Codigo {
+        public string codigo {
             get {
-                return this.CodigoField;
+                return this.codigoField;
             }
             set {
-                if ((object.ReferenceEquals(this.CodigoField, value) != true)) {
-                    this.CodigoField = value;
-                    this.RaisePropertyChanged("Codigo");
+                if ((object.ReferenceEquals(this.codigoField, value) != true)) {
+                    this.codigoField = value;
+                    this.RaisePropertyChanged("codigo");
                 }
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
         public string Nombres {
             get {
                 return this.NombresField;
@@ -171,7 +168,7 @@ namespace Processor.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
-        public decimal Balance {
+        public System.Nullable<decimal> Balance {
             get {
                 return this.BalanceField;
             }
@@ -179,19 +176,6 @@ namespace Processor.ServiceReference {
                 if ((this.BalanceField.Equals(value) != true)) {
                     this.BalanceField = value;
                     this.RaisePropertyChanged("Balance");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
-        public string Cedula {
-            get {
-                return this.CedulaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CedulaField, value) != true)) {
-                    this.CedulaField = value;
-                    this.RaisePropertyChanged("Cedula");
                 }
             }
         }
@@ -208,15 +192,15 @@ namespace Processor.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Respuesta", Namespace="http://Simulador.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Respuesta", Namespace="http://tellerBanco1.org/")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Processor.ServiceReference.ResponseDatosPersonales))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Processor.Integrador.ResponseDatosPersonales))]
     public partial class Respuesta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Processor.ServiceReference.TipoRespuesta tipoField;
+        private Processor.Integrador.TipoRespuesta tipoField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -229,7 +213,7 @@ namespace Processor.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Processor.ServiceReference.TipoRespuesta tipo {
+        public Processor.Integrador.TipoRespuesta tipo {
             get {
                 return this.tipoField;
             }
@@ -253,15 +237,15 @@ namespace Processor.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ResponseDatosPersonales", Namespace="http://Simulador.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResponseDatosPersonales", Namespace="http://tellerBanco1.org/")]
     [System.SerializableAttribute()]
-    public partial class ResponseDatosPersonales : Processor.ServiceReference.Respuesta {
+    public partial class ResponseDatosPersonales : Processor.Integrador.Respuesta {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Processor.ServiceReference.Cliente datosField;
+        private Processor.Integrador.Cliente datosField;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public Processor.ServiceReference.Cliente datos {
+        public Processor.Integrador.Cliente datos {
             get {
                 return this.datosField;
             }
@@ -275,7 +259,7 @@ namespace Processor.ServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TipoRespuesta", Namespace="http://Simulador.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TipoRespuesta", Namespace="http://tellerBanco1.org/")]
     public enum TipoRespuesta : int {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
@@ -286,30 +270,30 @@ namespace Processor.ServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://Simulador.org/", ConfigurationName="ServiceReference.SimulacionSoap")]
-    public interface SimulacionSoap {
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://tellerBanco1.org/", ConfigurationName="Integrador.Integrador_CoreSoap")]
+    public interface Integrador_CoreSoap {
         
-        // CODEGEN: Generating message contract since element name request from namespace http://Simulador.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://Simulador.org/CompletarCliente", ReplyAction="*")]
-        Processor.ServiceReference.CompletarClienteResponse CompletarCliente(Processor.ServiceReference.CompletarClienteRequest request);
+        // CODEGEN: Generating message contract since element name RDP from namespace http://tellerBanco1.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tellerBanco1.org/Pedidosdatos", ReplyAction="*")]
+        Processor.Integrador.PedidosdatosResponse Pedidosdatos(Processor.Integrador.PedidosdatosRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://Simulador.org/CompletarCliente", ReplyAction="*")]
-        System.Threading.Tasks.Task<Processor.ServiceReference.CompletarClienteResponse> CompletarClienteAsync(Processor.ServiceReference.CompletarClienteRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tellerBanco1.org/Pedidosdatos", ReplyAction="*")]
+        System.Threading.Tasks.Task<Processor.Integrador.PedidosdatosResponse> PedidosdatosAsync(Processor.Integrador.PedidosdatosRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class CompletarClienteRequest {
+    public partial class PedidosdatosRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="CompletarCliente", Namespace="http://Simulador.org/", Order=0)]
-        public Processor.ServiceReference.CompletarClienteRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Pedidosdatos", Namespace="http://tellerBanco1.org/", Order=0)]
+        public Processor.Integrador.PedidosdatosRequestBody Body;
         
-        public CompletarClienteRequest() {
+        public PedidosdatosRequest() {
         }
         
-        public CompletarClienteRequest(Processor.ServiceReference.CompletarClienteRequestBody Body) {
+        public PedidosdatosRequest(Processor.Integrador.PedidosdatosRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -317,17 +301,17 @@ namespace Processor.ServiceReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://Simulador.org/")]
-    public partial class CompletarClienteRequestBody {
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tellerBanco1.org/")]
+    public partial class PedidosdatosRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Processor.ServiceReference.RequestDatosPersonales request;
+        public Processor.Integrador.RequestDatosPersonales RDP;
         
-        public CompletarClienteRequestBody() {
+        public PedidosdatosRequestBody() {
         }
         
-        public CompletarClienteRequestBody(Processor.ServiceReference.RequestDatosPersonales request) {
-            this.request = request;
+        public PedidosdatosRequestBody(Processor.Integrador.RequestDatosPersonales RDP) {
+            this.RDP = RDP;
         }
     }
     
@@ -335,15 +319,15 @@ namespace Processor.ServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class CompletarClienteResponse {
+    public partial class PedidosdatosResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="CompletarClienteResponse", Namespace="http://Simulador.org/", Order=0)]
-        public Processor.ServiceReference.CompletarClienteResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="PedidosdatosResponse", Namespace="http://tellerBanco1.org/", Order=0)]
+        public Processor.Integrador.PedidosdatosResponseBody Body;
         
-        public CompletarClienteResponse() {
+        public PedidosdatosResponse() {
         }
         
-        public CompletarClienteResponse(Processor.ServiceReference.CompletarClienteResponseBody Body) {
+        public PedidosdatosResponse(Processor.Integrador.PedidosdatosResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -351,70 +335,70 @@ namespace Processor.ServiceReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://Simulador.org/")]
-    public partial class CompletarClienteResponseBody {
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tellerBanco1.org/")]
+    public partial class PedidosdatosResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Processor.ServiceReference.ResponseDatosPersonales CompletarClienteResult;
+        public Processor.Integrador.ResponseDatosPersonales PedidosdatosResult;
         
-        public CompletarClienteResponseBody() {
+        public PedidosdatosResponseBody() {
         }
         
-        public CompletarClienteResponseBody(Processor.ServiceReference.ResponseDatosPersonales CompletarClienteResult) {
-            this.CompletarClienteResult = CompletarClienteResult;
+        public PedidosdatosResponseBody(Processor.Integrador.ResponseDatosPersonales PedidosdatosResult) {
+            this.PedidosdatosResult = PedidosdatosResult;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface SimulacionSoapChannel : Processor.ServiceReference.SimulacionSoap, System.ServiceModel.IClientChannel {
+    public interface Integrador_CoreSoapChannel : Processor.Integrador.Integrador_CoreSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SimulacionSoapClient : System.ServiceModel.ClientBase<Processor.ServiceReference.SimulacionSoap>, Processor.ServiceReference.SimulacionSoap {
+    public partial class Integrador_CoreSoapClient : System.ServiceModel.ClientBase<Processor.Integrador.Integrador_CoreSoap>, Processor.Integrador.Integrador_CoreSoap {
         
-        public SimulacionSoapClient() {
+        public Integrador_CoreSoapClient() {
         }
         
-        public SimulacionSoapClient(string endpointConfigurationName) : 
+        public Integrador_CoreSoapClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public SimulacionSoapClient(string endpointConfigurationName, string remoteAddress) : 
+        public Integrador_CoreSoapClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public SimulacionSoapClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public Integrador_CoreSoapClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public SimulacionSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public Integrador_CoreSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Processor.ServiceReference.CompletarClienteResponse Processor.ServiceReference.SimulacionSoap.CompletarCliente(Processor.ServiceReference.CompletarClienteRequest request) {
-            return base.Channel.CompletarCliente(request);
+        Processor.Integrador.PedidosdatosResponse Processor.Integrador.Integrador_CoreSoap.Pedidosdatos(Processor.Integrador.PedidosdatosRequest request) {
+            return base.Channel.Pedidosdatos(request);
         }
         
-        public Processor.ServiceReference.ResponseDatosPersonales CompletarCliente(Processor.ServiceReference.RequestDatosPersonales request) {
-            Processor.ServiceReference.CompletarClienteRequest inValue = new Processor.ServiceReference.CompletarClienteRequest();
-            inValue.Body = new Processor.ServiceReference.CompletarClienteRequestBody();
-            inValue.Body.request = request;
-            Processor.ServiceReference.CompletarClienteResponse retVal = ((Processor.ServiceReference.SimulacionSoap)(this)).CompletarCliente(inValue);
-            return retVal.Body.CompletarClienteResult;
+        public Processor.Integrador.ResponseDatosPersonales Pedidosdatos(Processor.Integrador.RequestDatosPersonales RDP) {
+            Processor.Integrador.PedidosdatosRequest inValue = new Processor.Integrador.PedidosdatosRequest();
+            inValue.Body = new Processor.Integrador.PedidosdatosRequestBody();
+            inValue.Body.RDP = RDP;
+            Processor.Integrador.PedidosdatosResponse retVal = ((Processor.Integrador.Integrador_CoreSoap)(this)).Pedidosdatos(inValue);
+            return retVal.Body.PedidosdatosResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Processor.ServiceReference.CompletarClienteResponse> Processor.ServiceReference.SimulacionSoap.CompletarClienteAsync(Processor.ServiceReference.CompletarClienteRequest request) {
-            return base.Channel.CompletarClienteAsync(request);
+        System.Threading.Tasks.Task<Processor.Integrador.PedidosdatosResponse> Processor.Integrador.Integrador_CoreSoap.PedidosdatosAsync(Processor.Integrador.PedidosdatosRequest request) {
+            return base.Channel.PedidosdatosAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Processor.ServiceReference.CompletarClienteResponse> CompletarClienteAsync(Processor.ServiceReference.RequestDatosPersonales request) {
-            Processor.ServiceReference.CompletarClienteRequest inValue = new Processor.ServiceReference.CompletarClienteRequest();
-            inValue.Body = new Processor.ServiceReference.CompletarClienteRequestBody();
-            inValue.Body.request = request;
-            return ((Processor.ServiceReference.SimulacionSoap)(this)).CompletarClienteAsync(inValue);
+        public System.Threading.Tasks.Task<Processor.Integrador.PedidosdatosResponse> PedidosdatosAsync(Processor.Integrador.RequestDatosPersonales RDP) {
+            Processor.Integrador.PedidosdatosRequest inValue = new Processor.Integrador.PedidosdatosRequest();
+            inValue.Body = new Processor.Integrador.PedidosdatosRequestBody();
+            inValue.Body.RDP = RDP;
+            return ((Processor.Integrador.Integrador_CoreSoap)(this)).PedidosdatosAsync(inValue);
         }
     }
 }

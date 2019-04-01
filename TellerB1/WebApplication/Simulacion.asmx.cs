@@ -31,5 +31,16 @@ namespace WebApplication
                 return datosPersonales;
             }
         }
+
+        [WebMethod]
+        public Confirmacion RealizarDeposito(Deposito deposito)
+        {
+            if (deposito.Monto > 5000)
+            {
+
+            }
+                
+            return new Confirmacion();
+        }
     }
 }

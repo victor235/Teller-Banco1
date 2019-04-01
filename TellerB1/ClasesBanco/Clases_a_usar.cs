@@ -85,9 +85,15 @@ namespace Mensajes
 
     public class LocalDeposito : LocalPedido
     {
-        LocalDeposito()
+        public LocalDeposito()
         {
             tipo = (LocalTipoPedido)2;
+        }
+
+        public LocalDeposito(LocalCliente cuenta, decimal monto)
+        {
+            this.monto = monto;
+            this.cuenta = cuenta;
         }
         LocalCliente cuenta;
         decimal monto;
@@ -111,7 +117,7 @@ namespace Mensajes
 
     public class LocalConfirmacion : LocalRespuesta
     {
-        LocalConfirmacion()
+        public LocalConfirmacion()
         {
             tipo = (LocalTipoRespuesta)0;
         }

@@ -54,15 +54,32 @@ namespace TellerB1
 
         private void btnDeposito_Click(object sender, EventArgs e)
         {
+            //Validaciones
             decimal monto;
-            ClsProcessor processor = new ClsProcessor();
-
-            if (!decimal.TryParse(tbMonto.Text, out monto))
-                MessageBox.Show("El monto ingresado no es valido");
-            else
+            if (!tbCuenta.Text.Any())
             {
-
+                MessageBox.Show("No ha ingresado ninguna cuenta");
+                return;
             }
+            if (!decimal.TryParse(tbMonto.Text, out monto))
+            {
+                MessageBox.Show("El monto ingresado no es valido");
+                return;
+            }
+
+            //Declaraciones, asignaciones e instancias
+            string cuenta;
+            cuenta = tbCuenta.Text;
+            
+            ClsProcessor processor = new ClsProcessor();
+            LocalCliente cliente = new LocalCliente(cuenta);
+            LocalDeposito deposito = new LocalDeposito(cliente, monto);
+            LocalConfirmacion confirmacion = new LocalConfirmacion();
+
+            //Procesos
+            confirmacion = processor.RealizarDeposito(deposito);
+          
+            
         }
     }
 }

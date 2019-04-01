@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://Simulador.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://Simulador.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tellerBanco1.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tellerBanco1.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <s:schema elementFormDefault="qualified" targetNamespace="http://Simulador.org/">
-      <s:element name="CompletarCliente">
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tellerBanco1.org/">
+      <s:element name="Pedidosdatos">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:RequestDatosPersonales" />
+            <s:element minOccurs="0" maxOccurs="1" name="RDP" type="tns:RequestDatosPersonales" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -25,7 +25,7 @@
       </s:complexType>
       <s:simpleType name="TipoPedido">
         <s:restriction base="s:string">
-          <s:enumeration value="transferencia" />
+          <s:enumeration value="transaccion" />
           <s:enumeration value="retiro" />
           <s:enumeration value="deposito" />
           <s:enumeration value="datosPersonales" />
@@ -33,17 +33,16 @@
       </s:simpleType>
       <s:complexType name="Cliente">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Nombres" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Apellidos" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Balance" type="s:decimal" />
-          <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Balance" nillable="true" type="s:decimal" />
         </s:sequence>
       </s:complexType>
-      <s:element name="CompletarClienteResponse">
+      <s:element name="PedidosdatosResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="CompletarClienteResult" type="tns:ResponseDatosPersonales" />
+            <s:element minOccurs="0" maxOccurs="1" name="PedidosdatosResult" type="tns:ResponseDatosPersonales" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -69,22 +68,22 @@
       </s:simpleType>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="CompletarClienteSoapIn">
-    <wsdl:part name="parameters" element="tns:CompletarCliente" />
+  <wsdl:message name="PedidosdatosSoapIn">
+    <wsdl:part name="parameters" element="tns:Pedidosdatos" />
   </wsdl:message>
-  <wsdl:message name="CompletarClienteSoapOut">
-    <wsdl:part name="parameters" element="tns:CompletarClienteResponse" />
+  <wsdl:message name="PedidosdatosSoapOut">
+    <wsdl:part name="parameters" element="tns:PedidosdatosResponse" />
   </wsdl:message>
-  <wsdl:portType name="SimulacionSoap">
-    <wsdl:operation name="CompletarCliente">
-      <wsdl:input message="tns:CompletarClienteSoapIn" />
-      <wsdl:output message="tns:CompletarClienteSoapOut" />
+  <wsdl:portType name="Integrador_CoreSoap">
+    <wsdl:operation name="Pedidosdatos">
+      <wsdl:input message="tns:PedidosdatosSoapIn" />
+      <wsdl:output message="tns:PedidosdatosSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="SimulacionSoap" type="tns:SimulacionSoap">
+  <wsdl:binding name="Integrador_CoreSoap" type="tns:Integrador_CoreSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="CompletarCliente">
-      <soap:operation soapAction="http://Simulador.org/CompletarCliente" style="document" />
+    <wsdl:operation name="Pedidosdatos">
+      <soap:operation soapAction="http://tellerBanco1.org/Pedidosdatos" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -93,10 +92,10 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="SimulacionSoap12" type="tns:SimulacionSoap">
+  <wsdl:binding name="Integrador_CoreSoap12" type="tns:Integrador_CoreSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="CompletarCliente">
-      <soap12:operation soapAction="http://Simulador.org/CompletarCliente" style="document" />
+    <wsdl:operation name="Pedidosdatos">
+      <soap12:operation soapAction="http://tellerBanco1.org/Pedidosdatos" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -105,12 +104,12 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="Simulacion">
-    <wsdl:port name="SimulacionSoap" binding="tns:SimulacionSoap">
-      <soap:address location="http://localhost:61616/Simulacion.asmx" />
+  <wsdl:service name="Integrador_Core">
+    <wsdl:port name="Integrador_CoreSoap" binding="tns:Integrador_CoreSoap">
+      <soap:address location="https://conectoresbanco1.azurewebsites.net/Integrador-Teller.asmx" />
     </wsdl:port>
-    <wsdl:port name="SimulacionSoap12" binding="tns:SimulacionSoap12">
-      <soap12:address location="http://localhost:61616/Simulacion.asmx" />
+    <wsdl:port name="Integrador_CoreSoap12" binding="tns:Integrador_CoreSoap12">
+      <soap12:address location="https://conectoresbanco1.azurewebsites.net/Integrador-Teller.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
