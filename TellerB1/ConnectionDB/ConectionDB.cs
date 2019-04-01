@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 
 
-namespace ConnectionDB
+namespace DataModel
 {
     public class ConnectionDB
     {

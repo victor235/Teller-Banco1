@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 
 
-namespace ConnectionDB
+namespace DataModel
 {
     public class DataManager
     {
@@ -16,9 +16,11 @@ namespace ConnectionDB
 
         public string[] DatosUsuario(int id)
         {
+            //Declaraciones e Instancias
+            Usuario usuario = new Usuario();
             string[] datos = new string[5];
             
-
+            //Consulta en Base de Datos
             Command.Connection = Connection.OpenConnection();
             Command.CommandText = "tblUsuarios_GetById";
             Command.CommandType = CommandType.StoredProcedure;
@@ -32,16 +34,16 @@ namespace ConnectionDB
                 datos[3] = Reader[3].ToString();
                 datos[4] = Reader[4].ToString();
             }
-            
             Command.Parameters.Clear();
+            Command.Connection = Connection.CloseConnection();
+
             return datos;
         }
-        //public string DatosCajero(int id)
-        //{
-        //    //string query = "insert into"
-        //    SqlCommand sqlCommand = new SqlCommand("insert into <tblUsuarios>values")
 
-        //   // return resultado;
-        //}
+        public LocalConfirmacion AgregarCajero()
+        {
+
+            return new LocalConfirmacion(true);
+        }
     }
 }

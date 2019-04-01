@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mensajes
+namespace DataModel
 {
     //Para añadir esta librería a sus çodigos, creen un proyecto de tipo class Library dentro de su solucion y 
     //despues hagan referencias de ella en las partes de su programa que vayan a usar.
@@ -111,11 +111,19 @@ namespace Mensajes
 
     public class LocalConfirmacion : LocalRespuesta
     {
-        LocalConfirmacion()
+        public LocalConfirmacion()
         {
             tipo = (LocalTipoRespuesta)0;
         }
+
+        public LocalConfirmacion(bool ok)
+        {
+            tipo = (LocalTipoRespuesta)0;
+            this.succeeded = ok;
+        }
+
         public string mensajeConfirmación { get; internal set; }
+        public bool succeeded;
     }
 
     public class LocalResponseDatosPersonales : LocalRespuesta

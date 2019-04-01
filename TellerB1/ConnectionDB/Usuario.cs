@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ConnectionDB;
 
-namespace Processor
+
+namespace DataModel
 {
     public class Usuario
     {
@@ -16,7 +16,7 @@ namespace Processor
         TipoUsuario tipo;
         bool valido;
 
-
+        public Usuario() { this.valido = false; }
         public Usuario(int codigo_Usuario, string contraseña, TipoUsuario tipo)
         {
             this.codigo_Usuario = codigo_Usuario;
@@ -24,15 +24,15 @@ namespace Processor
             this.tipo = tipo;
             this.Valido = false;
         }
-        //public Usuario(string nombre, string apellido, int codigo_Usuario, string contraseña, TipoUsuario tipo)
-        //{
-        //    this.nombres = nombre;
-        //    this.apellidos = apellido;
-        //    this.contraseña = contraseña;
-        //    this.codigo_Usuario = codigo_Usuario;
-        //    this.tipo = TipoUsuario.Cajero;
-
-        //}
+        public Usuario(string nombre, string apellido, int codigo_Usuario, string contraseña, TipoUsuario tipo)
+        {
+            this.nombres = nombre;
+            this.apellidos = apellido;
+            this.contraseña = contraseña;
+            this.codigo_Usuario = codigo_Usuario;
+            this.tipo = TipoUsuario.Cajero;
+            this.valido = false;
+        }
 
         public int Codigo_Usuario { get => codigo_Usuario; private set { } }
         public string Apellidos { get => apellidos; private set { } }
@@ -42,10 +42,13 @@ namespace Processor
 
         public string ValidarUsuario()
         {
+            //Declaraciones e instancias
             string message;
             int idTipo;
             DataManager manager = new DataManager();
             string[] datos;
+
+            //Asignaciones y procesos
             datos = manager.DatosUsuario(codigo_Usuario);
 
             if (tipo == TipoUsuario.Administrador)
