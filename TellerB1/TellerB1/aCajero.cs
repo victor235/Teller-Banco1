@@ -19,7 +19,8 @@ namespace TellerB1
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            AgregarCajero agregar = new AgregarCajero();
+            agregar.ShowDialog();
         }
     }
 }

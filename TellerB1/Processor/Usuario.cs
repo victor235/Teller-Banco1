@@ -24,6 +24,15 @@ namespace Processor
             this.tipo = tipo;
             this.Valido = false;
         }
+        //public Usuario(string nombre, string apellido, int codigo_Usuario, string contraseña, TipoUsuario tipo)
+        //{
+        //    this.nombres = nombre;
+        //    this.apellidos = apellido;
+        //    this.contraseña = contraseña;
+        //    this.codigo_Usuario = codigo_Usuario;
+        //    this.tipo = TipoUsuario.Cajero;
+
+        //}
 
         public int Codigo_Usuario { get => codigo_Usuario; private set { } }
         public string Apellidos { get => apellidos; private set { } }

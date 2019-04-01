@@ -28,27 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.agregarCajero = new System.Windows.Forms.Button();
+            this.eliminarCajero = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // agregarCajero
             // 
-            this.button1.Location = new System.Drawing.Point(57, 58);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.agregarCajero.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.agregarCajero.Location = new System.Drawing.Point(113, 683);
+            this.agregarCajero.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.agregarCajero.Name = "agregarCajero";
+            this.agregarCajero.Size = new System.Drawing.Size(202, 49);
+            this.agregarCajero.TabIndex = 0;
+            this.agregarCajero.Text = "Agregar Cajero";
+            this.agregarCajero.UseVisualStyleBackColor = true;
+            this.agregarCajero.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // eliminarCajero
+            // 
+            this.eliminarCajero.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eliminarCajero.Location = new System.Drawing.Point(966, 683);
+            this.eliminarCajero.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.eliminarCajero.Name = "eliminarCajero";
+            this.eliminarCajero.Size = new System.Drawing.Size(202, 49);
+            this.eliminarCajero.TabIndex = 1;
+            this.eliminarCajero.Text = "Eliminar Cajero";
+            this.eliminarCajero.UseVisualStyleBackColor = true;
             // 
             // aCajero
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(924, 512);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1386, 788);
+            this.Controls.Add(this.eliminarCajero);
+            this.Controls.Add(this.agregarCajero);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "aCajero";
             this.Text = "aCajero";
             this.ResumeLayout(false);
@@ -57,6 +71,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button agregarCajero;
+        private System.Windows.Forms.Button eliminarCajero;
     }
 }

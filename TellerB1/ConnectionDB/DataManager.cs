@@ -36,5 +36,12 @@ namespace ConnectionDB
             Command.Parameters.Clear();
             return datos;
         }
+        //public string DatosCajero(int id)
+        //{
+        //    //string query = "insert into"
+        //    SqlCommand sqlCommand = new SqlCommand("insert into <tblUsuarios>values")
+
+        //   // return resultado;
+        //}
     }
 }
