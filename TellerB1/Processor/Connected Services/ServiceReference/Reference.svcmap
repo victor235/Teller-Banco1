@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="160e01c0-1a32-4fb2-9b07-9e0346a5974f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fa81c245-2c49-48d9-9bf8-1830ea850a2b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:61616/Simulacion.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://conectoresbanco1.azurewebsites.net/Integrador-Teller.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Simulacion.disco" MetadataType="Disco" ID="36ccda4e-c077-4044-b722-aac46ddef3bd" SourceId="1" SourceUrl="http://localhost:61616/Simulacion.asmx?disco" />
-    <MetadataFile FileName="Simulacion.wsdl" MetadataType="Wsdl" ID="ea2a7744-baae-4d94-b766-8d9b5d3ab7c5" SourceId="1" SourceUrl="http://localhost:61616/Simulacion.asmx?wsdl" />
+    <MetadataFile FileName="Integrador-Teller.disco" MetadataType="Disco" ID="ee4f0910-4053-4c9d-9759-842036d8e886" SourceId="1" SourceUrl="https://conectoresbanco1.azurewebsites.net/Integrador-Teller.asmx?disco" />
+    <MetadataFile FileName="Integrador-Teller.wsdl" MetadataType="Wsdl" ID="dd2b84eb-17ce-48f7-a5b2-9b76a700806c" SourceId="1" SourceUrl="https://conectoresbanco1.azurewebsites.net/Integrador-Teller.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -14,6 +14,9 @@ namespace TellerB1
 {
     public partial class Deposito : Form
     {
+        ClsProcessor processor = new ClsProcessor();
+        LocalCliente clienteActivo;
+
         public Deposito()
         {
             InitializeComponent();
@@ -38,13 +41,14 @@ namespace TellerB1
         {
             string cuenta = tbVerificarCuenta.Text;
             
-            ClsProcessor processor = new ClsProcessor();
+            
             LocalCliente cliente = processor.VerificarCliente(cuenta);
             if (cliente.Apellidos != null)
             {
                 tbClienteVerificado.Text = cliente.Nombres + cliente.Apellidos;
                 tbCuentaVerificada.Text = cliente.Codigo;
                 tbCuenta.Text = cliente.Codigo;
+                clienteActivo = cliente;
             }
             else
             {
@@ -54,14 +58,18 @@ namespace TellerB1
 
         private void btnDeposito_Click(object sender, EventArgs e)
         {
+
             decimal monto;
-            ClsProcessor processor = new ClsProcessor();
+            LocalDeposito deposito = new LocalDeposito();
 
             if (!decimal.TryParse(tbMonto.Text, out monto))
                 MessageBox.Show("El monto ingresado no es valido");
             else
             {
-
+                deposito.Monto = monto;
+                deposito.Cuenta = clienteActivo;
+                deposito.Fecha = DateTime.Now;
+                //processor.RealizarDeposito(deposito);
             }
         }
     }

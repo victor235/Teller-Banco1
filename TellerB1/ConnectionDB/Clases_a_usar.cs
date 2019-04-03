@@ -70,7 +70,7 @@ namespace DataModel
 
     public class LocalRetiro : LocalPedido
     {
-        LocalRetiro()
+        public LocalRetiro()
         {
             tipo = (LocalTipoPedido)1;
         }
@@ -85,7 +85,7 @@ namespace DataModel
 
     public class LocalDeposito : LocalPedido
     {
-        LocalDeposito()
+        public LocalDeposito()
         {
             tipo = (LocalTipoPedido)2;
         }

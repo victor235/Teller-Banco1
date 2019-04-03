@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://conectoresbanco1.azurewebsites.net/Integrador-Teller.asmx?wsdl" docRef="https://conectoresbanco1.azurewebsites.net/Integrador-Teller.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://conectoresbanco1.azurewebsites.net/Integrador-Teller.asmx" xmlns:q1="http://tellerBanco1.org/" binding="q1:Integrador_CoreSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://conectoresbanco1.azurewebsites.net/Integrador-Teller.asmx" xmlns:q2="http://tellerBanco1.org/" binding="q2:Integrador_CoreSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

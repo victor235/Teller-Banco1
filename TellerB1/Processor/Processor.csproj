@@ -66,19 +66,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Connected Services\ServiceReference\Processor.ServiceReference.CompletarClienteResponse.datasource">
+    <None Include="Connected Services\ServiceReference\Integrador-Teller.wsdl" />
+    <None Include="Connected Services\ServiceReference\Processor.ServiceReference.PedidosdatosResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReference\Processor.ServiceReference.ResponseDatosPersonales.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServiceReference\Simulacion.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ServiceReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceReference\Simulacion.disco" />
+    <None Include="Connected Services\ServiceReference\Integrador-Teller.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServiceReference\configuration91.svcinfo" />
