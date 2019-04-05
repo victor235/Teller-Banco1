@@ -67,7 +67,19 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Connected Services\ServiceReference\Integrador-Teller.wsdl" />
+    <None Include="Connected Services\ServiceReference\Processor.ServiceReference.Confirmacion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceReference\Processor.ServiceReference.PedidosdatosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference\Processor.ServiceReference.RealizarDepositoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference\Processor.ServiceReference.RealizarRetiroResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference\Processor.ServiceReference.RealizarTransaccionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReference\Processor.ServiceReference.ResponseDatosPersonales.datasource">

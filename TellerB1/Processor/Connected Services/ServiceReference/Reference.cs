@@ -17,11 +17,18 @@ namespace Processor.ServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Pedido", Namespace="http://tellerBanco1.org/")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Processor.ServiceReference.Deposito))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Processor.ServiceReference.Transaccion))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Processor.ServiceReference.Retiro))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Processor.ServiceReference.RequestDatosPersonales))]
     public partial class Pedido : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private decimal montoField;
+        
+        private System.DateTime fechaField;
         
         private Processor.ServiceReference.TipoPedido tipoField;
         
@@ -36,6 +43,32 @@ namespace Processor.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public decimal monto {
+            get {
+                return this.montoField;
+            }
+            set {
+                if ((this.montoField.Equals(value) != true)) {
+                    this.montoField = value;
+                    this.RaisePropertyChanged("monto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public System.DateTime fecha {
+            get {
+                return this.fechaField;
+            }
+            set {
+                if ((this.fechaField.Equals(value) != true)) {
+                    this.fechaField = value;
+                    this.RaisePropertyChanged("fecha");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
         public Processor.ServiceReference.TipoPedido tipo {
             get {
                 return this.tipoField;
@@ -54,6 +87,91 @@ namespace Processor.ServiceReference {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Deposito", Namespace="http://tellerBanco1.org/")]
+    [System.SerializableAttribute()]
+    public partial class Deposito : Processor.ServiceReference.Pedido {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Processor.ServiceReference.Cliente cuentaField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public Processor.ServiceReference.Cliente cuenta {
+            get {
+                return this.cuentaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cuentaField, value) != true)) {
+                    this.cuentaField = value;
+                    this.RaisePropertyChanged("cuenta");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Transaccion", Namespace="http://tellerBanco1.org/")]
+    [System.SerializableAttribute()]
+    public partial class Transaccion : Processor.ServiceReference.Pedido {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Processor.ServiceReference.Cliente cuentaOrigenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Processor.ServiceReference.Cliente cuentaDestinoField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public Processor.ServiceReference.Cliente cuentaOrigen {
+            get {
+                return this.cuentaOrigenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cuentaOrigenField, value) != true)) {
+                    this.cuentaOrigenField = value;
+                    this.RaisePropertyChanged("cuentaOrigen");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public Processor.ServiceReference.Cliente cuentaDestino {
+            get {
+                return this.cuentaDestinoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cuentaDestinoField, value) != true)) {
+                    this.cuentaDestinoField = value;
+                    this.RaisePropertyChanged("cuentaDestino");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Retiro", Namespace="http://tellerBanco1.org/")]
+    [System.SerializableAttribute()]
+    public partial class Retiro : Processor.ServiceReference.Pedido {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Processor.ServiceReference.Cliente cuentaField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public Processor.ServiceReference.Cliente cuenta {
+            get {
+                return this.cuentaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cuentaField, value) != true)) {
+                    this.cuentaField = value;
+                    this.RaisePropertyChanged("cuenta");
+                }
             }
         }
     }
@@ -108,6 +226,9 @@ namespace Processor.ServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cedulaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string codigoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -129,6 +250,19 @@ namespace Processor.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string cedula {
+            get {
+                return this.cedulaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cedulaField, value) != true)) {
+                    this.cedulaField = value;
+                    this.RaisePropertyChanged("cedula");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public string codigo {
             get {
                 return this.codigoField;
@@ -141,7 +275,7 @@ namespace Processor.ServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
         public string Nombres {
             get {
                 return this.NombresField;
@@ -154,7 +288,7 @@ namespace Processor.ServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
         public string Apellidos {
             get {
                 return this.ApellidosField;
@@ -167,7 +301,7 @@ namespace Processor.ServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
         public System.Nullable<decimal> Balance {
             get {
                 return this.BalanceField;
@@ -194,6 +328,7 @@ namespace Processor.ServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Respuesta", Namespace="http://tellerBanco1.org/")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Processor.ServiceReference.Confirmacion))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Processor.ServiceReference.ResponseDatosPersonales))]
     public partial class Respuesta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -231,6 +366,44 @@ namespace Processor.ServiceReference {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Confirmacion", Namespace="http://tellerBanco1.org/")]
+    [System.SerializableAttribute()]
+    public partial class Confirmacion : Processor.ServiceReference.Respuesta {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string mensajeConfirmaciónField;
+        
+        private bool successField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string mensajeConfirmación {
+            get {
+                return this.mensajeConfirmaciónField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.mensajeConfirmaciónField, value) != true)) {
+                    this.mensajeConfirmaciónField = value;
+                    this.RaisePropertyChanged("mensajeConfirmación");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool success {
+            get {
+                return this.successField;
+            }
+            set {
+                if ((this.successField.Equals(value) != true)) {
+                    this.successField = value;
+                    this.RaisePropertyChanged("success");
+                }
             }
         }
     }
@@ -279,6 +452,27 @@ namespace Processor.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tellerBanco1.org/Pedidosdatos", ReplyAction="*")]
         System.Threading.Tasks.Task<Processor.ServiceReference.PedidosdatosResponse> PedidosdatosAsync(Processor.ServiceReference.PedidosdatosRequest request);
+        
+        // CODEGEN: Generating message contract since element name D from namespace http://tellerBanco1.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tellerBanco1.org/RealizarDeposito", ReplyAction="*")]
+        Processor.ServiceReference.RealizarDepositoResponse RealizarDeposito(Processor.ServiceReference.RealizarDepositoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tellerBanco1.org/RealizarDeposito", ReplyAction="*")]
+        System.Threading.Tasks.Task<Processor.ServiceReference.RealizarDepositoResponse> RealizarDepositoAsync(Processor.ServiceReference.RealizarDepositoRequest request);
+        
+        // CODEGEN: Generating message contract since element name T from namespace http://tellerBanco1.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tellerBanco1.org/RealizarTransaccion", ReplyAction="*")]
+        Processor.ServiceReference.RealizarTransaccionResponse RealizarTransaccion(Processor.ServiceReference.RealizarTransaccionRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tellerBanco1.org/RealizarTransaccion", ReplyAction="*")]
+        System.Threading.Tasks.Task<Processor.ServiceReference.RealizarTransaccionResponse> RealizarTransaccionAsync(Processor.ServiceReference.RealizarTransaccionRequest request);
+        
+        // CODEGEN: Generating message contract since element name R from namespace http://tellerBanco1.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tellerBanco1.org/RealizarRetiro", ReplyAction="*")]
+        Processor.ServiceReference.RealizarRetiroResponse RealizarRetiro(Processor.ServiceReference.RealizarRetiroRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tellerBanco1.org/RealizarRetiro", ReplyAction="*")]
+        System.Threading.Tasks.Task<Processor.ServiceReference.RealizarRetiroResponse> RealizarRetiroAsync(Processor.ServiceReference.RealizarRetiroRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -349,6 +543,210 @@ namespace Processor.ServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class RealizarDepositoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="RealizarDeposito", Namespace="http://tellerBanco1.org/", Order=0)]
+        public Processor.ServiceReference.RealizarDepositoRequestBody Body;
+        
+        public RealizarDepositoRequest() {
+        }
+        
+        public RealizarDepositoRequest(Processor.ServiceReference.RealizarDepositoRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tellerBanco1.org/")]
+    public partial class RealizarDepositoRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Processor.ServiceReference.Deposito D;
+        
+        public RealizarDepositoRequestBody() {
+        }
+        
+        public RealizarDepositoRequestBody(Processor.ServiceReference.Deposito D) {
+            this.D = D;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class RealizarDepositoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="RealizarDepositoResponse", Namespace="http://tellerBanco1.org/", Order=0)]
+        public Processor.ServiceReference.RealizarDepositoResponseBody Body;
+        
+        public RealizarDepositoResponse() {
+        }
+        
+        public RealizarDepositoResponse(Processor.ServiceReference.RealizarDepositoResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tellerBanco1.org/")]
+    public partial class RealizarDepositoResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Processor.ServiceReference.Confirmacion RealizarDepositoResult;
+        
+        public RealizarDepositoResponseBody() {
+        }
+        
+        public RealizarDepositoResponseBody(Processor.ServiceReference.Confirmacion RealizarDepositoResult) {
+            this.RealizarDepositoResult = RealizarDepositoResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class RealizarTransaccionRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="RealizarTransaccion", Namespace="http://tellerBanco1.org/", Order=0)]
+        public Processor.ServiceReference.RealizarTransaccionRequestBody Body;
+        
+        public RealizarTransaccionRequest() {
+        }
+        
+        public RealizarTransaccionRequest(Processor.ServiceReference.RealizarTransaccionRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tellerBanco1.org/")]
+    public partial class RealizarTransaccionRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Processor.ServiceReference.Transaccion T;
+        
+        public RealizarTransaccionRequestBody() {
+        }
+        
+        public RealizarTransaccionRequestBody(Processor.ServiceReference.Transaccion T) {
+            this.T = T;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class RealizarTransaccionResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="RealizarTransaccionResponse", Namespace="http://tellerBanco1.org/", Order=0)]
+        public Processor.ServiceReference.RealizarTransaccionResponseBody Body;
+        
+        public RealizarTransaccionResponse() {
+        }
+        
+        public RealizarTransaccionResponse(Processor.ServiceReference.RealizarTransaccionResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tellerBanco1.org/")]
+    public partial class RealizarTransaccionResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Processor.ServiceReference.Confirmacion RealizarTransaccionResult;
+        
+        public RealizarTransaccionResponseBody() {
+        }
+        
+        public RealizarTransaccionResponseBody(Processor.ServiceReference.Confirmacion RealizarTransaccionResult) {
+            this.RealizarTransaccionResult = RealizarTransaccionResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class RealizarRetiroRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="RealizarRetiro", Namespace="http://tellerBanco1.org/", Order=0)]
+        public Processor.ServiceReference.RealizarRetiroRequestBody Body;
+        
+        public RealizarRetiroRequest() {
+        }
+        
+        public RealizarRetiroRequest(Processor.ServiceReference.RealizarRetiroRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tellerBanco1.org/")]
+    public partial class RealizarRetiroRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Processor.ServiceReference.Retiro R;
+        
+        public RealizarRetiroRequestBody() {
+        }
+        
+        public RealizarRetiroRequestBody(Processor.ServiceReference.Retiro R) {
+            this.R = R;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class RealizarRetiroResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="RealizarRetiroResponse", Namespace="http://tellerBanco1.org/", Order=0)]
+        public Processor.ServiceReference.RealizarRetiroResponseBody Body;
+        
+        public RealizarRetiroResponse() {
+        }
+        
+        public RealizarRetiroResponse(Processor.ServiceReference.RealizarRetiroResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tellerBanco1.org/")]
+    public partial class RealizarRetiroResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Processor.ServiceReference.Confirmacion RealizarRetiroResult;
+        
+        public RealizarRetiroResponseBody() {
+        }
+        
+        public RealizarRetiroResponseBody(Processor.ServiceReference.Confirmacion RealizarRetiroResult) {
+            this.RealizarRetiroResult = RealizarRetiroResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface Integrador_CoreSoapChannel : Processor.ServiceReference.Integrador_CoreSoap, System.ServiceModel.IClientChannel {
     }
@@ -399,6 +797,81 @@ namespace Processor.ServiceReference {
             inValue.Body = new Processor.ServiceReference.PedidosdatosRequestBody();
             inValue.Body.RDP = RDP;
             return ((Processor.ServiceReference.Integrador_CoreSoap)(this)).PedidosdatosAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Processor.ServiceReference.RealizarDepositoResponse Processor.ServiceReference.Integrador_CoreSoap.RealizarDeposito(Processor.ServiceReference.RealizarDepositoRequest request) {
+            return base.Channel.RealizarDeposito(request);
+        }
+        
+        public Processor.ServiceReference.Confirmacion RealizarDeposito(Processor.ServiceReference.Deposito D) {
+            Processor.ServiceReference.RealizarDepositoRequest inValue = new Processor.ServiceReference.RealizarDepositoRequest();
+            inValue.Body = new Processor.ServiceReference.RealizarDepositoRequestBody();
+            inValue.Body.D = D;
+            Processor.ServiceReference.RealizarDepositoResponse retVal = ((Processor.ServiceReference.Integrador_CoreSoap)(this)).RealizarDeposito(inValue);
+            return retVal.Body.RealizarDepositoResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Processor.ServiceReference.RealizarDepositoResponse> Processor.ServiceReference.Integrador_CoreSoap.RealizarDepositoAsync(Processor.ServiceReference.RealizarDepositoRequest request) {
+            return base.Channel.RealizarDepositoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Processor.ServiceReference.RealizarDepositoResponse> RealizarDepositoAsync(Processor.ServiceReference.Deposito D) {
+            Processor.ServiceReference.RealizarDepositoRequest inValue = new Processor.ServiceReference.RealizarDepositoRequest();
+            inValue.Body = new Processor.ServiceReference.RealizarDepositoRequestBody();
+            inValue.Body.D = D;
+            return ((Processor.ServiceReference.Integrador_CoreSoap)(this)).RealizarDepositoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Processor.ServiceReference.RealizarTransaccionResponse Processor.ServiceReference.Integrador_CoreSoap.RealizarTransaccion(Processor.ServiceReference.RealizarTransaccionRequest request) {
+            return base.Channel.RealizarTransaccion(request);
+        }
+        
+        public Processor.ServiceReference.Confirmacion RealizarTransaccion(Processor.ServiceReference.Transaccion T) {
+            Processor.ServiceReference.RealizarTransaccionRequest inValue = new Processor.ServiceReference.RealizarTransaccionRequest();
+            inValue.Body = new Processor.ServiceReference.RealizarTransaccionRequestBody();
+            inValue.Body.T = T;
+            Processor.ServiceReference.RealizarTransaccionResponse retVal = ((Processor.ServiceReference.Integrador_CoreSoap)(this)).RealizarTransaccion(inValue);
+            return retVal.Body.RealizarTransaccionResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Processor.ServiceReference.RealizarTransaccionResponse> Processor.ServiceReference.Integrador_CoreSoap.RealizarTransaccionAsync(Processor.ServiceReference.RealizarTransaccionRequest request) {
+            return base.Channel.RealizarTransaccionAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Processor.ServiceReference.RealizarTransaccionResponse> RealizarTransaccionAsync(Processor.ServiceReference.Transaccion T) {
+            Processor.ServiceReference.RealizarTransaccionRequest inValue = new Processor.ServiceReference.RealizarTransaccionRequest();
+            inValue.Body = new Processor.ServiceReference.RealizarTransaccionRequestBody();
+            inValue.Body.T = T;
+            return ((Processor.ServiceReference.Integrador_CoreSoap)(this)).RealizarTransaccionAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Processor.ServiceReference.RealizarRetiroResponse Processor.ServiceReference.Integrador_CoreSoap.RealizarRetiro(Processor.ServiceReference.RealizarRetiroRequest request) {
+            return base.Channel.RealizarRetiro(request);
+        }
+        
+        public Processor.ServiceReference.Confirmacion RealizarRetiro(Processor.ServiceReference.Retiro R) {
+            Processor.ServiceReference.RealizarRetiroRequest inValue = new Processor.ServiceReference.RealizarRetiroRequest();
+            inValue.Body = new Processor.ServiceReference.RealizarRetiroRequestBody();
+            inValue.Body.R = R;
+            Processor.ServiceReference.RealizarRetiroResponse retVal = ((Processor.ServiceReference.Integrador_CoreSoap)(this)).RealizarRetiro(inValue);
+            return retVal.Body.RealizarRetiroResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Processor.ServiceReference.RealizarRetiroResponse> Processor.ServiceReference.Integrador_CoreSoap.RealizarRetiroAsync(Processor.ServiceReference.RealizarRetiroRequest request) {
+            return base.Channel.RealizarRetiroAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Processor.ServiceReference.RealizarRetiroResponse> RealizarRetiroAsync(Processor.ServiceReference.Retiro R) {
+            Processor.ServiceReference.RealizarRetiroRequest inValue = new Processor.ServiceReference.RealizarRetiroRequest();
+            inValue.Body = new Processor.ServiceReference.RealizarRetiroRequestBody();
+            inValue.Body.R = R;
+            return ((Processor.ServiceReference.Integrador_CoreSoap)(this)).RealizarRetiroAsync(inValue);
         }
     }
 }

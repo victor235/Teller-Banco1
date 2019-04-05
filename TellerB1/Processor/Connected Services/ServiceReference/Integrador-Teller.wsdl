@@ -20,6 +20,8 @@
       </s:complexType>
       <s:complexType name="Pedido">
         <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="monto" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="fecha" type="s:dateTime" />
           <s:element minOccurs="1" maxOccurs="1" name="tipo" type="tns:TipoPedido" />
         </s:sequence>
       </s:complexType>
@@ -33,6 +35,7 @@
       </s:simpleType>
       <s:complexType name="Cliente">
         <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="cedula" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Nombres" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Apellidos" type="s:string" />
@@ -66,6 +69,86 @@
           <s:enumeration value="DatosPersonales" />
         </s:restriction>
       </s:simpleType>
+      <s:element name="RealizarDeposito">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="D" type="tns:Deposito" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Deposito">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Pedido">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="cuenta" type="tns:Cliente" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RealizarDepositoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RealizarDepositoResult" type="tns:Confirmacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Confirmacion">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Respuesta">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="mensajeConfirmación" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="success" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RealizarTransaccion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="T" type="tns:Transaccion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Transaccion">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Pedido">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="cuentaOrigen" type="tns:Cliente" />
+              <s:element minOccurs="0" maxOccurs="1" name="cuentaDestino" type="tns:Cliente" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RealizarTransaccionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RealizarTransaccionResult" type="tns:Confirmacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RealizarRetiro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="R" type="tns:Retiro" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Retiro">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Pedido">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="cuenta" type="tns:Cliente" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RealizarRetiroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RealizarRetiroResult" type="tns:Confirmacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="PedidosdatosSoapIn">
@@ -74,10 +157,40 @@
   <wsdl:message name="PedidosdatosSoapOut">
     <wsdl:part name="parameters" element="tns:PedidosdatosResponse" />
   </wsdl:message>
+  <wsdl:message name="RealizarDepositoSoapIn">
+    <wsdl:part name="parameters" element="tns:RealizarDeposito" />
+  </wsdl:message>
+  <wsdl:message name="RealizarDepositoSoapOut">
+    <wsdl:part name="parameters" element="tns:RealizarDepositoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RealizarTransaccionSoapIn">
+    <wsdl:part name="parameters" element="tns:RealizarTransaccion" />
+  </wsdl:message>
+  <wsdl:message name="RealizarTransaccionSoapOut">
+    <wsdl:part name="parameters" element="tns:RealizarTransaccionResponse" />
+  </wsdl:message>
+  <wsdl:message name="RealizarRetiroSoapIn">
+    <wsdl:part name="parameters" element="tns:RealizarRetiro" />
+  </wsdl:message>
+  <wsdl:message name="RealizarRetiroSoapOut">
+    <wsdl:part name="parameters" element="tns:RealizarRetiroResponse" />
+  </wsdl:message>
   <wsdl:portType name="Integrador_CoreSoap">
     <wsdl:operation name="Pedidosdatos">
       <wsdl:input message="tns:PedidosdatosSoapIn" />
       <wsdl:output message="tns:PedidosdatosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RealizarDeposito">
+      <wsdl:input message="tns:RealizarDepositoSoapIn" />
+      <wsdl:output message="tns:RealizarDepositoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RealizarTransaccion">
+      <wsdl:input message="tns:RealizarTransaccionSoapIn" />
+      <wsdl:output message="tns:RealizarTransaccionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RealizarRetiro">
+      <wsdl:input message="tns:RealizarRetiroSoapIn" />
+      <wsdl:output message="tns:RealizarRetiroSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="Integrador_CoreSoap" type="tns:Integrador_CoreSoap">
@@ -91,11 +204,65 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="RealizarDeposito">
+      <soap:operation soapAction="http://tellerBanco1.org/RealizarDeposito" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RealizarTransaccion">
+      <soap:operation soapAction="http://tellerBanco1.org/RealizarTransaccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RealizarRetiro">
+      <soap:operation soapAction="http://tellerBanco1.org/RealizarRetiro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="Integrador_CoreSoap12" type="tns:Integrador_CoreSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Pedidosdatos">
       <soap12:operation soapAction="http://tellerBanco1.org/Pedidosdatos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RealizarDeposito">
+      <soap12:operation soapAction="http://tellerBanco1.org/RealizarDeposito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RealizarTransaccion">
+      <soap12:operation soapAction="http://tellerBanco1.org/RealizarTransaccion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RealizarRetiro">
+      <soap12:operation soapAction="http://tellerBanco1.org/RealizarRetiro" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

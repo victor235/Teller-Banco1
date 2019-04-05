@@ -7,7 +7,7 @@
     <ProjectGuid>{BFD7FB43-4305-47C7-A86F-70E7C2F2FBE2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConnectionDB</RootNamespace>
+    <RootNamespace>DataModel</RootNamespace>
     <AssemblyName>ConnectionDB</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Caja.cs" />
     <Compile Include="Clases_a_usar.cs" />
     <Compile Include="ConectionDB.cs" />
     <Compile Include="DataManager.cs" />

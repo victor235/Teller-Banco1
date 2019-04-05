@@ -88,6 +88,7 @@ namespace DataModel
         public LocalDeposito()
         {
             tipo = (LocalTipoPedido)2;
+            cuenta = new LocalCliente();
         }
         LocalCliente cuenta;
         decimal monto;
@@ -122,7 +123,7 @@ namespace DataModel
             this.succeeded = ok;
         }
 
-        public string mensajeConfirmación { get; internal set; }
+        public string mensajeConfirmación { get;  set; }
         public bool succeeded;
     }
 

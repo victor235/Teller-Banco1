@@ -60,6 +60,7 @@ namespace TellerB1
         {
 
             decimal monto;
+            LocalConfirmacion confirmacion = new LocalConfirmacion();
             LocalDeposito deposito = new LocalDeposito();
 
             if (!decimal.TryParse(tbMonto.Text, out monto))
@@ -69,7 +70,8 @@ namespace TellerB1
                 deposito.Monto = monto;
                 deposito.Cuenta = clienteActivo;
                 deposito.Fecha = DateTime.Now;
-                //processor.RealizarDeposito(deposito);
+                confirmacion = processor.RealizarDeposito(deposito);
+                MessageBox.Show(confirmacion.mensajeConfirmación);
             }
         }
     }

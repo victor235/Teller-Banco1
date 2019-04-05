@@ -35,18 +35,36 @@ namespace Processor
             return cliente;
         }
 
-        //public LocalConfirmacion RealizarDeposito(LocalDeposito Ldeposito)
-        //{
-        //    Confirmacion confirmacion = new Confirmacion();
-        //    Deposito deposito = new Deposito();
-        //    deposito.Monto = Ldeposito.Monto;
-        //    deposito.Cuenta = Ldeposito.Cuenta;
-        //    deposito.Fecha = Ldeposito.Fecha;
-        //    confirmacion = Metodo(deposito);
-        //    return confirmacion();
-        //}
+        public LocalConfirmacion RealizarDeposito(LocalDeposito Ldeposito)
+        {
+            //Instancias
+            LocalConfirmacion localConfirmacion = new LocalConfirmacion();
+            Confirmacion confirmacion = new Confirmacion();
+            Deposito deposito = new Deposito();
+            deposito.cuenta = new Cliente();
+            //Cliente cliente = new Cliente();
+            //cliente.Apellidos = Ldeposito.Cuenta.Apellidos;
+            //cliente.Nombres = Ldeposito.Cuenta.Nombres;
+            //cliente.codigo = Ldeposito.Cuenta.Codigo;
+            
+            
+            //Casting deposito
+            deposito.monto = Ldeposito.Monto;
+            deposito.cuenta.Apellidos = Ldeposito.Cuenta.Apellidos;
+            deposito.cuenta.Nombres = Ldeposito.Cuenta.Nombres;
+            deposito.cuenta.codigo= Ldeposito.Cuenta.Codigo;
+            deposito.fecha = Ldeposito.Fecha;
 
-       
-        
+            //Ejecucion
+            confirmacion = client.RealizarDeposito(deposito);
+
+            //Casting confirmacion
+            localConfirmacion.mensajeConfirmación = confirmacion.mensajeConfirmación;
+            localConfirmacion.succeeded = confirmacion.success;
+            return localConfirmacion;
+        }
+
+
+
     }
 }
