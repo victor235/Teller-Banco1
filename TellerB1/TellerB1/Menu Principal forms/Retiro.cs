@@ -16,5 +16,10 @@ namespace TellerB1
         {
             InitializeComponent();
         }
+
+        private void btnCedula_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

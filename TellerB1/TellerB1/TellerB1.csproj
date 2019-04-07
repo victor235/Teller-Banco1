@@ -64,10 +64,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="aCajero.cs">
+    <Compile Include="Menu Adm forms\aCajero.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="aCajero.Designer.cs">
+    <Compile Include="Menu Adm forms\aCajero.Designer.cs">
       <DependentUpon>aCajero.cs</DependentUpon>
     </Compile>
     <Compile Include="AgregarCajero.cs">
@@ -76,16 +76,16 @@
     <Compile Include="AgregarCajero.Designer.cs">
       <DependentUpon>AgregarCajero.cs</DependentUpon>
     </Compile>
-    <Compile Include="aHistorial.cs">
+    <Compile Include="Menu Adm forms\aHistorial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="aHistorial.Designer.cs">
+    <Compile Include="Menu Adm forms\aHistorial.Designer.cs">
       <DependentUpon>aHistorial.cs</DependentUpon>
     </Compile>
-    <Compile Include="aInventario.cs">
+    <Compile Include="Menu Adm forms\aInventario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="aInventario.Designer.cs">
+    <Compile Include="Menu Adm forms\aInventario.Designer.cs">
       <DependentUpon>aInventario.cs</DependentUpon>
     </Compile>
     <Compile Include="Caja_AppDataSet.Designer.cs">
@@ -98,28 +98,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Caja_AppDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Cuadre.cs">
+    <Compile Include="Menu Principal forms\Cuadre.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cuadre.Designer.cs">
+    <Compile Include="Menu Principal forms\Cuadre.Designer.cs">
       <DependentUpon>Cuadre.cs</DependentUpon>
     </Compile>
-    <Compile Include="Deposito.cs">
+    <Compile Include="Menu Principal forms\Deposito.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Deposito.Designer.cs">
+    <Compile Include="Menu Principal forms\Deposito.Designer.cs">
       <DependentUpon>Deposito.cs</DependentUpon>
     </Compile>
-    <Compile Include="Historial.cs">
+    <Compile Include="Menu Principal forms\Historial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Historial.Designer.cs">
+    <Compile Include="Menu Principal forms\Historial.Designer.cs">
       <DependentUpon>Historial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventario.cs">
+    <Compile Include="Menu Principal forms\Inventario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inventario.Designer.cs">
+    <Compile Include="Menu Principal forms\Inventario.Designer.cs">
       <DependentUpon>Inventario.cs</DependentUpon>
     </Compile>
     <Compile Include="LogIn1.cs">
@@ -140,53 +140,69 @@
     <Compile Include="MenuP.Designer.cs">
       <DependentUpon>MenuP.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pendientes.cs">
+    <Compile Include="Menu Principal forms\Pendientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pendientes.Designer.cs">
+    <Compile Include="Menu Principal forms\Pendientes.Designer.cs">
       <DependentUpon>Pendientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Menu Principal forms\DepositoInt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu Principal forms\.Designer.cs">
+      <DependentUpon>DepositoInt.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Report.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Report.Designer.cs">
       <DependentUpon>Report.cs</DependentUpon>
     </Compile>
-    <Compile Include="Retiro.cs">
+    <Compile Include="Menu Principal forms\Retiro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Retiro.Designer.cs">
+    <Compile Include="Menu Principal forms\Retiro.Designer.cs">
       <DependentUpon>Retiro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu Principal forms\RetiroInt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu Principal forms\RetiroInt.Designer.cs">
+      <DependentUpon>RetiroInt.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <EmbeddedResource Include="aCajero.resx">
+    <EmbeddedResource Include="Menu Adm forms\aCajero.resx">
       <DependentUpon>aCajero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AgregarCajero.resx">
       <DependentUpon>AgregarCajero.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="aHistorial.resx">
+    <EmbeddedResource Include="Menu Adm forms\aHistorial.resx">
       <DependentUpon>aHistorial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="aInventario.resx">
+    <EmbeddedResource Include="Menu Adm forms\aInventario.resx">
       <DependentUpon>aInventario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cuadre.resx">
+    <EmbeddedResource Include="Menu Principal forms\Cuadre.resx">
       <DependentUpon>Cuadre.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Deposito.resx">
+    <EmbeddedResource Include="Menu Principal forms\Deposito.resx">
       <DependentUpon>Deposito.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Historial.resx">
+    <EmbeddedResource Include="Menu Principal forms\Historial.resx">
       <DependentUpon>Historial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventario.resx">
+    <EmbeddedResource Include="Menu Principal forms\Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn1.resx">
       <DependentUpon>LogIn1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu Principal forms\RetiroInt.resx">
+      <DependentUpon>RetiroInt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuAdministrar.resx">
       <DependentUpon>MenuAdministrar.cs</DependentUpon>
@@ -194,8 +210,11 @@
     <EmbeddedResource Include="MenuP.resx">
       <DependentUpon>MenuP.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pendientes.resx">
+    <EmbeddedResource Include="Menu Principal forms\Pendientes.resx">
       <DependentUpon>Pendientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu Principal forms\DepositoInt.resx">
+      <DependentUpon>DepositoInt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -210,7 +229,7 @@
     <EmbeddedResource Include="Report.resx">
       <DependentUpon>Report.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Retiro.resx">
+    <EmbeddedResource Include="Menu Principal forms\Retiro.resx">
       <DependentUpon>Retiro.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Caja_AppDataSet.xsc">
@@ -247,7 +266,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Menu Adm forms\App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConnectionDB\DataModel.csproj">
@@ -274,5 +293,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

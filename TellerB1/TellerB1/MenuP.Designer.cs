@@ -36,6 +36,8 @@
             this.depositoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.depositoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.retiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.depositoInterbancarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.retiroInterbancarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pendientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,7 +99,7 @@
             this.cuadreToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(9, 44);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(563, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(743, 36);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -106,7 +108,9 @@
             // 
             this.depositoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.depositoToolStripMenuItem1,
-            this.retiroToolStripMenuItem});
+            this.retiroToolStripMenuItem,
+            this.depositoInterbancarioToolStripMenuItem,
+            this.retiroInterbancarioToolStripMenuItem});
             this.depositoToolStripMenuItem.Name = "depositoToolStripMenuItem";
             this.depositoToolStripMenuItem.Size = new System.Drawing.Size(142, 32);
             this.depositoToolStripMenuItem.Text = "Transacciones";
@@ -114,16 +118,30 @@
             // depositoToolStripMenuItem1
             // 
             this.depositoToolStripMenuItem1.Name = "depositoToolStripMenuItem1";
-            this.depositoToolStripMenuItem1.Size = new System.Drawing.Size(176, 32);
+            this.depositoToolStripMenuItem1.Size = new System.Drawing.Size(297, 32);
             this.depositoToolStripMenuItem1.Text = "Deposito";
             this.depositoToolStripMenuItem1.Click += new System.EventHandler(this.depositoToolStripMenuItem1_Click);
             // 
             // retiroToolStripMenuItem
             // 
             this.retiroToolStripMenuItem.Name = "retiroToolStripMenuItem";
-            this.retiroToolStripMenuItem.Size = new System.Drawing.Size(176, 32);
+            this.retiroToolStripMenuItem.Size = new System.Drawing.Size(297, 32);
             this.retiroToolStripMenuItem.Text = "Retiro";
             this.retiroToolStripMenuItem.Click += new System.EventHandler(this.retiroToolStripMenuItem_Click);
+            // 
+            // depositoInterbancarioToolStripMenuItem
+            // 
+            this.depositoInterbancarioToolStripMenuItem.Name = "depositoInterbancarioToolStripMenuItem";
+            this.depositoInterbancarioToolStripMenuItem.Size = new System.Drawing.Size(297, 32);
+            this.depositoInterbancarioToolStripMenuItem.Text = "Deposito Interbancario";
+            this.depositoInterbancarioToolStripMenuItem.Click += new System.EventHandler(this.depositoInterbancarioToolStripMenuItem_Click);
+            // 
+            // retiroInterbancarioToolStripMenuItem
+            // 
+            this.retiroInterbancarioToolStripMenuItem.Name = "retiroInterbancarioToolStripMenuItem";
+            this.retiroInterbancarioToolStripMenuItem.Size = new System.Drawing.Size(297, 32);
+            this.retiroInterbancarioToolStripMenuItem.Text = "Retiro Interbancario";
+            this.retiroInterbancarioToolStripMenuItem.Click += new System.EventHandler(this.retiroInterbancarioToolStripMenuItem_Click);
             // 
             // inventarioToolStripMenuItem
             // 
@@ -215,5 +233,7 @@
         private System.Windows.Forms.ToolStripMenuItem cuadreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem generarReporteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarCajaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem depositoInterbancarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem retiroInterbancarioToolStripMenuItem;
     }
 }
