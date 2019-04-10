@@ -98,14 +98,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Caja_AppDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Menu Principal forms\Cuadre.cs">
     <Compile Include="CambiarContraseña.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CambiarContraseña.Designer.cs">
       <DependentUpon>CambiarContraseña.cs</DependentUpon>
     </Compile>
-
+    <Compile Include="Menu Principal forms\Cuadre.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Menu Principal forms\Cuadre.Designer.cs">
@@ -193,11 +192,10 @@
     <EmbeddedResource Include="Menu Adm forms\aInventario.resx">
       <DependentUpon>aInventario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu Principal forms\Cuadre.resx">
     <EmbeddedResource Include="CambiarContraseña.resx">
       <DependentUpon>CambiarContraseña.cs</DependentUpon>
     </EmbeddedResource>
-
+    <EmbeddedResource Include="Menu Principal forms\Cuadre.resx">
       <DependentUpon>Cuadre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu Principal forms\Deposito.resx">
@@ -265,7 +263,9 @@
     <None Include="Caja_AppDataSet1.xss">
       <DependentUpon>Caja_AppDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -277,7 +277,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Menu Adm forms\App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConnectionDB\DataModel.csproj">
@@ -304,6 +306,5 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Processor;
 using DataModel;
 
+
 namespace TellerB1
 {
     public partial class LogIn1 : Form
@@ -72,23 +73,32 @@ namespace TellerB1
             {
                 if (!usuario.Activo)
                 {
-
-                }
-
-                if (usuario.Tipo == TipoUsuario.Administrador)
-                {
-                    MenuAdministrar form = new MenuAdministrar(usuario);
-                    form.Show();
+                    CambiarContraseña cambiarContraseña = new CambiarContraseña(usuario);
+                    cambiarContraseña.Show();
                     Hide();
                 }
                 else
                 {
-                    MenuP form = new MenuP(usuario);
-                    form.Show();
-                    Hide();
+                    if (usuario.Tipo == TipoUsuario.Administrador)
+                    {
+                        MenuAdministrar form = new MenuAdministrar(usuario);
+                        form.Show();
+                        Hide();
+                    }
+                    else
+                    {
+                        MenuP form = new MenuP(usuario);
+                        form.Show();
+                        Hide();
+                    }
                 }
+                
             }
-            
+            else
+            {
+                ErrorMessage("Usuario o contraseña incorrectos", "Log In");
+                ClearTextbox();
+            }
 
         }
 
@@ -104,4 +114,6 @@ namespace TellerB1
 
         }
     }
+
+    
 }

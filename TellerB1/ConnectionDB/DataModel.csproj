@@ -71,9 +71,6 @@
     <Compile Include="ConectionDB.cs" />
     <Compile Include="DataManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>CajaEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="tblCajas.cs">
       <DependentUpon>CajaEntities.tt</DependentUpon>
     </Compile>
@@ -129,19 +126,19 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="CajaEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CajaEntities.Context.cs</LastGenOutput>
       <DependentUpon>CajaEntities.edmx</DependentUpon>
+      <LastGenOutput>CajaEntities.Context.cs</LastGenOutput>
     </Content>
     <Content Include="CajaEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CajaEntities.edmx</DependentUpon>
       <LastGenOutput>CajaEntities.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

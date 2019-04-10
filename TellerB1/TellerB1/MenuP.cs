@@ -14,9 +14,11 @@ namespace TellerB1
 {
     public partial class MenuP : Form
     {
+        Usuario usuario;
         public MenuP(Usuario usuario)
         {
             InitializeComponent();
+            this.usuario = usuario;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -124,6 +126,26 @@ namespace TellerB1
             retiroInt.TopLevel = false;
             Panel1.Controls.Add(retiroInt);
             retiroInt.Show();
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripStatusLabel6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripStatusLabel7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MenuP_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -91,6 +91,7 @@
             this.Controls.Add(this.tbNueva);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CambiarContraseña";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CambiarContraseña";
             this.ResumeLayout(false);
             this.PerformLayout();

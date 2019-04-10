@@ -45,7 +45,20 @@
             this.generarReporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Panel1 = new System.Windows.Forms.Panel();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lbSucursal = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lbCaja = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel7 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lbCajero = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel9 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel10 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lbEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Minim
@@ -81,7 +94,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(305, 29);
+            this.label1.Size = new System.Drawing.Size(195, 20);
             this.label1.TabIndex = 9;
             this.label1.Text = "Teller-> Aplicacion de Caja";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -99,7 +112,7 @@
             this.cuadreToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(9, 44);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(743, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(418, 27);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -112,55 +125,55 @@
             this.depositoInterbancarioToolStripMenuItem,
             this.retiroInterbancarioToolStripMenuItem});
             this.depositoToolStripMenuItem.Name = "depositoToolStripMenuItem";
-            this.depositoToolStripMenuItem.Size = new System.Drawing.Size(142, 32);
+            this.depositoToolStripMenuItem.Size = new System.Drawing.Size(104, 23);
             this.depositoToolStripMenuItem.Text = "Transacciones";
             // 
             // depositoToolStripMenuItem1
             // 
             this.depositoToolStripMenuItem1.Name = "depositoToolStripMenuItem1";
-            this.depositoToolStripMenuItem1.Size = new System.Drawing.Size(297, 32);
+            this.depositoToolStripMenuItem1.Size = new System.Drawing.Size(218, 24);
             this.depositoToolStripMenuItem1.Text = "Deposito";
             this.depositoToolStripMenuItem1.Click += new System.EventHandler(this.depositoToolStripMenuItem1_Click);
             // 
             // retiroToolStripMenuItem
             // 
             this.retiroToolStripMenuItem.Name = "retiroToolStripMenuItem";
-            this.retiroToolStripMenuItem.Size = new System.Drawing.Size(297, 32);
+            this.retiroToolStripMenuItem.Size = new System.Drawing.Size(218, 24);
             this.retiroToolStripMenuItem.Text = "Retiro";
             this.retiroToolStripMenuItem.Click += new System.EventHandler(this.retiroToolStripMenuItem_Click);
             // 
             // depositoInterbancarioToolStripMenuItem
             // 
             this.depositoInterbancarioToolStripMenuItem.Name = "depositoInterbancarioToolStripMenuItem";
-            this.depositoInterbancarioToolStripMenuItem.Size = new System.Drawing.Size(297, 32);
+            this.depositoInterbancarioToolStripMenuItem.Size = new System.Drawing.Size(218, 24);
             this.depositoInterbancarioToolStripMenuItem.Text = "Deposito Interbancario";
             this.depositoInterbancarioToolStripMenuItem.Click += new System.EventHandler(this.depositoInterbancarioToolStripMenuItem_Click);
             // 
             // retiroInterbancarioToolStripMenuItem
             // 
             this.retiroInterbancarioToolStripMenuItem.Name = "retiroInterbancarioToolStripMenuItem";
-            this.retiroInterbancarioToolStripMenuItem.Size = new System.Drawing.Size(297, 32);
+            this.retiroInterbancarioToolStripMenuItem.Size = new System.Drawing.Size(218, 24);
             this.retiroInterbancarioToolStripMenuItem.Text = "Retiro Interbancario";
             this.retiroInterbancarioToolStripMenuItem.Click += new System.EventHandler(this.retiroInterbancarioToolStripMenuItem_Click);
             // 
             // inventarioToolStripMenuItem
             // 
             this.inventarioToolStripMenuItem.Name = "inventarioToolStripMenuItem";
-            this.inventarioToolStripMenuItem.Size = new System.Drawing.Size(112, 32);
+            this.inventarioToolStripMenuItem.Size = new System.Drawing.Size(83, 23);
             this.inventarioToolStripMenuItem.Text = "Inventario";
             this.inventarioToolStripMenuItem.Click += new System.EventHandler(this.inventarioToolStripMenuItem_Click);
             // 
             // pendientesToolStripMenuItem
             // 
             this.pendientesToolStripMenuItem.Name = "pendientesToolStripMenuItem";
-            this.pendientesToolStripMenuItem.Size = new System.Drawing.Size(118, 32);
+            this.pendientesToolStripMenuItem.Size = new System.Drawing.Size(87, 23);
             this.pendientesToolStripMenuItem.Text = "Pendientes";
             this.pendientesToolStripMenuItem.Click += new System.EventHandler(this.pendientesToolStripMenuItem_Click);
             // 
             // historialToolStripMenuItem
             // 
             this.historialToolStripMenuItem.Name = "historialToolStripMenuItem";
-            this.historialToolStripMenuItem.Size = new System.Drawing.Size(97, 32);
+            this.historialToolStripMenuItem.Size = new System.Drawing.Size(71, 23);
             this.historialToolStripMenuItem.Text = "Historial";
             this.historialToolStripMenuItem.Click += new System.EventHandler(this.historialToolStripMenuItem_Click);
             // 
@@ -170,48 +183,141 @@
             this.generarReporteToolStripMenuItem,
             this.cerrarCajaToolStripMenuItem});
             this.cuadreToolStripMenuItem.Name = "cuadreToolStripMenuItem";
-            this.cuadreToolStripMenuItem.Size = new System.Drawing.Size(86, 32);
+            this.cuadreToolStripMenuItem.Size = new System.Drawing.Size(65, 23);
             this.cuadreToolStripMenuItem.Text = "Cuadre";
             this.cuadreToolStripMenuItem.Click += new System.EventHandler(this.cuadreToolStripMenuItem_Click);
             // 
             // generarReporteToolStripMenuItem
             // 
             this.generarReporteToolStripMenuItem.Name = "generarReporteToolStripMenuItem";
-            this.generarReporteToolStripMenuItem.Size = new System.Drawing.Size(239, 32);
+            this.generarReporteToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.generarReporteToolStripMenuItem.Text = "Generar Reporte";
             // 
             // cerrarCajaToolStripMenuItem
             // 
             this.cerrarCajaToolStripMenuItem.Name = "cerrarCajaToolStripMenuItem";
-            this.cerrarCajaToolStripMenuItem.Size = new System.Drawing.Size(239, 32);
+            this.cerrarCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.cerrarCajaToolStripMenuItem.Text = "Cerrar Caja";
             // 
             // Panel1
             // 
-            this.Panel1.Location = new System.Drawing.Point(-3, 80);
+            this.Panel1.Location = new System.Drawing.Point(0, 73);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(1436, 825);
+            this.Panel1.Size = new System.Drawing.Size(874, 302);
             this.Panel1.TabIndex = 11;
             this.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.lbSucursal,
+            this.toolStripStatusLabel3,
+            this.toolStripStatusLabel4,
+            this.lbCaja,
+            this.toolStripStatusLabel6,
+            this.toolStripStatusLabel7,
+            this.lbCajero,
+            this.toolStripStatusLabel9,
+            this.toolStripStatusLabel10,
+            this.lbEstado});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 375);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(874, 22);
+            this.statusStrip1.TabIndex = 0;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(54, 17);
+            this.toolStripStatusLabel1.Text = "Sucursal:";
+            this.toolStripStatusLabel1.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
+            // 
+            // lbSucursal
+            // 
+            this.lbSucursal.Name = "lbSucursal";
+            this.lbSucursal.Size = new System.Drawing.Size(25, 17);
+            this.lbSucursal.Text = "352";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(136, 17);
+            this.toolStripStatusLabel3.Text = "                                           ";
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(33, 17);
+            this.toolStripStatusLabel4.Text = "Caja:";
+            // 
+            // lbCaja
+            // 
+            this.lbCaja.Name = "lbCaja";
+            this.lbCaja.Size = new System.Drawing.Size(13, 17);
+            this.lbCaja.Text = "2";
+            // 
+            // toolStripStatusLabel6
+            // 
+            this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
+            this.toolStripStatusLabel6.Size = new System.Drawing.Size(127, 17);
+            this.toolStripStatusLabel6.Text = "                                        ";
+            this.toolStripStatusLabel6.Click += new System.EventHandler(this.toolStripStatusLabel6_Click);
+            // 
+            // toolStripStatusLabel7
+            // 
+            this.toolStripStatusLabel7.Name = "toolStripStatusLabel7";
+            this.toolStripStatusLabel7.Size = new System.Drawing.Size(44, 17);
+            this.toolStripStatusLabel7.Text = "Cajero:";
+            this.toolStripStatusLabel7.Click += new System.EventHandler(this.toolStripStatusLabel7_Click);
+            // 
+            // lbCajero
+            // 
+            this.lbCajero.Name = "lbCajero";
+            this.lbCajero.Size = new System.Drawing.Size(37, 17);
+            this.lbCajero.Text = "10003";
+            // 
+            // toolStripStatusLabel9
+            // 
+            this.toolStripStatusLabel9.Name = "toolStripStatusLabel9";
+            this.toolStripStatusLabel9.Size = new System.Drawing.Size(109, 17);
+            this.toolStripStatusLabel9.Text = "                                  ";
+            // 
+            // toolStripStatusLabel10
+            // 
+            this.toolStripStatusLabel10.Name = "toolStripStatusLabel10";
+            this.toolStripStatusLabel10.Size = new System.Drawing.Size(45, 17);
+            this.toolStripStatusLabel10.Text = "Estado:";
+            // 
+            // lbEstado
+            // 
+            this.lbEstado.Name = "lbEstado";
+            this.lbEstado.Size = new System.Drawing.Size(45, 17);
+            this.lbEstado.Text = "Abierta";
             // 
             // MenuP
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1438, 911);
-            this.Controls.Add(this.Panel1);
+            this.ClientSize = new System.Drawing.Size(874, 397);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Cerrar);
             this.Controls.Add(this.Minim);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MenuP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuP";
+            this.Load += new System.EventHandler(this.MenuP_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MenuP_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MenuP_MouseMove);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,5 +341,17 @@
         private System.Windows.Forms.ToolStripMenuItem cerrarCajaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem depositoInterbancarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem retiroInterbancarioToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel lbSucursal;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        private System.Windows.Forms.ToolStripStatusLabel lbCaja;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel7;
+        private System.Windows.Forms.ToolStripStatusLabel lbCajero;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel9;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel10;
+        private System.Windows.Forms.ToolStripStatusLabel lbEstado;
     }
 }

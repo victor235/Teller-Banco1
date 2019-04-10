@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
-using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.Entity.SqlServer;
 
 
 namespace DataModel
@@ -12,8 +12,8 @@ namespace DataModel
     {
         private Caja_AppEntities caja_AppEntities = new Caja_AppEntities();
         private ConnectionDB Connection = new ConnectionDB();
-        private SqlCommand Command = new SqlCommand();
-        private SqlDataReader Reader;
+        //private SqlCommand Command = new SqlCommand();
+        //private SqlDataReader Reader;
 
         public Usuario DatosUsuario(int id)
         {
@@ -59,5 +59,13 @@ namespace DataModel
 
             return new LocalConfirmacion(true);
         }
+    }
+
+    internal static class MissingDllHack
+    {
+        // Must reference a type in EntityFramework.SqlServer.dll so that this dll will be
+        // included in the output folder of referencing projects without requiring a direct 
+        // dependency on Entity Framework. See http://stackoverflow.com/a/22315164/1141360.
+        private static SqlProviderServices instance = SqlProviderServices.Instance;
     }
 }

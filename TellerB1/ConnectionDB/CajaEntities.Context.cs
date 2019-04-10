@@ -27,7 +27,6 @@ namespace DataModel
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<tblCajas> tblCajas { get; set; }
         public virtual DbSet<tblCuadres> tblCuadres { get; set; }
         public virtual DbSet<tblDenominaciones> tblDenominaciones { get; set; }

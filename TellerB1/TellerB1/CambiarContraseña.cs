@@ -37,6 +37,19 @@ namespace TellerB1
                 ClearTextbox();
                 return;
             }
+
+            if (usuario.Tipo == TipoUsuario.Administrador)
+            {
+                MenuAdministrar form = new MenuAdministrar(usuario);
+                form.Show();
+                Hide();
+            }
+            else
+            {
+                MenuP form = new MenuP(usuario);
+                form.Show();
+                Hide();
+            }
             Hide();
         }
 
