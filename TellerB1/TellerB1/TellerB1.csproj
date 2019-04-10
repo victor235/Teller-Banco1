@@ -98,6 +98,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Caja_AppDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Menu Principal forms\Cuadre.cs">
     <Compile Include="CambiarContraseña.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,7 +106,6 @@
       <DependentUpon>CambiarContraseña.cs</DependentUpon>
     </Compile>
 
-    <Compile Include="Menu Principal forms\Cuadre.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Menu Principal forms\Cuadre.Designer.cs">
@@ -193,11 +193,11 @@
     <EmbeddedResource Include="Menu Adm forms\aInventario.resx">
       <DependentUpon>aInventario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menu Principal forms\Cuadre.resx">
     <EmbeddedResource Include="CambiarContraseña.resx">
       <DependentUpon>CambiarContraseña.cs</DependentUpon>
     </EmbeddedResource>
-    
-    <EmbeddedResource Include="Menu Principal forms\Cuadre.resx">
+
       <DependentUpon>Cuadre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu Principal forms\Deposito.resx">
