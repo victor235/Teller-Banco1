@@ -14,57 +14,81 @@ namespace TellerB1
 {
     public partial class LogIn1 : Form
     {
+        DataManager datamanager = new DataManager();
+
         public LogIn1()
         {
             InitializeComponent();
             
         }   
-            
         
+        void ClearTextbox()
+        {
+            foreach (var textbox in Controls.OfType<TextBox>())
+            {
+                textbox.Clear();
+            }
+        }
+
+        void ErrorMessage(string message, string caption)
+        {
+            MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             int user;
+            string password;
+            Usuario usuario;
+
             if (!int.TryParse(tbUser.Text, out user))
-                MessageBox.Show("Los codigos de usuario solo pueden contener caracteres numericos");
-            else
             {
-                string password = tbPassword.Text;
-                string tipo = cmbTipoUser.SelectedValue.ToString();
-                TipoUsuario tipoUsuario;
+                ErrorMessage("Los codigos de usuario solo pueden contener caracteres numericos", "Log In");
+                ClearTextbox();
+                return;
+            }
+                
+            password = tbPassword.Text;
+            //string tipo = cmbTipoUser.SelectedValue.ToString();
+            //TipoUsuario tipoUsuario;
 
-                if (tipo == TipoUsuario.Administrador.ToString())
-                    tipoUsuario = TipoUsuario.Administrador;
-                else
-                    tipoUsuario = TipoUsuario.Cajero;
+            //if (tipo == TipoUsuario.Administrador.ToString())
+            //    tipoUsuario = TipoUsuario.Administrador;
+            //else
+            //    tipoUsuario = TipoUsuario.Cajero;
 
-                Usuario usuario = new Usuario(user, password, tipoUsuario);
+            try
+            {
+                usuario = datamanager.DatosUsuario(user);
+            }
+            catch(Exception error)
+            {
+                ErrorMessage(error.Message, "Log In");
+                ClearTextbox();
+                return;
+            }
 
-                string message = usuario.ValidarUsuario();
-                foreach (Control textbox in Controls)
+            if (usuario.Contraseña==password)
+            {
+                if (!usuario.Activo)
                 {
-                    if (textbox is TextBox)
-                        textbox.Text = "";
+
                 }
-                MessageBox.Show(message);
 
-                if (usuario.Valido)
+                if (usuario.Tipo == TipoUsuario.Administrador)
                 {
-                    if (usuario.Tipo == TipoUsuario.Administrador)
-                    {
-                        this.Hide();
-                        MenuAdministrar form = new MenuAdministrar(usuario);
-                        form.Show();
-                        
-                    }
-                    else
-                    {
-                        this.Hide();
-                        MenuP form = new MenuP(usuario);
-                        form.Show();
-                        
-                    }
+                    MenuAdministrar form = new MenuAdministrar(usuario);
+                    form.Show();
+                    Hide();
+                }
+                else
+                {
+                    MenuP form = new MenuP(usuario);
+                    form.Show();
+                    Hide();
                 }
             }
+            
 
         }
 
