@@ -40,9 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnCedula = new System.Windows.Forms.Button();
             this.Recibo = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.Recibo.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -64,9 +62,9 @@
             this.label2.Location = new System.Drawing.Point(46, 476);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(162, 29);
+            this.label2.Size = new System.Drawing.Size(161, 29);
             this.label2.TabIndex = 12;
-            this.label2.Text = "No de Cedula";
+            this.label2.Text = "No de Cuenta";
             // 
             // label3
             // 
@@ -122,7 +120,7 @@
             this.groupBox1.Size = new System.Drawing.Size(550, 264);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Identificacion";
             // 
             // foto
             // 
@@ -164,25 +162,16 @@
             this.btnCedula.TabIndex = 17;
             this.btnCedula.Text = "Verificar Cedula";
             this.btnCedula.UseVisualStyleBackColor = false;
+            this.btnCedula.Click += new System.EventHandler(this.btnCedula_Click);
             // 
             // Recibo
             // 
-            this.Recibo.Controls.Add(this.label6);
             this.Recibo.Location = new System.Drawing.Point(724, 76);
             this.Recibo.Name = "Recibo";
             this.Recibo.Size = new System.Drawing.Size(628, 659);
             this.Recibo.TabIndex = 20;
             this.Recibo.TabStop = false;
             this.Recibo.Text = "Recibo";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(428, 562);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(134, 20);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Salida de efectivo";
             // 
             // Retiro
             // 
@@ -203,8 +192,6 @@
             this.Text = "Retiro";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.Recibo.ResumeLayout(false);
-            this.Recibo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,6 +211,5 @@
         private System.Windows.Forms.Button btnCedula;
         private System.Windows.Forms.GroupBox Recibo;
         private System.Windows.Forms.Panel foto;
-        private System.Windows.Forms.Label label6;
     }
 }

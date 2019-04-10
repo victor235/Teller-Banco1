@@ -29,38 +29,39 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.Caja_AppDataSet1 = new TellerB1.Caja_AppDataSet1();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.tblUsuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Caja_AppDataSet1 = new TellerB1.Caja_AppDataSet1();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tblUsuariosTableAdapter = new TellerB1.Caja_AppDataSet1TableAdapters.tblUsuariosTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.Caja_AppDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblUsuariosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Caja_AppDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
-            // reportViewer1
+            // tblUsuariosBindingSource
             // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.tblUsuariosBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "TellerB1.Report.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(800, 450);
-            this.reportViewer1.TabIndex = 0;
-            this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
+            this.tblUsuariosBindingSource.DataMember = "tblUsuarios";
+            this.tblUsuariosBindingSource.DataSource = this.Caja_AppDataSet1;
             // 
             // Caja_AppDataSet1
             // 
             this.Caja_AppDataSet1.DataSetName = "Caja_AppDataSet1";
             this.Caja_AppDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // tblUsuariosBindingSource
+            // reportViewer1
             // 
-            this.tblUsuariosBindingSource.DataMember = "tblUsuarios";
-            this.tblUsuariosBindingSource.DataSource = this.Caja_AppDataSet1;
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource2.Name = "DataSet1";
+            reportDataSource2.Value = this.tblUsuariosBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "TellerB1.Report.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(1200, 692);
+            this.reportViewer1.TabIndex = 0;
+            this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
             // tblUsuariosTableAdapter
             // 
@@ -68,15 +69,16 @@
             // 
             // Report
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.reportViewer1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Report";
             this.Text = "Report";
             this.Load += new System.EventHandler(this.Report_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Caja_AppDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblUsuariosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Caja_AppDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }

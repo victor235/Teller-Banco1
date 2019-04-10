@@ -74,5 +74,15 @@ namespace TellerB1
                 MessageBox.Show(confirmacion.mensajeConfirmación);
             }
         }
+
+        private void tbCuenta_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCedula_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

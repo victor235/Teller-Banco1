@@ -62,5 +62,10 @@ namespace TellerB1
             Panel2.Controls.Add(fahistorial);
             fahistorial.Show();
         }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -31,6 +31,8 @@ namespace TellerB1
             this.reportViewer1.LocalReport.DataSources.Add(rds);
 
             this.reportViewer1.RefreshReport();
+
+            
         }
 
         private void reportViewer1_Load(object sender, EventArgs e)
