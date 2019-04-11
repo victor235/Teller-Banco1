@@ -15,12 +15,15 @@ namespace TellerB1
     public partial class MenuP : Form
     {
         Usuario usuario;
+
         public MenuP(Usuario usuario)
         {
             InitializeComponent();
             this.usuario = usuario;
+
         }
 
+        
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -44,7 +47,7 @@ namespace TellerB1
         private void depositoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Panel1.Controls.Clear();
-            Deposito fdeposito = new Deposito();
+            Deposito fdeposito = new Deposito(usuario);
             fdeposito.TopLevel = false;
             Panel1.Controls.Add(fdeposito);
             fdeposito.Show();
@@ -145,7 +148,10 @@ namespace TellerB1
 
         private void MenuP_Load(object sender, EventArgs e)
         {
-
+            lbCaja.Text = usuario.Caja.Descripcion;
+            lbCajero.Text = usuario.Codigo_Usuario.ToString();
+            lbSucursal.Text = usuario.Caja.Sucursal.Id.ToString();
+            lbEstado.Text = usuario.Caja.Estado.ToString();
         }
     }
 }

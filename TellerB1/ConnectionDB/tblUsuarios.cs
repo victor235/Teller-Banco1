@@ -17,7 +17,6 @@ namespace DataModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblUsuarios()
         {
-            this.tblCajas = new HashSet<tblCajas>();
             this.tblCuadres = new HashSet<tblCuadres>();
             this.tblTransaccion = new HashSet<tblTransaccion>();
         }
@@ -27,12 +26,14 @@ namespace DataModel
         public string Nombres { get; set; }
         public string Contraseña { get; set; }
         public int Tipo { get; set; }
+        public Nullable<int> Caja { get; set; }
         public bool Activo { get; set; }
+        public int Sucursal { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblCajas> tblCajas { get; set; }
+        public virtual tblCajas tblCajas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblCuadres> tblCuadres { get; set; }
+        public virtual tblSucursales tblSucursales { get; set; }
         public virtual tblTiposDeUsuario tblTiposDeUsuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblTransaccion> tblTransaccion { get; set; }

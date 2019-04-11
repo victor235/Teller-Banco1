@@ -12,22 +12,18 @@ namespace DataModel
     using System;
     using System.Collections.Generic;
     
-    public partial class tblSucursales
+    public partial class tblBancos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tblSucursales()
+        public tblBancos()
         {
-            this.tblCajas = new HashSet<tblCajas>();
-            this.tblUsuarios = new HashSet<tblUsuarios>();
+            this.tblTransaccion = new HashSet<tblTransaccion>();
         }
     
-        public int Id { get; set; }
-        public string Ubicacion { get; set; }
-        public string Provincia { get; set; }
+        public int id { get; set; }
+        public string Descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblCajas> tblCajas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblUsuarios> tblUsuarios { get; set; }
+        public virtual ICollection<tblTransaccion> tblTransaccion { get; set; }
     }
 }

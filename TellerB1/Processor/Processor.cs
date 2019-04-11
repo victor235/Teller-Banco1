@@ -17,7 +17,7 @@ namespace Processor
 
         public string Message { get => message; private set { } }
 
-        Integrador_CoreSoapClient client= new Integrador_CoreSoapClient();
+        Integrador_CoreSoapClient client = new Integrador_CoreSoapClient();
 
         public LocalCliente VerificarCliente(string cuenta)
         {
@@ -64,7 +64,7 @@ namespace Processor
             return localConfirmacion;
         }
 
-
+        
 
     }
 }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d5a83314ee0e471c86a2eaef1a54a185" Name="Diagram1">
+        <EntityTypeShape EntityType="Caja_AppModel.tblBancos" Width="1.5" PointX="11.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Caja_AppModel.tblCajas" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Caja_AppModel.tblCuadres" Width="1.5" PointX="10.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Caja_AppModel.tblDenominaciones" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Caja_AppModel.tblEstados_Caja" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Caja_AppModel.tblInventario_Efectivo" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Caja_AppModel.tblSucursales" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Caja_AppModel.tblTipo_Transaccion" Width="1.5" PointX="11.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Caja_AppModel.tblTipoDenominaciones" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Caja_AppModel.tblTiposDeUsuario" Width="1.5" PointX="6" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Caja_AppModel.tblTransaccion" Width="1.5" PointX="13.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Caja_AppModel.tblUsuarios" Width="1.5" PointX="8.25" PointY="4.375" IsExpanded="true" />
+        <AssociationConnector Association="Caja_AppModel.fk_banco" ManuallyRouted="false" />
+        <AssociationConnector Association="Caja_AppModel.fk_caja" ManuallyRouted="false" />
+        <AssociationConnector Association="Caja_AppModel.fk_cajas" ManuallyRouted="false" />
+        <AssociationConnector Association="Caja_AppModel.fk_cajatransaccion" ManuallyRouted="false" />
+        <AssociationConnector Association="Caja_AppModel.fk_estado" ManuallyRouted="false" />
+        <AssociationConnector Association="Caja_AppModel.fk_inventariocaja" ManuallyRouted="false" />
+        <AssociationConnector Association="Caja_AppModel.fk_sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="Caja_AppModel.fk_cajerocuadre" ManuallyRouted="false" />
+        <AssociationConnector Association="Caja_AppModel.fk_denominacion" ManuallyRouted="false" />
+        <AssociationConnector Association="Caja_AppModel.fk_tipoDenominaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="Caja_AppModel.fk_sucursalUsuario" ManuallyRouted="false" />
+        <AssociationConnector Association="Caja_AppModel.fk_tipo" ManuallyRouted="false" />
+        <AssociationConnector Association="Caja_AppModel.fk_tipousuario" ManuallyRouted="false" />
+        <AssociationConnector Association="Caja_AppModel.fk_cajerotransaccion" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -15,10 +15,10 @@ namespace DataModel
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class Caja_AppEntities : DbContext
+    public partial class Caja_AppEntities5 : DbContext
     {
-        public Caja_AppEntities()
-            : base("name=Caja_AppEntities")
+        public Caja_AppEntities5()
+            : base("name=Caja_AppEntities5")
         {
         }
     
@@ -27,6 +27,7 @@ namespace DataModel
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<tblBancos> tblBancos { get; set; }
         public virtual DbSet<tblCajas> tblCajas { get; set; }
         public virtual DbSet<tblCuadres> tblCuadres { get; set; }
         public virtual DbSet<tblDenominaciones> tblDenominaciones { get; set; }
@@ -39,9 +40,9 @@ namespace DataModel
         public virtual DbSet<tblTransaccion> tblTransaccion { get; set; }
         public virtual DbSet<tblUsuarios> tblUsuarios { get; set; }
     
-        public virtual ObjectResult<tblCajas_GetAll_Result> tblCajas_GetAll()
+        public virtual int tblCajas_GetAll()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<tblCajas_GetAll_Result>("tblCajas_GetAll");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("tblCajas_GetAll");
         }
     
         public virtual ObjectResult<tblUsuarios_GetById_Result> tblUsuarios_GetById(Nullable<int> codigo_Usuario)

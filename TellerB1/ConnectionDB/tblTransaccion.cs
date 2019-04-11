@@ -20,8 +20,10 @@ namespace DataModel
         public string Cuenta { get; set; }
         public int Caja { get; set; }
         public int Cajero { get; set; }
+        public int Banco { get; set; }
         public System.DateTime Fecha { get; set; }
     
+        public virtual tblBancos tblBancos { get; set; }
         public virtual tblCajas tblCajas { get; set; }
         public virtual tblTipo_Transaccion tblTipo_Transaccion { get; set; }
         public virtual tblUsuarios tblUsuarios { get; set; }

@@ -51,93 +51,99 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bancos.cs" />
     <Compile Include="Caja.cs" />
-    <Compile Include="CajaEntities.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CajaEntities.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CajaEntities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CajaEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CajaEntities.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CajaEntities.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Clases_a_usar.cs" />
     <Compile Include="ConectionDB.cs" />
+    <Compile Include="Cuadre.cs" />
     <Compile Include="DataManager.cs" />
+    <Compile Include="Denominaciones.cs" />
+    <Compile Include="Inventarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="tblCajas.cs">
-      <DependentUpon>CajaEntities.tt</DependentUpon>
+    <Compile Include="Sucursal.cs" />
+    <Compile Include="tblBancos.cs">
+      <DependentUpon>TellerEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="tblCajas_GetAll_Result.cs">
-      <DependentUpon>CajaEntities.tt</DependentUpon>
+    <Compile Include="tblCajas.cs">
+      <DependentUpon>TellerEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="tblCuadres.cs">
-      <DependentUpon>CajaEntities.tt</DependentUpon>
+      <DependentUpon>TellerEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="tblDenominaciones.cs">
-      <DependentUpon>CajaEntities.tt</DependentUpon>
+      <DependentUpon>TellerEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="tblEstados_Caja.cs">
-      <DependentUpon>CajaEntities.tt</DependentUpon>
+      <DependentUpon>TellerEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="tblInventario_Efectivo.cs">
-      <DependentUpon>CajaEntities.tt</DependentUpon>
+      <DependentUpon>TellerEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="tblSucursales.cs">
-      <DependentUpon>CajaEntities.tt</DependentUpon>
+      <DependentUpon>TellerEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="tblTipoDenominaciones.cs">
-      <DependentUpon>CajaEntities.tt</DependentUpon>
+      <DependentUpon>TellerEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="tblTiposDeUsuario.cs">
-      <DependentUpon>CajaEntities.tt</DependentUpon>
+      <DependentUpon>TellerEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="tblTipo_Transaccion.cs">
-      <DependentUpon>CajaEntities.tt</DependentUpon>
+      <DependentUpon>TellerEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="tblTransaccion.cs">
-      <DependentUpon>CajaEntities.tt</DependentUpon>
+      <DependentUpon>TellerEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="tblUsuarios.cs">
-      <DependentUpon>CajaEntities.tt</DependentUpon>
+      <DependentUpon>TellerEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="tblUsuarios_GetById_Result.cs">
-      <DependentUpon>CajaEntities.tt</DependentUpon>
+      <DependentUpon>TellerEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="TellerEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TellerEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TellerEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TellerEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TellerEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TellerEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Transacciones.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="CajaEntities.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CajaEntities.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="CajaEntities.edmx.diagram">
-      <DependentUpon>CajaEntities.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
+    <EntityDeploy Include="TellerEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TellerEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="TellerEntities.edmx.diagram">
+      <DependentUpon>TellerEntities.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CajaEntities.Context.tt">
+    <Content Include="TellerEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CajaEntities.edmx</DependentUpon>
-      <LastGenOutput>CajaEntities.Context.cs</LastGenOutput>
+      <DependentUpon>TellerEntities.edmx</DependentUpon>
+      <LastGenOutput>TellerEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="CajaEntities.tt">
+    <Content Include="TellerEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CajaEntities.edmx</DependentUpon>
-      <LastGenOutput>CajaEntities.cs</LastGenOutput>
+      <DependentUpon>TellerEntities.edmx</DependentUpon>
+      <LastGenOutput>TellerEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

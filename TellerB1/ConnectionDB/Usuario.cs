@@ -14,10 +14,16 @@ namespace DataModel
         string nombres;
         string contraseña;
         TipoUsuario tipo;
+        Cajas caja;
         bool valido;
         bool activo;
+        Sucursal sucursal;
 
-        public Usuario() { this.Valido = false; }
+        public Usuario()
+        {
+            this.Valido = false;
+            this.sucursal = new Sucursal();
+        }
         public Usuario(int codigo_Usuario, string contraseña, TipoUsuario tipo)
         {
             this.Codigo_Usuario = codigo_Usuario;
@@ -42,49 +48,19 @@ namespace DataModel
         public TipoUsuario Tipo { get => tipo; set => tipo = value; }
         public bool Valido { get => valido; set => valido = value; }
         public bool Activo { get => activo; set => activo = value; }
+        public Cajas Caja { get => caja; set => caja = value; }
+        public Sucursal Sucursal { get => sucursal; set => sucursal = value; }
 
         public void GuardarContraseñaNueva(string nueva)
         {
             activo = true;
             contraseña = nueva;
-            Caja_AppEntities caja_AppEntities = new Caja_AppEntities();
+            Caja_AppEntities5 caja_AppEntities = new Caja_AppEntities5();
             caja_AppEntities.tblUsuarios.Find(codigo_Usuario).Contraseña = contraseña;
+            caja_AppEntities.tblUsuarios.Find(codigo_Usuario).Activo = true;
             caja_AppEntities.SaveChanges();
         }
-        //public string ValidarUsuario()
-        //{
-        //    //Declaraciones e instancias
-        //    string message;
-        //    int idTipo;
-        //    DataManager manager = new DataManager();
-        //    string[] datos;
-
-        //    //Asignaciones y procesos
-        //    //datos = manager.DatosUsuario(Codigo_Usuario);
-
-        //    if (Tipo == TipoUsuario.Administrador)
-        //    {
-        //        idTipo = 2;
-        //    }
-        //    else
-        //    {
-        //        idTipo = 1;
-        //    }
-
-        //    if (Contraseña == datos[3] && idTipo.ToString() == datos[4])
-        //    {
-        //        Apellidos = datos[1];
-        //        Nombres = datos[2];
-        //        message = "Inicio de sesion exitoso!";
-        //        Valido = true;
-        //    }
-        //    else
-        //    {
-        //        message = "Usuario o contraseña incorrectos";
-        //        Valido = false;
-        //    }
-        //    return message;
-        //}
+      
     }
 
     public enum TipoUsuario { Cajero, Administrador};

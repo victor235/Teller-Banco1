@@ -17,6 +17,7 @@ namespace DataModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblCajas()
         {
+            this.tblUsuarios = new HashSet<tblUsuarios>();
             this.tblCuadres = new HashSet<tblCuadres>();
             this.tblTransaccion = new HashSet<tblTransaccion>();
             this.tblInventario_Efectivo = new HashSet<tblInventario_Efectivo>();
@@ -24,16 +25,16 @@ namespace DataModel
     
         public int Id { get; set; }
         public string Descripcion { get; set; }
-        public Nullable<int> Cajero { get; set; }
         public int Estado { get; set; }
-        public int Sucursal { get; set; }
         public decimal Balance { get; set; }
+        public int Sucursal { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblUsuarios> tblUsuarios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblCuadres> tblCuadres { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblTransaccion> tblTransaccion { get; set; }
-        public virtual tblUsuarios tblUsuarios { get; set; }
         public virtual tblEstados_Caja tblEstados_Caja { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblInventario_Efectivo> tblInventario_Efectivo { get; set; }

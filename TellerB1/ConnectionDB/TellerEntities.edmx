@@ -5,16 +5,22 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Caja_AppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblBancos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="tblCajas">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Cajero" Type="int" />
           <Property Name="Estado" Type="int" Nullable="false" />
-          <Property Name="Sucursal" Type="int" Nullable="false" />
           <Property Name="Balance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Sucursal" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tblCuadres">
           <Key>
@@ -92,6 +98,7 @@
           <Property Name="Cuenta" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Caja" Type="int" Nullable="false" />
           <Property Name="Cajero" Type="int" Nullable="false" />
+          <Property Name="Banco" Type="int" Nullable="false" />
           <Property Name="Fecha" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="tblUsuarios">
@@ -103,9 +110,35 @@
           <Property Name="Nombres" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Contraseña" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Tipo" Type="int" Nullable="false" />
+          <Property Name="Caja" Type="int" />
           <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="Sucursal" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="fk_banco">
+          <End Role="tblBancos" Type="Self.tblBancos" Multiplicity="1" />
+          <End Role="tblTransaccion" Type="Self.tblTransaccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblBancos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblTransaccion">
+              <PropertyRef Name="Banco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_caja">
+          <End Role="tblCajas" Type="Self.tblCajas" Multiplicity="0..1" />
+          <End Role="tblUsuarios" Type="Self.tblUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCajas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUsuarios">
+              <PropertyRef Name="Caja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cajas">
           <End Role="tblCajas" Type="Self.tblCajas" Multiplicity="1" />
           <End Role="tblCuadres" Type="Self.tblCuadres" Multiplicity="*" />
           <ReferentialConstraint>
@@ -126,18 +159,6 @@
             </Principal>
             <Dependent Role="tblTransaccion">
               <PropertyRef Name="Caja" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_cajero">
-          <End Role="tblUsuarios" Type="Self.tblUsuarios" Multiplicity="0..1" />
-          <End Role="tblCajas" Type="Self.tblCajas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblUsuarios">
-              <PropertyRef Name="Codigo_Usuario" />
-            </Principal>
-            <Dependent Role="tblCajas">
-              <PropertyRef Name="Cajero" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -209,6 +230,18 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="tblCajas">
+              <PropertyRef Name="Sucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_sucursalUsuario">
+          <End Role="tblSucursales" Type="Self.tblSucursales" Multiplicity="1" />
+          <End Role="tblUsuarios" Type="Self.tblUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSucursales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUsuarios">
               <PropertyRef Name="Sucursal" />
             </Dependent>
           </ReferentialConstraint>
@@ -254,6 +287,7 @@
           <Parameter Name="Codigo_Usuario" Type="int" Mode="In" />
         </Function>
         <EntityContainer Name="Caja_AppModelStoreContainer">
+          <EntitySet Name="tblBancos" EntityType="Self.tblBancos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblCajas" EntityType="Self.tblCajas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblCuadres" EntityType="Self.tblCuadres" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDenominaciones" EntityType="Self.tblDenominaciones" Schema="dbo" store:Type="Tables" />
@@ -265,17 +299,21 @@
           <EntitySet Name="tblTiposDeUsuario" EntityType="Self.tblTiposDeUsuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblTransaccion" EntityType="Self.tblTransaccion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUsuarios" EntityType="Self.tblUsuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_banco" Association="Self.fk_banco">
+            <End Role="tblBancos" EntitySet="tblBancos" />
+            <End Role="tblTransaccion" EntitySet="tblTransaccion" />
+          </AssociationSet>
           <AssociationSet Name="fk_caja" Association="Self.fk_caja">
+            <End Role="tblCajas" EntitySet="tblCajas" />
+            <End Role="tblUsuarios" EntitySet="tblUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cajas" Association="Self.fk_cajas">
             <End Role="tblCajas" EntitySet="tblCajas" />
             <End Role="tblCuadres" EntitySet="tblCuadres" />
           </AssociationSet>
           <AssociationSet Name="fk_cajatransaccion" Association="Self.fk_cajatransaccion">
             <End Role="tblCajas" EntitySet="tblCajas" />
             <End Role="tblTransaccion" EntitySet="tblTransaccion" />
-          </AssociationSet>
-          <AssociationSet Name="fk_cajero" Association="Self.fk_cajero">
-            <End Role="tblUsuarios" EntitySet="tblUsuarios" />
-            <End Role="tblCajas" EntitySet="tblCajas" />
           </AssociationSet>
           <AssociationSet Name="fk_cajerocuadre" Association="Self.fk_cajerocuadre">
             <End Role="tblUsuarios" EntitySet="tblUsuarios" />
@@ -301,6 +339,10 @@
             <End Role="tblSucursales" EntitySet="tblSucursales" />
             <End Role="tblCajas" EntitySet="tblCajas" />
           </AssociationSet>
+          <AssociationSet Name="fk_sucursalUsuario" Association="Self.fk_sucursalUsuario">
+            <End Role="tblSucursales" EntitySet="tblSucursales" />
+            <End Role="tblUsuarios" EntitySet="tblUsuarios" />
+          </AssociationSet>
           <AssociationSet Name="fk_tipo" Association="Self.fk_tipo">
             <End Role="tblTipo_Transaccion" EntitySet="tblTipo_Transaccion" />
             <End Role="tblTransaccion" EntitySet="tblTransaccion" />
@@ -319,19 +361,26 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Caja_AppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblBancos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblTransaccion" Relationship="Self.fk_banco" FromRole="tblBancos" ToRole="tblTransaccion" />
+        </EntityType>
         <EntityType Name="tblCajas">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Cajero" Type="Int32" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <Property Name="Sucursal" Type="Int32" Nullable="false" />
           <Property Name="Balance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <NavigationProperty Name="tblCuadres" Relationship="Self.fk_caja" FromRole="tblCajas" ToRole="tblCuadres" />
+          <Property Name="Sucursal" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblUsuarios" Relationship="Self.fk_caja" FromRole="tblCajas" ToRole="tblUsuarios" />
+          <NavigationProperty Name="tblCuadres" Relationship="Self.fk_cajas" FromRole="tblCajas" ToRole="tblCuadres" />
           <NavigationProperty Name="tblTransaccion" Relationship="Self.fk_cajatransaccion" FromRole="tblCajas" ToRole="tblTransaccion" />
-          <NavigationProperty Name="tblUsuarios" Relationship="Self.fk_cajero" FromRole="tblCajas" ToRole="tblUsuarios" />
           <NavigationProperty Name="tblEstados_Caja" Relationship="Self.fk_estado" FromRole="tblCajas" ToRole="tblEstados_Caja" />
           <NavigationProperty Name="tblInventario_Efectivo" Relationship="Self.fk_inventariocaja" FromRole="tblCajas" ToRole="tblInventario_Efectivo" />
           <NavigationProperty Name="tblSucursales" Relationship="Self.fk_sucursal" FromRole="tblCajas" ToRole="tblSucursales" />
@@ -347,7 +396,7 @@
           <Property Name="Fecha_Cierre" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Caja" Type="Int32" Nullable="false" />
           <Property Name="Cajero" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tblCajas" Relationship="Self.fk_caja" FromRole="tblCuadres" ToRole="tblCajas" />
+          <NavigationProperty Name="tblCajas" Relationship="Self.fk_cajas" FromRole="tblCuadres" ToRole="tblCajas" />
           <NavigationProperty Name="tblUsuarios" Relationship="Self.fk_cajerocuadre" FromRole="tblCuadres" ToRole="tblUsuarios" />
         </EntityType>
         <EntityType Name="tblDenominaciones">
@@ -388,6 +437,7 @@
           <Property Name="Ubicacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="tblCajas" Relationship="Self.fk_sucursal" FromRole="tblSucursales" ToRole="tblCajas" />
+          <NavigationProperty Name="tblUsuarios" Relationship="Self.fk_sucursalUsuario" FromRole="tblSucursales" ToRole="tblUsuarios" />
         </EntityType>
         <EntityType Name="tblTipo_Transaccion">
           <Key>
@@ -423,7 +473,9 @@
           <Property Name="Cuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Caja" Type="Int32" Nullable="false" />
           <Property Name="Cajero" Type="Int32" Nullable="false" />
+          <Property Name="Banco" Type="Int32" Nullable="false" />
           <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="tblBancos" Relationship="Self.fk_banco" FromRole="tblTransaccion" ToRole="tblBancos" />
           <NavigationProperty Name="tblCajas" Relationship="Self.fk_cajatransaccion" FromRole="tblTransaccion" ToRole="tblCajas" />
           <NavigationProperty Name="tblTipo_Transaccion" Relationship="Self.fk_tipo" FromRole="tblTransaccion" ToRole="tblTipo_Transaccion" />
           <NavigationProperty Name="tblUsuarios" Relationship="Self.fk_cajerotransaccion" FromRole="tblTransaccion" ToRole="tblUsuarios" />
@@ -437,13 +489,40 @@
           <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Contraseña" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Tipo" Type="Int32" Nullable="false" />
+          <Property Name="Caja" Type="Int32" />
           <Property Name="Activo" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="tblCajas" Relationship="Self.fk_cajero" FromRole="tblUsuarios" ToRole="tblCajas" />
+          <Property Name="Sucursal" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblCajas" Relationship="Self.fk_caja" FromRole="tblUsuarios" ToRole="tblCajas" />
           <NavigationProperty Name="tblCuadres" Relationship="Self.fk_cajerocuadre" FromRole="tblUsuarios" ToRole="tblCuadres" />
+          <NavigationProperty Name="tblSucursales" Relationship="Self.fk_sucursalUsuario" FromRole="tblUsuarios" ToRole="tblSucursales" />
           <NavigationProperty Name="tblTiposDeUsuario" Relationship="Self.fk_tipousuario" FromRole="tblUsuarios" ToRole="tblTiposDeUsuario" />
           <NavigationProperty Name="tblTransaccion" Relationship="Self.fk_cajerotransaccion" FromRole="tblUsuarios" ToRole="tblTransaccion" />
         </EntityType>
+        <Association Name="fk_banco">
+          <End Role="tblBancos" Type="Self.tblBancos" Multiplicity="1" />
+          <End Role="tblTransaccion" Type="Self.tblTransaccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblBancos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblTransaccion">
+              <PropertyRef Name="Banco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_caja">
+          <End Role="tblCajas" Type="Self.tblCajas" Multiplicity="0..1" />
+          <End Role="tblUsuarios" Type="Self.tblUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCajas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUsuarios">
+              <PropertyRef Name="Caja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cajas">
           <End Role="tblCajas" Type="Self.tblCajas" Multiplicity="1" />
           <End Role="tblCuadres" Type="Self.tblCuadres" Multiplicity="*" />
           <ReferentialConstraint>
@@ -464,18 +543,6 @@
             </Principal>
             <Dependent Role="tblTransaccion">
               <PropertyRef Name="Caja" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_cajero">
-          <End Role="tblUsuarios" Type="Self.tblUsuarios" Multiplicity="0..1" />
-          <End Role="tblCajas" Type="Self.tblCajas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblUsuarios">
-              <PropertyRef Name="Codigo_Usuario" />
-            </Principal>
-            <Dependent Role="tblCajas">
-              <PropertyRef Name="Cajero" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -551,6 +618,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_sucursalUsuario">
+          <End Role="tblSucursales" Type="Self.tblSucursales" Multiplicity="1" />
+          <End Role="tblUsuarios" Type="Self.tblUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSucursales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblUsuarios">
+              <PropertyRef Name="Sucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_tipo">
           <End Role="tblTipo_Transaccion" Type="Self.tblTipo_Transaccion" Multiplicity="1" />
           <End Role="tblTransaccion" Type="Self.tblTransaccion" Multiplicity="*" />
@@ -587,7 +666,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Caja_AppEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Caja_AppEntities5" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblBancos" EntityType="Self.tblBancos" />
           <EntitySet Name="tblCajas" EntityType="Self.tblCajas" />
           <EntitySet Name="tblCuadres" EntityType="Self.tblCuadres" />
           <EntitySet Name="tblDenominaciones" EntityType="Self.tblDenominaciones" />
@@ -599,17 +679,21 @@
           <EntitySet Name="tblTiposDeUsuario" EntityType="Self.tblTiposDeUsuario" />
           <EntitySet Name="tblTransaccion" EntityType="Self.tblTransaccion" />
           <EntitySet Name="tblUsuarios" EntityType="Self.tblUsuarios" />
+          <AssociationSet Name="fk_banco" Association="Self.fk_banco">
+            <End Role="tblBancos" EntitySet="tblBancos" />
+            <End Role="tblTransaccion" EntitySet="tblTransaccion" />
+          </AssociationSet>
           <AssociationSet Name="fk_caja" Association="Self.fk_caja">
+            <End Role="tblCajas" EntitySet="tblCajas" />
+            <End Role="tblUsuarios" EntitySet="tblUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cajas" Association="Self.fk_cajas">
             <End Role="tblCajas" EntitySet="tblCajas" />
             <End Role="tblCuadres" EntitySet="tblCuadres" />
           </AssociationSet>
           <AssociationSet Name="fk_cajatransaccion" Association="Self.fk_cajatransaccion">
             <End Role="tblCajas" EntitySet="tblCajas" />
             <End Role="tblTransaccion" EntitySet="tblTransaccion" />
-          </AssociationSet>
-          <AssociationSet Name="fk_cajero" Association="Self.fk_cajero">
-            <End Role="tblUsuarios" EntitySet="tblUsuarios" />
-            <End Role="tblCajas" EntitySet="tblCajas" />
           </AssociationSet>
           <AssociationSet Name="fk_estado" Association="Self.fk_estado">
             <End Role="tblEstados_Caja" EntitySet="tblEstados_Caja" />
@@ -635,6 +719,10 @@
             <End Role="tblTipoDenominaciones" EntitySet="tblTipoDenominaciones" />
             <End Role="tblDenominaciones" EntitySet="tblDenominaciones" />
           </AssociationSet>
+          <AssociationSet Name="fk_sucursalUsuario" Association="Self.fk_sucursalUsuario">
+            <End Role="tblSucursales" EntitySet="tblSucursales" />
+            <End Role="tblUsuarios" EntitySet="tblUsuarios" />
+          </AssociationSet>
           <AssociationSet Name="fk_tipo" Association="Self.fk_tipo">
             <End Role="tblTipo_Transaccion" EntitySet="tblTipo_Transaccion" />
             <End Role="tblTransaccion" EntitySet="tblTransaccion" />
@@ -647,19 +735,11 @@
             <End Role="tblUsuarios" EntitySet="tblUsuarios" />
             <End Role="tblTransaccion" EntitySet="tblTransaccion" />
           </AssociationSet>
-          <FunctionImport Name="tblCajas_GetAll" ReturnType="Collection(Caja_AppModel.tblCajas_GetAll_Result)" />
+          <FunctionImport Name="tblCajas_GetAll" />
           <FunctionImport Name="tblUsuarios_GetById" ReturnType="Collection(Caja_AppModel.tblUsuarios_GetById_Result)">
             <Parameter Name="Codigo_Usuario" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
-        <ComplexType Name="tblCajas_GetAll_Result">
-          <Property Type="Int32" Name="Id" Nullable="false" />
-          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="Cajero" Nullable="true" />
-          <Property Type="Int32" Name="Estado" Nullable="false" />
-          <Property Type="Int32" Name="Sucursal" Nullable="false" />
-          <Property Type="Decimal" Name="Balance" Nullable="false" Precision="18" Scale="0" />
-        </ComplexType>
         <ComplexType Name="tblUsuarios_GetById_Result">
           <Property Type="Int32" Name="Codigo_Usuario" Nullable="false" />
           <Property Type="String" Name="Apellidos" Nullable="false" MaxLength="50" />
@@ -672,16 +752,23 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Caja_AppModelStoreContainer" CdmEntityContainer="Caja_AppEntities">
+        <EntityContainerMapping StorageEntityContainer="Caja_AppModelStoreContainer" CdmEntityContainer="Caja_AppEntities5">
+          <EntitySetMapping Name="tblBancos">
+            <EntityTypeMapping TypeName="Caja_AppModel.tblBancos">
+              <MappingFragment StoreEntitySet="tblBancos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tblCajas">
             <EntityTypeMapping TypeName="Caja_AppModel.tblCajas">
               <MappingFragment StoreEntitySet="tblCajas">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Cajero" ColumnName="Cajero" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
                 <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -768,6 +855,7 @@
                 <ScalarProperty Name="Cuenta" ColumnName="Cuenta" />
                 <ScalarProperty Name="Caja" ColumnName="Caja" />
                 <ScalarProperty Name="Cajero" ColumnName="Cajero" />
+                <ScalarProperty Name="Banco" ColumnName="Banco" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -780,22 +868,13 @@
                 <ScalarProperty Name="Nombres" ColumnName="Nombres" />
                 <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
                 <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Caja" ColumnName="Caja" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="tblCajas_GetAll" FunctionName="Caja_AppModel.Store.tblCajas_GetAll">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Caja_AppModel.tblCajas_GetAll_Result">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Cajero" ColumnName="Cajero" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
-                <ScalarProperty Name="Balance" ColumnName="Balance" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="tblCajas_GetAll" FunctionName="Caja_AppModel.Store.tblCajas_GetAll" />
           <FunctionImportMapping FunctionImportName="tblUsuarios_GetById" FunctionName="Caja_AppModel.Store.tblUsuarios_GetById">
             <ResultMapping>
               <ComplexTypeMapping TypeName="Caja_AppModel.tblUsuarios_GetById_Result">

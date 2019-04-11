@@ -190,20 +190,20 @@
             // generarReporteToolStripMenuItem
             // 
             this.generarReporteToolStripMenuItem.Name = "generarReporteToolStripMenuItem";
-            this.generarReporteToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.generarReporteToolStripMenuItem.Size = new System.Drawing.Size(179, 24);
             this.generarReporteToolStripMenuItem.Text = "Generar Reporte";
             // 
             // cerrarCajaToolStripMenuItem
             // 
             this.cerrarCajaToolStripMenuItem.Name = "cerrarCajaToolStripMenuItem";
-            this.cerrarCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.cerrarCajaToolStripMenuItem.Size = new System.Drawing.Size(179, 24);
             this.cerrarCajaToolStripMenuItem.Text = "Cerrar Caja";
             // 
             // Panel1
             // 
             this.Panel1.Location = new System.Drawing.Point(0, 73);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(874, 302);
+            this.Panel1.Size = new System.Drawing.Size(874, 474);
             this.Panel1.TabIndex = 11;
             this.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -221,7 +221,7 @@
             this.toolStripStatusLabel9,
             this.toolStripStatusLabel10,
             this.lbEstado});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 375);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 550);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(874, 22);
             this.statusStrip1.TabIndex = 0;
@@ -299,7 +299,7 @@
             // MenuP
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(874, 397);
+            this.ClientSize = new System.Drawing.Size(874, 572);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Cerrar);
