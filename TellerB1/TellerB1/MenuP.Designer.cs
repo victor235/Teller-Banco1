@@ -189,6 +189,7 @@
             this.cerrarCajaToolStripMenuItem.Name = "cerrarCajaToolStripMenuItem";
             this.cerrarCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.cerrarCajaToolStripMenuItem.Text = "Cerrar Caja";
+            this.cerrarCajaToolStripMenuItem.Click += new System.EventHandler(this.cerrarCajaToolStripMenuItem_Click);
             // 
             // Panel1
             // 

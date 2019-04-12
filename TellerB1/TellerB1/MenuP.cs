@@ -15,6 +15,7 @@ namespace TellerB1
     public partial class MenuP : Form
     {
         Usuario cajero;
+        DataManager datamanager = new DataManager();
 
         public MenuP(Usuario cajero)
         {
@@ -139,6 +140,50 @@ namespace TellerB1
 
         private void MenuP_Load(object sender, EventArgs e)
         {
+            CargarMenu();
+        }
+
+        private void abrirCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Panel1.Controls.Clear();
+            AbrirCaja fcuadre = new AbrirCaja(cajero);
+            fcuadre.TopLevel = false;
+            Panel1.Controls.Add(fcuadre);
+            fcuadre.Show();
+        }
+
+        private void cerrarCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Esta seguro que desea cerrar esta caja?", "Cerrar Caja", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+            {
+                return;
+            }
+            else
+            {
+                Caja_AppEntities6 teller = new Caja_AppEntities6();
+                teller = CompletarCuadre(teller);
+                teller = CerrarCaja(teller);
+                datamanager.SaveChanges(teller);
+                MessageBox.Show("Caja cerrada exitosamente");
+                CargarMenu();
+            }
+        }
+
+        Caja_AppEntities6 CerrarCaja(Caja_AppEntities6 teller)
+        {
+            teller = cajero.Caja.CerrarCaja(teller);
+            return teller;
+        }
+
+        Caja_AppEntities6 CompletarCuadre(Caja_AppEntities6 teller)
+        {
+            Cuadre cuadre = new Cuadre(cajero.Caja.Balance, DateTime.Now, cajero.Caja);
+            teller = cuadre.CerrarCuadre(teller);
+            return teller;
+        }
+
+        void CargarMenu()
+        {
             lbCaja.Text = cajero.Caja.Descripcion;
             lbCajero.Text = cajero.Codigo_Usuario.ToString();
             lbSucursal.Text = cajero.Caja.Sucursal.Id.ToString();
@@ -167,15 +212,6 @@ namespace TellerB1
                 inventarioToolStripMenuItem.Enabled = false;
                 cerrarCajaToolStripMenuItem.Enabled = false;
             }
-        }
-
-        private void abrirCajaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Panel1.Controls.Clear();
-            AbrirCaja fcuadre = new AbrirCaja(cajero);
-            fcuadre.TopLevel = false;
-            Panel1.Controls.Add(fcuadre);
-            fcuadre.Show();
         }
     }
 }

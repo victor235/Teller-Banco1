@@ -34,6 +34,14 @@ namespace DataModel
             teller.tblCajas.Find(id).Estado = Convert.ToInt32(estado) + 1;
             return teller;
         }
+
+        public Caja_AppEntities6 CerrarCaja(Caja_AppEntities6 teller)
+        {
+            estado = EstadoCaja.Cerrada;
+
+            teller.tblCajas.Find(id).Estado = Convert.ToInt32(estado) + 1;
+            return teller;
+        }
     }
 
     public enum EstadoCaja { Cerrada, Abierta};
