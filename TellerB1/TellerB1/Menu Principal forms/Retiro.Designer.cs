@@ -106,6 +106,7 @@
             this.btnRetiro.TabIndex = 17;
             this.btnRetiro.Text = "Completar Retiro";
             this.btnRetiro.UseVisualStyleBackColor = false;
+            this.btnRetiro.Click += new System.EventHandler(this.btnRetiro_Click);
             // 
             // groupBox1
             // 

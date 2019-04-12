@@ -74,7 +74,7 @@ namespace TellerB1
                 MessageBox.Show(confirmacion.mensajeConfirmación);
             }
 
-            Report reporte = new Report();
+            ReciboDeposito reporte = new ReciboDeposito();
             reporte.Show();
         }
 

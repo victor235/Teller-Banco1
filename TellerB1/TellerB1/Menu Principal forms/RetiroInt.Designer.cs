@@ -37,6 +37,7 @@
             this.noCuenta = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Recibo = new System.Windows.Forms.GroupBox();
+            this.btnRetiro = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +55,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnRetiro);
             this.groupBox1.Controls.Add(this.dmonto);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -62,7 +64,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(37, 85);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(615, 480);
+            this.groupBox1.Size = new System.Drawing.Size(615, 404);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
@@ -134,6 +136,21 @@
             this.Recibo.TabStop = false;
             this.Recibo.Text = "Recibo";
             // 
+            // btnRetiro
+            // 
+            this.btnRetiro.BackColor = System.Drawing.Color.Transparent;
+            this.btnRetiro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRetiro.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRetiro.ForeColor = System.Drawing.Color.Black;
+            this.btnRetiro.Location = new System.Drawing.Point(255, 284);
+            this.btnRetiro.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRetiro.Name = "btnRetiro";
+            this.btnRetiro.Size = new System.Drawing.Size(224, 45);
+            this.btnRetiro.TabIndex = 24;
+            this.btnRetiro.Text = "Completar Retiro";
+            this.btnRetiro.UseVisualStyleBackColor = false;
+            this.btnRetiro.Click += new System.EventHandler(this.btnRetiro_Click);
+            // 
             // RetiroInt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -164,5 +181,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox dmonto;
         private System.Windows.Forms.GroupBox Recibo;
+        private System.Windows.Forms.Button btnRetiro;
     }
 }

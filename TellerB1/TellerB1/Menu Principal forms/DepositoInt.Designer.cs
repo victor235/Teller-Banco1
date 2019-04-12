@@ -37,6 +37,7 @@
             this.tbCedula = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.gbRecibo = new System.Windows.Forms.GroupBox();
+            this.btnDeposito = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +55,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnDeposito);
             this.groupBox1.Controls.Add(this.tbMonto);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.tbCuenta);
@@ -139,6 +141,21 @@
             this.gbRecibo.TabStop = false;
             this.gbRecibo.Text = "Recibo";
             // 
+            // btnDeposito
+            // 
+            this.btnDeposito.BackColor = System.Drawing.Color.Transparent;
+            this.btnDeposito.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDeposito.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeposito.ForeColor = System.Drawing.Color.Black;
+            this.btnDeposito.Location = new System.Drawing.Point(250, 258);
+            this.btnDeposito.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDeposito.Name = "btnDeposito";
+            this.btnDeposito.Size = new System.Drawing.Size(224, 45);
+            this.btnDeposito.TabIndex = 25;
+            this.btnDeposito.Text = "Realizar Deposito";
+            this.btnDeposito.UseVisualStyleBackColor = false;
+            this.btnDeposito.Click += new System.EventHandler(this.btnDeposito_Click);
+            // 
             // DepositoInt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -169,5 +186,6 @@
         private System.Windows.Forms.TextBox tbCedula;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox gbRecibo;
+        private System.Windows.Forms.Button btnDeposito;
     }
 }

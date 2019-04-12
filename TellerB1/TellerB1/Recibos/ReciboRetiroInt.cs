@@ -10,23 +10,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace TellerB1
 {
-    public partial class Report : Form
+    public partial class ReciboRetiroInt : Form
     {
-        public Report()
+        public ReciboRetiroInt()
         {
             InitializeComponent();
         }
 
-        private void Report_Load(object sender, EventArgs e)
-        {
-
-            this.reporte.RefreshReport();
-        }
-
-        private void reportViewer1_Load(object sender, EventArgs e)
+        private void reporte_Load(object sender, EventArgs e)
         {
             Warning[] warnings;
             string[] streamids;
@@ -38,37 +31,15 @@ namespace TellerB1
             byte[] bytes = reporte.LocalReport.Render(
                 "PDF", null, out mimeType, out encoding, out filenameExtension,
                 out streamids, out warnings);
-            
+
             //DONDE ESTA RECIBO + PDF VA EL PATH 
-            using (FileStream fs = new FileStream(recibo +".pdf", FileMode.Create))
+            using (FileStream fs = new FileStream(recibo + ".pdf", FileMode.Create))
             {
                 fs.Write(bytes, 0, bytes.Length);
             }
             //Fecha y hora del recibo
             fecha.Text = DateTime.Now.ToLongDateString();
             hora.Text = DateTime.Now.ToLongTimeString();
-            //Los siguientes datos que vengan de la base de datos
-
-            //noCajero.Text =
-            //monto.Text =
-            //cuenta.Text =
-            //noRecibo.Text =
-
-        }
-
-        private void reciboDatos_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void recibo_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

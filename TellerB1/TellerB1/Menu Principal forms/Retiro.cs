@@ -21,5 +21,12 @@ namespace TellerB1
         {
 
         }
+
+        private void btnRetiro_Click(object sender, EventArgs e)
+        {
+
+            ReciboRetiro reciboRetiro = new ReciboRetiro();
+            reciboRetiro.Show();
+        }
     }
 }

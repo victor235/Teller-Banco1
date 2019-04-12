@@ -177,11 +177,29 @@
     <Compile Include="Menu Principal forms\RetiroInt.Designer.cs">
       <DependentUpon>RetiroInt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Report.cs">
+    <Compile Include="Recibos\ReciboDeposito.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Report.Designer.cs">
-      <DependentUpon>Report.cs</DependentUpon>
+    <Compile Include="Recibos\ReciboDeposito.Designer.cs">
+      <DependentUpon>ReciboDeposito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recibos\ReciboDepositoInt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recibos\ReciboDepositoInt.Designer.cs">
+      <DependentUpon>ReciboDepositoInt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recibos\ReciboRetiro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recibos\ReciboRetiro.Designer.cs">
+      <DependentUpon>ReciboRetiro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recibos\ReciboRetiroInt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recibos\ReciboRetiroInt.Designer.cs">
+      <DependentUpon>ReciboRetiroInt.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="Menu Principal forms\DepositoInt.resx">
@@ -241,8 +259,17 @@
     <EmbeddedResource Include="Menu Principal forms\Retiro.resx">
       <DependentUpon>Retiro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report.resx">
-      <DependentUpon>Report.cs</DependentUpon>
+    <EmbeddedResource Include="Recibos\ReciboDeposito.resx">
+      <DependentUpon>ReciboDeposito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recibos\ReciboDepositoInt.resx">
+      <DependentUpon>ReciboDepositoInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recibos\ReciboRetiro.resx">
+      <DependentUpon>ReciboRetiro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recibos\ReciboRetiroInt.resx">
+      <DependentUpon>ReciboRetiroInt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteDeposito.rdlc" />
     <None Include="app.config" />

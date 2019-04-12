@@ -21,5 +21,11 @@ namespace TellerB1
         {
 
         }
+
+        private void btnDeposito_Click(object sender, EventArgs e)
+        {
+            ReciboDepositoInt reciboDepositoInt = new ReciboDepositoInt();
+            reciboDepositoInt.Show();
+        }
     }
 }
