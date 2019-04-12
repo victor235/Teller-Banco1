@@ -14,12 +14,12 @@ namespace TellerB1
 {
     public partial class MenuP : Form
     {
-        Usuario usuario;
+        Usuario cajero;
 
-        public MenuP(Usuario usuario)
+        public MenuP(Usuario cajero)
         {
             InitializeComponent();
-            this.usuario = usuario;
+            this.cajero = cajero;
 
         }
 
@@ -47,7 +47,7 @@ namespace TellerB1
         private void depositoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Panel1.Controls.Clear();
-            Deposito fdeposito = new Deposito(usuario);
+            Deposito fdeposito = new Deposito(cajero);
             fdeposito.TopLevel = false;
             Panel1.Controls.Add(fdeposito);
             fdeposito.Show();
@@ -105,15 +105,6 @@ namespace TellerB1
 
         }
 
-        private void cuadreToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Panel1.Controls.Clear();
-            Cuadre fcuadre = new Cuadre();
-            fcuadre.TopLevel = false;
-            Panel1.Controls.Add(fcuadre);
-            fcuadre.Show();
-        }
-
         private void depositoInterbancarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Panel1.Controls.Clear();
@@ -148,10 +139,36 @@ namespace TellerB1
 
         private void MenuP_Load(object sender, EventArgs e)
         {
-            lbCaja.Text = usuario.Caja.Descripcion;
-            lbCajero.Text = usuario.Codigo_Usuario.ToString();
-            lbSucursal.Text = usuario.Caja.Sucursal.Id.ToString();
-            lbEstado.Text = usuario.Caja.Estado.ToString();
+            lbCaja.Text = cajero.Caja.Descripcion;
+            lbCajero.Text = cajero.Codigo_Usuario.ToString();
+            lbSucursal.Text = cajero.Caja.Sucursal.Id.ToString();
+            lbEstado.Text = cajero.Caja.Estado.ToString();
+
+            if (cajero.Caja.Estado == EstadoCaja.Abierta)
+            {
+                Panel1.Controls.Clear();
+                Deposito fdeposito = new Deposito(cajero);
+                fdeposito.TopLevel = false;
+                Panel1.Controls.Add(fdeposito);
+                fdeposito.Show();
+            }
+            else
+            {
+                Panel1.Controls.Clear();
+                Cuadre fcuadre = new Cuadre(cajero);
+                fcuadre.TopLevel = false;
+                Panel1.Controls.Add(fcuadre);
+                fcuadre.Show();
+            }
+        }
+
+        private void abrirCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Panel1.Controls.Clear();
+            Cuadre fcuadre = new Cuadre(cajero);
+            fcuadre.TopLevel = false;
+            Panel1.Controls.Add(fcuadre);
+            fcuadre.Show();
         }
     }
 }

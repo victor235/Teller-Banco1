@@ -63,6 +63,7 @@ namespace DataModel
             return new LocalConfirmacion(true);
         }
 
+        #region Datatables
         public DataTable DenominacionesDataTable()
         {
             DataTable Data = new DataTable();
@@ -145,6 +146,13 @@ namespace DataModel
 
             return Data;
         }
+
+        //public DataTable InventarioDataTable()
+        //{
+        //    Caja_AppEntities5 teller = new Caja_AppEntities5();
+            
+        //}
+        #endregion
     }
 
     internal static class MissingDllHack
