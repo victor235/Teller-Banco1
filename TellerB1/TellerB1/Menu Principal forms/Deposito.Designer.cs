@@ -43,7 +43,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.gbVerificarCuenta = new System.Windows.Forms.GroupBox();
-            this.tblyClienteCuenta = new System.Windows.Forms.TableLayoutPanel();
             this.tbCuentaVerificada = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -52,13 +51,28 @@
             this.tbVerificarCuenta = new System.Windows.Forms.TextBox();
             this.gbRecibo = new System.Windows.Forms.GroupBox();
             this.dtgvDenominaciones = new System.Windows.Forms.DataGridView();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dtgvDevuelta = new System.Windows.Forms.DataGridView();
+            this.tbEfectivo = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbDevuelta = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbRealDevuelta = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFotoCliente)).BeginInit();
             this.Recibo.SuspendLayout();
             this.gbVerificarCuenta.SuspendLayout();
-            this.tblyClienteCuenta.SuspendLayout();
             this.gbRecibo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDenominaciones)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvDevuelta)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -84,7 +98,7 @@
             // 
             // tbCuenta
             // 
-            this.tbCuenta.BackColor = System.Drawing.SystemColors.Control;
+            this.tbCuenta.BackColor = System.Drawing.SystemColors.Window;
             this.tbCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCuenta.Location = new System.Drawing.Point(178, 63);
             this.tbCuenta.Name = "tbCuenta";
@@ -103,12 +117,13 @@
             // 
             // tbMonto
             // 
+            this.tbMonto.BackColor = System.Drawing.SystemColors.Window;
             this.tbMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMonto.Location = new System.Drawing.Point(178, 125);
             this.tbMonto.Name = "tbMonto";
-            this.tbMonto.ReadOnly = true;
             this.tbMonto.Size = new System.Drawing.Size(189, 23);
             this.tbMonto.TabIndex = 14;
+            this.tbMonto.Leave += new System.EventHandler(this.tbMonto_Leave);
             // 
             // btnDeposito
             // 
@@ -207,8 +222,11 @@
             // 
             // gbVerificarCuenta
             // 
-            this.gbVerificarCuenta.Controls.Add(this.tblyClienteCuenta);
+            this.gbVerificarCuenta.Controls.Add(this.tbCuentaVerificada);
+            this.gbVerificarCuenta.Controls.Add(this.label7);
             this.gbVerificarCuenta.Controls.Add(this.btnVerificarCuenta);
+            this.gbVerificarCuenta.Controls.Add(this.label5);
+            this.gbVerificarCuenta.Controls.Add(this.tbClienteVerificado);
             this.gbVerificarCuenta.Controls.Add(this.tbVerificarCuenta);
             this.gbVerificarCuenta.Location = new System.Drawing.Point(501, 42);
             this.gbVerificarCuenta.Name = "gbVerificarCuenta";
@@ -217,27 +235,10 @@
             this.gbVerificarCuenta.TabStop = false;
             this.gbVerificarCuenta.Text = "Verificar Cuenta";
             // 
-            // tblyClienteCuenta
-            // 
-            this.tblyClienteCuenta.ColumnCount = 2;
-            this.tblyClienteCuenta.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblyClienteCuenta.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblyClienteCuenta.Controls.Add(this.tbCuentaVerificada, 1, 1);
-            this.tblyClienteCuenta.Controls.Add(this.label7, 0, 1);
-            this.tblyClienteCuenta.Controls.Add(this.label5, 0, 0);
-            this.tblyClienteCuenta.Controls.Add(this.tbClienteVerificado, 1, 0);
-            this.tblyClienteCuenta.Location = new System.Drawing.Point(48, 92);
-            this.tblyClienteCuenta.Name = "tblyClienteCuenta";
-            this.tblyClienteCuenta.RowCount = 2;
-            this.tblyClienteCuenta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblyClienteCuenta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblyClienteCuenta.Size = new System.Drawing.Size(247, 42);
-            this.tblyClienteCuenta.TabIndex = 2;
-            // 
             // tbCuentaVerificada
             // 
-            this.tbCuentaVerificada.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbCuentaVerificada.Location = new System.Drawing.Point(126, 24);
+            this.tbCuentaVerificada.BackColor = System.Drawing.SystemColors.Window;
+            this.tbCuentaVerificada.Location = new System.Drawing.Point(182, 116);
             this.tbCuentaVerificada.Name = "tbCuentaVerificada";
             this.tbCuentaVerificada.ReadOnly = true;
             this.tbCuentaVerificada.Size = new System.Drawing.Size(118, 20);
@@ -246,29 +247,27 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label7.Location = new System.Drawing.Point(3, 21);
+            this.label7.Location = new System.Drawing.Point(59, 113);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(117, 21);
+            this.label7.Size = new System.Drawing.Size(49, 15);
             this.label7.TabIndex = 1;
             this.label7.Text = "Cuenta:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label5.Location = new System.Drawing.Point(3, 0);
+            this.label5.Location = new System.Drawing.Point(59, 92);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 21);
+            this.label5.Size = new System.Drawing.Size(48, 15);
             this.label5.TabIndex = 0;
             this.label5.Text = "Cliente:";
             // 
             // tbClienteVerificado
             // 
-            this.tbClienteVerificado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbClienteVerificado.Location = new System.Drawing.Point(126, 3);
+            this.tbClienteVerificado.BackColor = System.Drawing.SystemColors.Window;
+            this.tbClienteVerificado.Location = new System.Drawing.Point(182, 95);
             this.tbClienteVerificado.Name = "tbClienteVerificado";
             this.tbClienteVerificado.ReadOnly = true;
             this.tbClienteVerificado.Size = new System.Drawing.Size(118, 20);
@@ -294,23 +293,146 @@
             // gbRecibo
             // 
             this.gbRecibo.Controls.Add(this.dtgvDenominaciones);
-            this.gbRecibo.Location = new System.Drawing.Point(490, 219);
+            this.gbRecibo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gbRecibo.Location = new System.Drawing.Point(3, 3);
             this.gbRecibo.Name = "gbRecibo";
-            this.gbRecibo.Size = new System.Drawing.Size(382, 245);
+            this.gbRecibo.Size = new System.Drawing.Size(265, 249);
             this.gbRecibo.TabIndex = 21;
             this.gbRecibo.TabStop = false;
             this.gbRecibo.Text = "Denominaciones";
             // 
             // dtgvDenominaciones
             // 
+            this.dtgvDenominaciones.BackgroundColor = System.Drawing.SystemColors.Menu;
             this.dtgvDenominaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvDenominaciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvDenominaciones.Location = new System.Drawing.Point(3, 16);
             this.dtgvDenominaciones.Name = "dtgvDenominaciones";
-            this.dtgvDenominaciones.Size = new System.Drawing.Size(376, 226);
+            this.dtgvDenominaciones.Size = new System.Drawing.Size(259, 230);
             this.dtgvDenominaciones.TabIndex = 0;
             this.dtgvDenominaciones.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvDenominaciones_CellEndEdit);
             this.dtgvDenominaciones.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dtgvDenominaciones_DataError);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Enabled = false;
+            this.tabControl1.Location = new System.Drawing.Point(452, 212);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(460, 281);
+            this.tabControl1.TabIndex = 22;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Menu;
+            this.tabPage1.Controls.Add(this.tbEfectivo);
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.gbRecibo);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(452, 255);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Total Efectivo";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.SystemColors.Menu;
+            this.tabPage2.Controls.Add(this.tbRealDevuelta);
+            this.tabPage2.Controls.Add(this.label10);
+            this.tabPage2.Controls.Add(this.tbDevuelta);
+            this.tabPage2.Controls.Add(this.label9);
+            this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(452, 255);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Devuelta";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dtgvDevuelta);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox2.Location = new System.Drawing.Point(3, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(265, 249);
+            this.groupBox2.TabIndex = 22;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Denominaciones";
+            // 
+            // dtgvDevuelta
+            // 
+            this.dtgvDevuelta.BackgroundColor = System.Drawing.SystemColors.Menu;
+            this.dtgvDevuelta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvDevuelta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvDevuelta.Enabled = false;
+            this.dtgvDevuelta.Location = new System.Drawing.Point(3, 16);
+            this.dtgvDevuelta.Name = "dtgvDevuelta";
+            this.dtgvDevuelta.Size = new System.Drawing.Size(259, 230);
+            this.dtgvDevuelta.TabIndex = 0;
+            this.dtgvDevuelta.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvDevuelta_CellEndEdit);
+            this.dtgvDevuelta.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dtgvDevuelta_DataError);
+            // 
+            // tbEfectivo
+            // 
+            this.tbEfectivo.BackColor = System.Drawing.SystemColors.Window;
+            this.tbEfectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEfectivo.Location = new System.Drawing.Point(294, 134);
+            this.tbEfectivo.Name = "tbEfectivo";
+            this.tbEfectivo.ReadOnly = true;
+            this.tbEfectivo.Size = new System.Drawing.Size(145, 23);
+            this.tbEfectivo.TabIndex = 23;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(312, 99);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(105, 20);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Total Efectivo";
+            // 
+            // tbDevuelta
+            // 
+            this.tbDevuelta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDevuelta.Location = new System.Drawing.Point(294, 184);
+            this.tbDevuelta.Name = "tbDevuelta";
+            this.tbDevuelta.ReadOnly = true;
+            this.tbDevuelta.Size = new System.Drawing.Size(145, 23);
+            this.tbDevuelta.TabIndex = 25;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(291, 150);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(150, 20);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Devuelta Requerida";
+            // 
+            // tbRealDevuelta
+            // 
+            this.tbRealDevuelta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbRealDevuelta.Location = new System.Drawing.Point(294, 91);
+            this.tbRealDevuelta.Name = "tbRealDevuelta";
+            this.tbRealDevuelta.ReadOnly = true;
+            this.tbRealDevuelta.Size = new System.Drawing.Size(145, 23);
+            this.tbRealDevuelta.TabIndex = 27;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(282, 51);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(167, 20);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Total Denominaciones";
             // 
             // Deposito
             // 
@@ -318,7 +440,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(924, 512);
-            this.Controls.Add(this.gbRecibo);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.gbVerificarCuenta);
             this.Controls.Add(this.Recibo);
             this.Controls.Add(this.groupBox1);
@@ -334,10 +456,15 @@
             this.Recibo.PerformLayout();
             this.gbVerificarCuenta.ResumeLayout(false);
             this.gbVerificarCuenta.PerformLayout();
-            this.tblyClienteCuenta.ResumeLayout(false);
-            this.tblyClienteCuenta.PerformLayout();
             this.gbRecibo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDenominaciones)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvDevuelta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,7 +487,6 @@
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.PictureBox ptbFotoCliente;
         private System.Windows.Forms.GroupBox gbVerificarCuenta;
-        private System.Windows.Forms.TableLayoutPanel tblyClienteCuenta;
         private System.Windows.Forms.TextBox tbCuentaVerificada;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
@@ -369,5 +495,16 @@
         private System.Windows.Forms.TextBox tbVerificarCuenta;
         private System.Windows.Forms.GroupBox gbRecibo;
         private System.Windows.Forms.DataGridView dtgvDenominaciones;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TextBox tbEfectivo;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TextBox tbDevuelta;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dtgvDevuelta;
+        private System.Windows.Forms.TextBox tbRealDevuelta;
+        private System.Windows.Forms.Label label10;
     }
 }

@@ -19,6 +19,7 @@ namespace TellerB1
         LocalCliente clienteActivo;
         LocalDeposito deposito;
         DataManager datamanager = new DataManager();
+        decimal montoDeposito;
 
         public Deposito(Usuario usuario)
         {
@@ -30,6 +31,7 @@ namespace TellerB1
         {
             ConexionIntegrador();
             CompletarDtgv();
+            CompletarDevueltaDtgv();
         }
 
         void ConexionIntegrador()
@@ -105,9 +107,19 @@ namespace TellerB1
         void CompletarDtgv()
         {
             DataTable Data = datamanager.LLenarFilas();
+            
             dtgvDenominaciones.DataSource = Data;
             dtgvDenominaciones.Columns[2].ReadOnly = true;
             dtgvDenominaciones.AllowUserToAddRows = false;
+            
+        }
+        void CompletarDevueltaDtgv()
+        {
+            DataTable Data = datamanager.LLenarFilas();
+
+            dtgvDevuelta.DataSource = Data;
+            dtgvDevuelta.Columns[2].ReadOnly = true;
+            dtgvDevuelta.AllowUserToAddRows = false;
         }
         private void dtgvDenominaciones_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -118,9 +130,27 @@ namespace TellerB1
             }
             monto = Convert.ToInt32(dtgvDenominaciones.Rows[e.RowIndex].Cells[1].Value) * Convert.ToInt32(dtgvDenominaciones.Rows[e.RowIndex].Cells[0].Value);
             dtgvDenominaciones.Rows[e.RowIndex].Cells[2].Value = monto;
-            PresentarMontoDeposito();
+            PresentarMontoEfectivo();
         }
         private void dtgvDenominaciones_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            //MessageBox.Show("La columna \"Cantidad\" solo admite valores numericos", "Error Formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(e.Exception.Message);
+        }
+
+        private void dtgvDevuelta_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            int monto;
+            if (dtgvDevuelta.Rows[e.RowIndex].Cells[1].Value.GetType() == typeof(DBNull))
+            {
+                dtgvDevuelta.Rows[e.RowIndex].Cells[1].Value = 0;
+            }
+            monto = Convert.ToInt32(dtgvDevuelta.Rows[e.RowIndex].Cells[1].Value) * Convert.ToInt32(dtgvDevuelta.Rows[e.RowIndex].Cells[0].Value);
+            dtgvDevuelta.Rows[e.RowIndex].Cells[2].Value = monto;
+            CompararMontoDevuelta();
+        }
+
+        private void dtgvDevuelta_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             //MessageBox.Show("La columna \"Cantidad\" solo admite valores numericos", "Error Formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
             MessageBox.Show(e.Exception.Message);
@@ -130,20 +160,52 @@ namespace TellerB1
         #region Preparar Deposito
         void HabilitarDeposito()
         {
+            if (montoDeposito == 0)
+            {
+                btnDeposito.Enabled = false;
+                tabControl1.Enabled = false;
+                return;
+            }
+
+            decimal efectivo;
+            decimal devuelta;
+            if (!decimal.TryParse(tbEfectivo.Text, out efectivo))
+            {
+                efectivo = 0;
+            }
+            if (!decimal.TryParse(tbRealDevuelta.Text, out devuelta))
+            {
+                devuelta = 0;
+            }
+
             if (tbCuenta.Text != string.Empty && tbMonto.Text != string.Empty)
             {
-                btnDeposito.Enabled = true;
+                if (montoDeposito == (efectivo - devuelta))
+                {
+                    btnDeposito.Enabled = true;
+                }
+                else
+                {
+                    btnDeposito.Enabled = false;
+                }
             }
+            else
+            {
+                btnDeposito.Enabled = false;
+                return;
+            }
+            
+            
         }
-        void PresentarMontoDeposito()
+        void PresentarMontoEfectivo()
         {
             int total = 0;
             foreach (DataGridViewRow row in dtgvDenominaciones.Rows)
             {
                 total += Convert.ToInt32(row.Cells[2].Value);
             }
-            tbMonto.Text = total.ToString();
-            HabilitarDeposito();
+            tbEfectivo.Text = total.ToString();
+            EvaluarMontos();
         }
         #endregion
 
@@ -174,10 +236,21 @@ namespace TellerB1
         Caja_AppEntities6 GuardarInventarios(Caja_AppEntities6 teller)
         {
             List<Inventarios> inventarios = new List<Inventarios>();
+            List<Inventarios> devueltas = new List<Inventarios>();
             foreach (DataGridViewRow row in dtgvDenominaciones.Rows)
             {
                 decimal denominacion = Convert.ToDecimal(row.Cells[0].Value);
                 int cantidad = Convert.ToInt32(row.Cells[1].Value);
+
+                if (cantidad != 0)
+                {
+                    inventarios.Add(new Inventarios(usuario.Caja, new Denominaciones(denominacion), cantidad));
+                }
+            }
+            foreach (DataGridViewRow row in dtgvDevuelta.Rows)
+            {
+                decimal denominacion = Convert.ToDecimal(row.Cells[0].Value);
+                int cantidad = Convert.ToInt32(row.Cells[1].Value) * (-1);
 
                 if (cantidad != 0)
                 {
@@ -199,5 +272,108 @@ namespace TellerB1
             return teller;
         }
         #endregion
+
+        private void tbMonto_Leave(object sender, EventArgs e)
+        {
+            CompletarDtgv();
+            CompletarDevueltaDtgv();
+            tbEfectivo.Clear();
+            tbDevuelta.Clear();
+            tbRealDevuelta.Clear();
+            DtgvEnable();
+            EvaluarMontos();
+        }
+
+        void DtgvEnable()
+        {
+            if (tbMonto.Text == string.Empty)
+            {
+                montoDeposito = 0;
+                tabControl1.Enabled = false;
+                return;
+            }
+
+            if (!decimal.TryParse(tbMonto.Text, out montoDeposito))
+            {
+                MessageBox.Show("Por favor ingrese una cantidad numerica", "Error de Monto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            tabControl1.Enabled = true;
+        }
+
+        void EvaluarMontos()
+        {
+            
+            decimal efectivo;
+            decimal devuelta;
+            if(!decimal.TryParse(tbEfectivo.Text, out efectivo))
+            {
+                efectivo = 0;
+            }
+            if (!decimal.TryParse(tbRealDevuelta.Text, out devuelta))
+            {
+                devuelta = 0;
+            }
+
+            if (montoDeposito == efectivo)
+            {
+                HabilitarDeposito();
+                dtgvDevuelta.Enabled = false;
+                
+            }
+            else if(montoDeposito > efectivo)
+            {
+                dtgvDevuelta.Enabled = false;
+                btnDeposito.Enabled = false;
+
+            }
+            else
+            {
+                CalcularTotalDevuelta();
+                dtgvDevuelta.Enabled = true;
+                return;
+            }
+        }
+
+        void CalcularTotalDevuelta()
+        {
+            decimal devuelta;
+            decimal efectivo=decimal.Parse(tbEfectivo.Text);
+
+            devuelta = efectivo - montoDeposito ;
+            tbDevuelta.Text = devuelta.ToString();
+
+        }
+
+        void CompararMontoDevuelta()
+        {
+            decimal total = 0;
+            decimal devuelta=decimal.Parse(tbDevuelta.Text);
+            foreach (DataGridViewRow row in dtgvDevuelta.Rows)
+            {
+                total += Convert.ToInt32(row.Cells[2].Value);
+            }
+
+            tbRealDevuelta.Text = total.ToString();
+
+            if (total < devuelta)
+            {
+                btnDeposito.Enabled = false;
+                return;
+            }
+            else if (total > devuelta)
+            {
+                btnDeposito.Enabled = false;
+                return;
+            }
+            else
+            {
+                HabilitarDeposito();
+            }
+            
+        }
+
+        
     }
 }
