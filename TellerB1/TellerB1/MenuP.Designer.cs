@@ -56,6 +56,7 @@
             this.toolStripStatusLabel9 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel10 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbEstado = new System.Windows.Forms.ToolStripStatusLabel();
+            this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -110,7 +111,7 @@
             this.cuadreToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(9, 44);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(451, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(331, 27);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -180,14 +181,14 @@
             // abrirCajaToolStripMenuItem
             // 
             this.abrirCajaToolStripMenuItem.Name = "abrirCajaToolStripMenuItem";
-            this.abrirCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.abrirCajaToolStripMenuItem.Size = new System.Drawing.Size(146, 24);
             this.abrirCajaToolStripMenuItem.Text = "Abrir Caja";
             this.abrirCajaToolStripMenuItem.Click += new System.EventHandler(this.abrirCajaToolStripMenuItem_Click);
             // 
             // cerrarCajaToolStripMenuItem
             // 
             this.cerrarCajaToolStripMenuItem.Name = "cerrarCajaToolStripMenuItem";
-            this.cerrarCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.cerrarCajaToolStripMenuItem.Size = new System.Drawing.Size(146, 24);
             this.cerrarCajaToolStripMenuItem.Text = "Cerrar Caja";
             this.cerrarCajaToolStripMenuItem.Click += new System.EventHandler(this.cerrarCajaToolStripMenuItem_Click);
             // 
@@ -288,10 +289,24 @@
             this.lbEstado.Size = new System.Drawing.Size(45, 17);
             this.lbEstado.Text = "Abierta";
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(831, 6);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(31, 34);
+            this.button3.TabIndex = 12;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
             // MenuP
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(874, 572);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Cerrar);
@@ -344,5 +359,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel10;
         private System.Windows.Forms.ToolStripStatusLabel lbEstado;
         private System.Windows.Forms.ToolStripMenuItem abrirCajaToolStripMenuItem;
+        private System.Windows.Forms.Button button3;
     }
 }

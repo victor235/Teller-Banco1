@@ -183,7 +183,97 @@ namespace DataModel
         }
         #endregion
 
-        
+        public DataTable Transacciones(Usuario cajero, DateTime desde, DateTime hasta)
+        {
+            DataTable Data = new DataTable();
+            DataColumn column;
+            DataRow row;
+
+            column = new DataColumn();
+            column.AutoIncrement = false;
+            column.Caption = "No. Transaccion";
+            column.ColumnName = "No. Transaccion";
+            column.DataType = typeof(int);
+            column.ReadOnly = true;
+            column.Unique = true;
+            Data.Columns.Add(column);
+
+            column = new DataColumn();
+            column.AutoIncrement = false;
+            column.Caption = "Tipo";
+            column.ColumnName = "Tipo";
+            column.DataType = typeof(string);
+            column.ReadOnly = true;
+            column.Unique = false;
+            Data.Columns.Add(column);
+
+            column = new DataColumn();
+            column.AutoIncrement = false;
+            column.Caption = "Monto";
+            column.ColumnName = "Monto";
+            column.DataType = typeof(decimal);
+            column.ReadOnly = true;
+            column.Unique = false;
+            Data.Columns.Add(column);
+
+            column = new DataColumn();
+            column.AutoIncrement = false;
+            column.Caption = "Cuenta";
+            column.ColumnName = "Cuenta";
+            column.DataType = typeof(string);
+            column.ReadOnly = true;
+            column.Unique = false;
+            Data.Columns.Add(column);
+
+            column = new DataColumn();
+            column.AutoIncrement = false;
+            column.Caption = "Caja";
+            column.ColumnName = "Caja";
+            column.DataType = typeof(string);
+            column.ReadOnly = true;
+            column.Unique = false;
+            Data.Columns.Add(column);
+
+            column = new DataColumn();
+            column.AutoIncrement = false;
+            column.Caption = "Banco";
+            column.ColumnName = "Banco";
+            column.DataType = typeof(string);
+            column.ReadOnly = true;
+            column.Unique = false;
+            Data.Columns.Add(column);
+
+            column = new DataColumn();
+            column.AutoIncrement = false;
+            column.Caption = "Fecha";
+            column.ColumnName = "Fecha";
+            column.DataType = typeof(DateTime);
+            column.ReadOnly = true;
+            column.Unique = false;
+            Data.Columns.Add(column);
+
+            foreach (var trans in caja_AppEntities.tblTransaccion)
+            {
+                if (trans.Cajero == cajero.Codigo_Usuario)
+                {
+                    if(trans.Fecha>=desde && trans.Fecha <= hasta)
+                    {
+                        row = Data.NewRow();
+                        row["No. Transaccion"] = trans.Id;
+                        row["Tipo"] = trans.tblTipo_Transaccion.Descripcion;
+                        row["Monto"] = trans.Monto;
+                        row["Cuenta"] = trans.Cuenta;
+                        row["Caja"] = trans.Caja;
+                        row["Banco"] = trans.Banco;
+                        row["Fecha"] = trans.Fecha;
+                        Data.Rows.Add(row);
+                    }
+                }
+            }
+
+            return Data;
+
+        }
     }
 
     internal static class MissingDllHack

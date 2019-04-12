@@ -16,6 +16,7 @@ namespace DataModel
         Cajas caja;
         Usuario cajero;
 
+        public Cuadre() { }
         public Cuadre(decimal balance_inicial,  DateTime fecha_apertura,  Cajas caja, Usuario cajero)
         {
             this.balance_inicial = balance_inicial;
@@ -61,6 +62,18 @@ namespace DataModel
             }
 
             return teller;
+        }
+
+        public DateTime BuscarFechaInicio()
+        {
+            Caja_AppEntities6 teller = new Caja_AppEntities6();
+
+            foreach (var cua in teller.tblCuadres.Where(x=>x.Cajero==cajero.Codigo_Usuario && x.Balance_Final==null && x.Fecha_Cierre==null))
+            {
+                return cua.Fecha_Apertura;
+            }
+
+            return DateTime.Now;
         }
     }
 }

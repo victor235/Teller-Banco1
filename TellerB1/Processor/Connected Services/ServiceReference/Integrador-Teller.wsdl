@@ -102,34 +102,10 @@
           </s:extension>
         </s:complexContent>
       </s:complexType>
-      <s:element name="RealizarTransaccion">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="T" type="tns:Transaccion" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="Transaccion">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:Pedido">
-            <s:sequence>
-              <s:element minOccurs="0" maxOccurs="1" name="cuentaOrigen" type="tns:Cliente" />
-              <s:element minOccurs="0" maxOccurs="1" name="cuentaDestino" type="tns:Cliente" />
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
-      <s:element name="RealizarTransaccionResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="RealizarTransaccionResult" type="tns:Confirmacion" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="RealizarRetiro">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="R" type="tns:Retiro" />
+            <s:element minOccurs="0" maxOccurs="1" name="D" type="tns:Retiro" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -163,12 +139,6 @@
   <wsdl:message name="RealizarDepositoSoapOut">
     <wsdl:part name="parameters" element="tns:RealizarDepositoResponse" />
   </wsdl:message>
-  <wsdl:message name="RealizarTransaccionSoapIn">
-    <wsdl:part name="parameters" element="tns:RealizarTransaccion" />
-  </wsdl:message>
-  <wsdl:message name="RealizarTransaccionSoapOut">
-    <wsdl:part name="parameters" element="tns:RealizarTransaccionResponse" />
-  </wsdl:message>
   <wsdl:message name="RealizarRetiroSoapIn">
     <wsdl:part name="parameters" element="tns:RealizarRetiro" />
   </wsdl:message>
@@ -183,10 +153,6 @@
     <wsdl:operation name="RealizarDeposito">
       <wsdl:input message="tns:RealizarDepositoSoapIn" />
       <wsdl:output message="tns:RealizarDepositoSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="RealizarTransaccion">
-      <wsdl:input message="tns:RealizarTransaccionSoapIn" />
-      <wsdl:output message="tns:RealizarTransaccionSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="RealizarRetiro">
       <wsdl:input message="tns:RealizarRetiroSoapIn" />
@@ -206,15 +172,6 @@
     </wsdl:operation>
     <wsdl:operation name="RealizarDeposito">
       <soap:operation soapAction="http://tellerBanco1.org/RealizarDeposito" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RealizarTransaccion">
-      <soap:operation soapAction="http://tellerBanco1.org/RealizarTransaccion" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -245,15 +202,6 @@
     </wsdl:operation>
     <wsdl:operation name="RealizarDeposito">
       <soap12:operation soapAction="http://tellerBanco1.org/RealizarDeposito" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RealizarTransaccion">
-      <soap12:operation soapAction="http://tellerBanco1.org/RealizarTransaccion" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

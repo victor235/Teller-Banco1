@@ -147,6 +147,18 @@
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 17</value>
   </metadata>
+  <data name="button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAYxJREFUOE+d
+        lE0rRGEYhsfW1xB/wIYi9uwsJMWUhRL/QUJRs8EPUCI/ZhYoGwulfMVQPjZK5BdwXPece4x3zmFmXHXV
+        ee7nfZ+Zc+a8k6mHKIo6pcvGqR7A9b502dgHsDCHL1hwpOxEulRd8JopR+mwYBPFAw47Ths4gk/4iauO
+        Q2jMo9CnB7dDHQwU1F14hB844TjGzXe8xGbH35AlBgqybrzHV+xwXGqsoxh1FECeOlCQj2sj5B2Vwis8
+        d5mA3q8DBb1rPCsXegX0cLdKQQr0ag3c9oysigEUC+4noHcsXSagt6gB0K+iL76OltxPQG8IB10moLei
+        AdCroi2+jnbcbxj27qFuuaUcnGKxVPwD9t5h5RlT5FGEL2gdsGcy3vrjxFBk8Q2LWHlBa8BavSH6ds/Y
+        6jiGYA71HA6w5lDWaNgh6ujlHIfQWEMNvcExxwHkTTiNt6i1y26lw4JZ1O0LnaBd1DOW+jUfUej8znjb
+        37BQt7OB+rOo5gJ19ut+1gFs1A/WY9sd/0Im8wWuFRqvAvuilQAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>58</value>
   </metadata>

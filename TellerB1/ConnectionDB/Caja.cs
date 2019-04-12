@@ -42,6 +42,27 @@ namespace DataModel
             teller.tblCajas.Find(id).Estado = Convert.ToInt32(estado) + 1;
             return teller;
         }
+
+        public bool CantidadDisponible(int cant, decimal valor)
+        {
+            Caja_AppEntities6 teller = new Caja_AppEntities6();
+
+            foreach(var inv in teller.tblInventario_Efectivo.Where(x=>x.Caja==id && x.tblDenominaciones.Valor == valor))
+            {
+                if (inv.Cantidad < cant)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+
+            
+
+            return false;
+        }
     }
 
     public enum EstadoCaja { Cerrada, Abierta};

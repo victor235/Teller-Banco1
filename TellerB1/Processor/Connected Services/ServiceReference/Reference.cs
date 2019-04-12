@@ -18,7 +18,6 @@ namespace Processor.ServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="Pedido", Namespace="http://tellerBanco1.org/")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Processor.ServiceReference.Deposito))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Processor.ServiceReference.Transaccion))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Processor.ServiceReference.Retiro))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Processor.ServiceReference.RequestDatosPersonales))]
     public partial class Pedido : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -109,45 +108,6 @@ namespace Processor.ServiceReference {
                 if ((object.ReferenceEquals(this.cuentaField, value) != true)) {
                     this.cuentaField = value;
                     this.RaisePropertyChanged("cuenta");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Transaccion", Namespace="http://tellerBanco1.org/")]
-    [System.SerializableAttribute()]
-    public partial class Transaccion : Processor.ServiceReference.Pedido {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Processor.ServiceReference.Cliente cuentaOrigenField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Processor.ServiceReference.Cliente cuentaDestinoField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public Processor.ServiceReference.Cliente cuentaOrigen {
-            get {
-                return this.cuentaOrigenField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cuentaOrigenField, value) != true)) {
-                    this.cuentaOrigenField = value;
-                    this.RaisePropertyChanged("cuentaOrigen");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public Processor.ServiceReference.Cliente cuentaDestino {
-            get {
-                return this.cuentaDestinoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cuentaDestinoField, value) != true)) {
-                    this.cuentaDestinoField = value;
-                    this.RaisePropertyChanged("cuentaDestino");
                 }
             }
         }
@@ -460,14 +420,7 @@ namespace Processor.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tellerBanco1.org/RealizarDeposito", ReplyAction="*")]
         System.Threading.Tasks.Task<Processor.ServiceReference.RealizarDepositoResponse> RealizarDepositoAsync(Processor.ServiceReference.RealizarDepositoRequest request);
         
-        // CODEGEN: Generating message contract since element name T from namespace http://tellerBanco1.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tellerBanco1.org/RealizarTransaccion", ReplyAction="*")]
-        Processor.ServiceReference.RealizarTransaccionResponse RealizarTransaccion(Processor.ServiceReference.RealizarTransaccionRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tellerBanco1.org/RealizarTransaccion", ReplyAction="*")]
-        System.Threading.Tasks.Task<Processor.ServiceReference.RealizarTransaccionResponse> RealizarTransaccionAsync(Processor.ServiceReference.RealizarTransaccionRequest request);
-        
-        // CODEGEN: Generating message contract since element name R from namespace http://tellerBanco1.org/ is not marked nillable
+        // CODEGEN: Generating message contract since element name D from namespace http://tellerBanco1.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tellerBanco1.org/RealizarRetiro", ReplyAction="*")]
         Processor.ServiceReference.RealizarRetiroResponse RealizarRetiro(Processor.ServiceReference.RealizarRetiroRequest request);
         
@@ -615,74 +568,6 @@ namespace Processor.ServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class RealizarTransaccionRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="RealizarTransaccion", Namespace="http://tellerBanco1.org/", Order=0)]
-        public Processor.ServiceReference.RealizarTransaccionRequestBody Body;
-        
-        public RealizarTransaccionRequest() {
-        }
-        
-        public RealizarTransaccionRequest(Processor.ServiceReference.RealizarTransaccionRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tellerBanco1.org/")]
-    public partial class RealizarTransaccionRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Processor.ServiceReference.Transaccion T;
-        
-        public RealizarTransaccionRequestBody() {
-        }
-        
-        public RealizarTransaccionRequestBody(Processor.ServiceReference.Transaccion T) {
-            this.T = T;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class RealizarTransaccionResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="RealizarTransaccionResponse", Namespace="http://tellerBanco1.org/", Order=0)]
-        public Processor.ServiceReference.RealizarTransaccionResponseBody Body;
-        
-        public RealizarTransaccionResponse() {
-        }
-        
-        public RealizarTransaccionResponse(Processor.ServiceReference.RealizarTransaccionResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tellerBanco1.org/")]
-    public partial class RealizarTransaccionResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Processor.ServiceReference.Confirmacion RealizarTransaccionResult;
-        
-        public RealizarTransaccionResponseBody() {
-        }
-        
-        public RealizarTransaccionResponseBody(Processor.ServiceReference.Confirmacion RealizarTransaccionResult) {
-            this.RealizarTransaccionResult = RealizarTransaccionResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class RealizarRetiroRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="RealizarRetiro", Namespace="http://tellerBanco1.org/", Order=0)]
@@ -703,13 +588,13 @@ namespace Processor.ServiceReference {
     public partial class RealizarRetiroRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Processor.ServiceReference.Retiro R;
+        public Processor.ServiceReference.Retiro D;
         
         public RealizarRetiroRequestBody() {
         }
         
-        public RealizarRetiroRequestBody(Processor.ServiceReference.Retiro R) {
-            this.R = R;
+        public RealizarRetiroRequestBody(Processor.ServiceReference.Retiro D) {
+            this.D = D;
         }
     }
     
@@ -825,39 +710,14 @@ namespace Processor.ServiceReference {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Processor.ServiceReference.RealizarTransaccionResponse Processor.ServiceReference.Integrador_CoreSoap.RealizarTransaccion(Processor.ServiceReference.RealizarTransaccionRequest request) {
-            return base.Channel.RealizarTransaccion(request);
-        }
-        
-        public Processor.ServiceReference.Confirmacion RealizarTransaccion(Processor.ServiceReference.Transaccion T) {
-            Processor.ServiceReference.RealizarTransaccionRequest inValue = new Processor.ServiceReference.RealizarTransaccionRequest();
-            inValue.Body = new Processor.ServiceReference.RealizarTransaccionRequestBody();
-            inValue.Body.T = T;
-            Processor.ServiceReference.RealizarTransaccionResponse retVal = ((Processor.ServiceReference.Integrador_CoreSoap)(this)).RealizarTransaccion(inValue);
-            return retVal.Body.RealizarTransaccionResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Processor.ServiceReference.RealizarTransaccionResponse> Processor.ServiceReference.Integrador_CoreSoap.RealizarTransaccionAsync(Processor.ServiceReference.RealizarTransaccionRequest request) {
-            return base.Channel.RealizarTransaccionAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Processor.ServiceReference.RealizarTransaccionResponse> RealizarTransaccionAsync(Processor.ServiceReference.Transaccion T) {
-            Processor.ServiceReference.RealizarTransaccionRequest inValue = new Processor.ServiceReference.RealizarTransaccionRequest();
-            inValue.Body = new Processor.ServiceReference.RealizarTransaccionRequestBody();
-            inValue.Body.T = T;
-            return ((Processor.ServiceReference.Integrador_CoreSoap)(this)).RealizarTransaccionAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         Processor.ServiceReference.RealizarRetiroResponse Processor.ServiceReference.Integrador_CoreSoap.RealizarRetiro(Processor.ServiceReference.RealizarRetiroRequest request) {
             return base.Channel.RealizarRetiro(request);
         }
         
-        public Processor.ServiceReference.Confirmacion RealizarRetiro(Processor.ServiceReference.Retiro R) {
+        public Processor.ServiceReference.Confirmacion RealizarRetiro(Processor.ServiceReference.Retiro D) {
             Processor.ServiceReference.RealizarRetiroRequest inValue = new Processor.ServiceReference.RealizarRetiroRequest();
             inValue.Body = new Processor.ServiceReference.RealizarRetiroRequestBody();
-            inValue.Body.R = R;
+            inValue.Body.D = D;
             Processor.ServiceReference.RealizarRetiroResponse retVal = ((Processor.ServiceReference.Integrador_CoreSoap)(this)).RealizarRetiro(inValue);
             return retVal.Body.RealizarRetiroResult;
         }
@@ -867,10 +727,10 @@ namespace Processor.ServiceReference {
             return base.Channel.RealizarRetiroAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Processor.ServiceReference.RealizarRetiroResponse> RealizarRetiroAsync(Processor.ServiceReference.Retiro R) {
+        public System.Threading.Tasks.Task<Processor.ServiceReference.RealizarRetiroResponse> RealizarRetiroAsync(Processor.ServiceReference.Retiro D) {
             Processor.ServiceReference.RealizarRetiroRequest inValue = new Processor.ServiceReference.RealizarRetiroRequest();
             inValue.Body = new Processor.ServiceReference.RealizarRetiroRequestBody();
-            inValue.Body.R = R;
+            inValue.Body.D = D;
             return ((Processor.ServiceReference.Integrador_CoreSoap)(this)).RealizarRetiroAsync(inValue);
         }
     }

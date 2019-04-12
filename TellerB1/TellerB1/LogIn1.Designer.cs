@@ -38,14 +38,12 @@
             this.button3 = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.gbLogin = new System.Windows.Forms.GroupBox();
-            this.lbTipoUser = new System.Windows.Forms.Label();
-            this.cmbTipoUser = new System.Windows.Forms.ComboBox();
-            this.caja_AppDataSet = new TellerB1.Caja_AppDataSet();
             this.tblTiposDeUsuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.caja_AppDataSet = new TellerB1.Caja_AppDataSet();
             this.tblTiposDeUsuarioTableAdapter = new TellerB1.Caja_AppDataSetTableAdapters.tblTiposDeUsuarioTableAdapter();
             this.gbLogin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.caja_AppDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblTiposDeUsuarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.caja_AppDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // lbUser
@@ -110,7 +108,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.Black;
-            this.btnLogin.Location = new System.Drawing.Point(154, 222);
+            this.btnLogin.Location = new System.Drawing.Point(130, 185);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(149, 29);
             this.btnLogin.TabIndex = 8;
@@ -120,8 +118,6 @@
             // 
             // gbLogin
             // 
-            this.gbLogin.Controls.Add(this.lbTipoUser);
-            this.gbLogin.Controls.Add(this.cmbTipoUser);
             this.gbLogin.Controls.Add(this.btnLogin);
             this.gbLogin.Controls.Add(this.label3);
             this.gbLogin.Controls.Add(this.tbPassword);
@@ -130,40 +126,19 @@
             this.gbLogin.Controls.Add(this.lbUser);
             this.gbLogin.Location = new System.Drawing.Point(42, 47);
             this.gbLogin.Name = "gbLogin";
-            this.gbLogin.Size = new System.Drawing.Size(410, 295);
+            this.gbLogin.Size = new System.Drawing.Size(410, 244);
             this.gbLogin.TabIndex = 9;
             this.gbLogin.TabStop = false;
-            // 
-            // lbTipoUser
-            // 
-            this.lbTipoUser.AutoSize = true;
-            this.lbTipoUser.Location = new System.Drawing.Point(21, 176);
-            this.lbTipoUser.Name = "lbTipoUser";
-            this.lbTipoUser.Size = new System.Drawing.Size(77, 13);
-            this.lbTipoUser.TabIndex = 10;
-            this.lbTipoUser.Text = "Ingresar como:";
-            // 
-            // cmbTipoUser
-            // 
-            this.cmbTipoUser.DataSource = this.tblTiposDeUsuarioBindingSource;
-            this.cmbTipoUser.DisplayMember = "Descripcion";
-            this.cmbTipoUser.FormattingEnabled = true;
-            this.cmbTipoUser.Location = new System.Drawing.Point(142, 173);
-            this.cmbTipoUser.Name = "cmbTipoUser";
-            this.cmbTipoUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cmbTipoUser.Size = new System.Drawing.Size(204, 21);
-            this.cmbTipoUser.TabIndex = 9;
-            this.cmbTipoUser.ValueMember = "Descripcion";
-            // 
-            // caja_AppDataSet
-            // 
-            this.caja_AppDataSet.DataSetName = "Caja_AppDataSet";
-            this.caja_AppDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tblTiposDeUsuarioBindingSource
             // 
             this.tblTiposDeUsuarioBindingSource.DataMember = "tblTiposDeUsuario";
             this.tblTiposDeUsuarioBindingSource.DataSource = this.caja_AppDataSet;
+            // 
+            // caja_AppDataSet
+            // 
+            this.caja_AppDataSet.DataSetName = "Caja_AppDataSet";
+            this.caja_AppDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tblTiposDeUsuarioTableAdapter
             // 
@@ -173,7 +148,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(498, 445);
+            this.ClientSize = new System.Drawing.Size(498, 330);
             this.Controls.Add(this.gbLogin);
             this.Controls.Add(this.button3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -183,8 +158,8 @@
             this.Load += new System.EventHandler(this.LogIn1_Load);
             this.gbLogin.ResumeLayout(false);
             this.gbLogin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.caja_AppDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblTiposDeUsuarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.caja_AppDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -198,8 +173,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.GroupBox gbLogin;
-        private System.Windows.Forms.Label lbTipoUser;
-        private System.Windows.Forms.ComboBox cmbTipoUser;
         private Caja_AppDataSet caja_AppDataSet;
         private System.Windows.Forms.BindingSource tblTiposDeUsuarioBindingSource;
         private Caja_AppDataSetTableAdapters.tblTiposDeUsuarioTableAdapter tblTiposDeUsuarioTableAdapter;

@@ -57,7 +57,7 @@ namespace TellerB1
         private void retiroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Panel1.Controls.Clear();
-            Retiro fretiro = new Retiro();
+            Retiro fretiro = new Retiro(cajero);
             fretiro.TopLevel = false;
             Panel1.Controls.Add(fretiro);
             fretiro.Show();
@@ -66,7 +66,7 @@ namespace TellerB1
         private void inventarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Panel1.Controls.Clear();
-            Inventario finventario = new Inventario();
+            Inventario finventario = new Inventario(cajero);
             finventario.TopLevel = false;
             Panel1.Controls.Add(finventario);
             finventario.Show();
@@ -99,7 +99,7 @@ namespace TellerB1
         private void historialToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Panel1.Controls.Clear();
-            Historial fhistorial = new Historial();
+            Historial fhistorial = new Historial(cajero);
             fhistorial.TopLevel = false;
             Panel1.Controls.Add(fhistorial);
             fhistorial.Show();
@@ -212,6 +212,15 @@ namespace TellerB1
                 inventarioToolStripMenuItem.Enabled = false;
                 cerrarCajaToolStripMenuItem.Enabled = false;
             }
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("¿Esta seguro que desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+         
         }
     }
 }

@@ -140,12 +140,23 @@ namespace TellerB1
 
         private void dtgvDevuelta_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            int monto;
+            decimal monto;
+            decimal valor = Convert.ToInt32(dtgvDevuelta.Rows[e.RowIndex].Cells[0].Value);
+
             if (dtgvDevuelta.Rows[e.RowIndex].Cells[1].Value.GetType() == typeof(DBNull))
             {
                 dtgvDevuelta.Rows[e.RowIndex].Cells[1].Value = 0;
             }
-            monto = Convert.ToInt32(dtgvDevuelta.Rows[e.RowIndex].Cells[1].Value) * Convert.ToInt32(dtgvDevuelta.Rows[e.RowIndex].Cells[0].Value);
+            int cant = Convert.ToInt32(dtgvDevuelta.Rows[e.RowIndex].Cells[1].Value);
+
+            if(!usuario.Caja.CantidadDisponible(cant, valor))
+            {
+                dtgvDevuelta.Rows[e.RowIndex].Cells[1].Value = 0;
+                MessageBox.Show("No se dispone de esa cantidad en el inventario de efectivo", "Cantidad no valida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cant = 0;
+            }
+
+            monto = cant * valor;
             dtgvDevuelta.Rows[e.RowIndex].Cells[2].Value = monto;
             CompararMontoDevuelta();
         }
@@ -330,7 +341,9 @@ namespace TellerB1
             }
             else
             {
+                
                 CalcularTotalDevuelta();
+                CompararMontoDevuelta();
                 dtgvDevuelta.Enabled = true;
                 return;
             }
