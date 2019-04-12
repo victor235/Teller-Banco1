@@ -112,9 +112,11 @@ namespace TellerB1
         private void depositoInterbancarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Panel1.Controls.Clear();
-            // No se por que pero en esta parte me aparece que el form no existe y no me deja hacerele Show queda pendiente a arreglar
-            
-            
+            DepositoInt depositoInt = new DepositoInt();
+            depositoInt.TopLevel = false;
+            Panel1.Controls.Add(depositoInt);
+            depositoInt.Show();
+
         }
 
         private void retiroInterbancarioToolStripMenuItem_Click(object sender, EventArgs e)

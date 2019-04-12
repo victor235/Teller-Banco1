@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TellerB1.Properties
+namespace TellerB1
 {
     public partial class DepositoInt : Form
     {

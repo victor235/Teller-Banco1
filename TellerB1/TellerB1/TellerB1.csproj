@@ -64,6 +64,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Banco1DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Banco1DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Menu Principal forms\DepositoInt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu Principal forms\DepositoInt.Designer.cs">
+      <DependentUpon>DepositoInt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu Adm forms\aCajero.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,14 +109,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Caja_AppDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Menu Principal forms\Cuadre.cs">
     <Compile Include="CambiarContraseña.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CambiarContraseña.Designer.cs">
       <DependentUpon>CambiarContraseña.cs</DependentUpon>
     </Compile>
-
+    <Compile Include="Menu Principal forms\Cuadre.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Menu Principal forms\Cuadre.Designer.cs">
@@ -155,19 +165,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Menu Principal forms\DepositoInt.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Menu Principal forms\.Designer.cs">
-      <DependentUpon>DepositoInt.cs</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Report.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Report.Designer.cs">
-      <DependentUpon>Report.cs</DependentUpon>
-    </Compile>
     <Compile Include="Menu Principal forms\Retiro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,7 +177,16 @@
     <Compile Include="Menu Principal forms\RetiroInt.Designer.cs">
       <DependentUpon>RetiroInt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report.Designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Menu Principal forms\DepositoInt.resx">
+      <DependentUpon>DepositoInt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu Adm forms\aCajero.resx">
       <DependentUpon>aCajero.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,11 +199,10 @@
     <EmbeddedResource Include="Menu Adm forms\aInventario.resx">
       <DependentUpon>aInventario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu Principal forms\Cuadre.resx">
     <EmbeddedResource Include="CambiarContraseña.resx">
       <DependentUpon>CambiarContraseña.cs</DependentUpon>
     </EmbeddedResource>
-
+    <EmbeddedResource Include="Menu Principal forms\Cuadre.resx">
       <DependentUpon>Cuadre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu Principal forms\Deposito.resx">
@@ -224,9 +229,6 @@
     <EmbeddedResource Include="Menu Principal forms\Pendientes.resx">
       <DependentUpon>Pendientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu Principal forms\DepositoInt.resx">
-      <DependentUpon>DepositoInt.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -236,13 +238,25 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Report.rdlc" />
-    <EmbeddedResource Include="Report.resx">
-      <DependentUpon>Report.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Menu Principal forms\Retiro.resx">
       <DependentUpon>Retiro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteDeposito.rdlc" />
+    <None Include="app.config" />
+    <None Include="Banco1DataSet.xsc">
+      <DependentUpon>Banco1DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Banco1DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Banco1DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Banco1DataSet.xss">
+      <DependentUpon>Banco1DataSet.xsd</DependentUpon>
+    </None>
     <None Include="Caja_AppDataSet.xsc">
       <DependentUpon>Caja_AppDataSet.xsd</DependentUpon>
     </None>

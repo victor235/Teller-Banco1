@@ -1,4 +1,4 @@
-﻿namespace TellerB1.Properties
+﻿namespace TellerB1
 {
     partial class DepositoInt
     {
@@ -44,11 +44,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 18);
+            this.label1.Location = new System.Drawing.Point(13, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(380, 29);
-            this.label1.TabIndex = 11;
+            this.label1.TabIndex = 13;
             this.label1.Text = "Menu de Depositos Interbancarios";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -60,10 +60,10 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.tbCedula);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(38, 88);
+            this.groupBox1.Location = new System.Drawing.Point(29, 63);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(615, 328);
-            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
             // 
@@ -130,12 +130,12 @@
             // 
             // gbRecibo
             // 
-            this.gbRecibo.Location = new System.Drawing.Point(758, 88);
+            this.gbRecibo.Location = new System.Drawing.Point(706, 76);
             this.gbRecibo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbRecibo.Name = "gbRecibo";
             this.gbRecibo.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbRecibo.Size = new System.Drawing.Size(573, 416);
-            this.gbRecibo.TabIndex = 22;
+            this.gbRecibo.TabIndex = 24;
             this.gbRecibo.TabStop = false;
             this.gbRecibo.Text = "Recibo";
             // 
@@ -162,12 +162,12 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbCedula;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbCuenta;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbMonto;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbCuenta;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbCedula;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox gbRecibo;
     }
 }

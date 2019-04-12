@@ -73,6 +73,9 @@ namespace TellerB1
                 confirmacion = processor.RealizarDeposito(deposito);
                 MessageBox.Show(confirmacion.mensajeConfirmación);
             }
+
+            Report reporte = new Report();
+            reporte.Show();
         }
 
         private void tbCuenta_TextChanged(object sender, EventArgs e)
@@ -81,6 +84,11 @@ namespace TellerB1
         }
 
         private void btnCedula_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Deposito_Load(object sender, EventArgs e)
         {
 
         }

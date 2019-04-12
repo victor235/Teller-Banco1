@@ -30,12 +30,12 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.noCuenta = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.dmonto = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.noCuenta = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.Recibo = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +67,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
             // 
+            // dmonto
+            // 
+            this.dmonto.Location = new System.Drawing.Point(255, 206);
+            this.dmonto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dmonto.Name = "dmonto";
+            this.dmonto.Size = new System.Drawing.Size(306, 26);
+            this.dmonto.TabIndex = 23;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -77,34 +85,6 @@
             this.label4.Size = new System.Drawing.Size(162, 29);
             this.label4.TabIndex = 18;
             this.label4.Text = "No de Cedula";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(255, 55);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(306, 30);
-            this.textBox1.TabIndex = 19;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 127);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(161, 29);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "No de Cuenta";
-            // 
-            // noCuenta
-            // 
-            this.noCuenta.Location = new System.Drawing.Point(255, 131);
-            this.noCuenta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.noCuenta.Name = "noCuenta";
-            this.noCuenta.Size = new System.Drawing.Size(306, 26);
-            this.noCuenta.TabIndex = 21;
             // 
             // label3
             // 
@@ -117,13 +97,33 @@
             this.label3.TabIndex = 22;
             this.label3.Text = "Monto a Retirar";
             // 
-            // dmonto
+            // textBox1
             // 
-            this.dmonto.Location = new System.Drawing.Point(255, 206);
-            this.dmonto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dmonto.Name = "dmonto";
-            this.dmonto.Size = new System.Drawing.Size(306, 26);
-            this.dmonto.TabIndex = 23;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(255, 55);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(306, 30);
+            this.textBox1.TabIndex = 19;
+            // 
+            // noCuenta
+            // 
+            this.noCuenta.Location = new System.Drawing.Point(255, 131);
+            this.noCuenta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.noCuenta.Name = "noCuenta";
+            this.noCuenta.Size = new System.Drawing.Size(306, 26);
+            this.noCuenta.TabIndex = 21;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(23, 127);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(161, 29);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "No de Cuenta";
             // 
             // Recibo
             // 
@@ -145,6 +145,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RetiroInt";
             this.Text = "RetiroInt";
+            this.Load += new System.EventHandler(this.RetiroInt_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

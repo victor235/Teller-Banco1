@@ -334,6 +334,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Deposito";
             this.Text = "Deposito";
+            this.Load += new System.EventHandler(this.Deposito_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFotoCliente)).EndInit();

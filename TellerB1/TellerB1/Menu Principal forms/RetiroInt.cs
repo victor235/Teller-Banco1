@@ -16,5 +16,10 @@ namespace TellerB1
         {
             InitializeComponent();
         }
+
+        private void RetiroInt_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
