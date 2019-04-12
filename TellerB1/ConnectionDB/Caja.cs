@@ -20,9 +20,18 @@ namespace DataModel
         public decimal Balance { get => balance; set => balance = value; }
         public Sucursal Sucursal { get => sucursal; set => sucursal = value; }
 
-        public Caja_AppEntities5 ActualizarBalance(Caja_AppEntities5 teller)
+        public Caja_AppEntities6 ActualizarBalance(Caja_AppEntities6 teller)
         {
             teller.tblCajas.Find(id).Balance = balance;
+            return teller;
+        }
+
+        public Caja_AppEntities6 AbrirCaja(Caja_AppEntities6 teller)
+        {
+            estado = EstadoCaja.Abierta;
+
+            teller.tblCajas.Find(id).Balance = balance;
+            teller.tblCajas.Find(id).Estado = Convert.ToInt32(estado) + 1;
             return teller;
         }
     }

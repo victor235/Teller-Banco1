@@ -10,7 +10,7 @@ namespace DataModel
 {
     public class DataManager
     {
-        private Caja_AppEntities5 caja_AppEntities = new Caja_AppEntities5();
+        private Caja_AppEntities6 caja_AppEntities = new Caja_AppEntities6();
         private ConnectionDB Connection = new ConnectionDB();
         //private SqlCommand Command = new SqlCommand();
         //private SqlDataReader Reader;
@@ -52,7 +52,7 @@ namespace DataModel
             return usuario;
         }
 
-        public void SaveChanges(Caja_AppEntities5 teller)
+        public void SaveChanges(Caja_AppEntities6 teller)
         {
             teller.SaveChanges();
         }
@@ -68,7 +68,7 @@ namespace DataModel
         {
             DataTable Data = new DataTable();
             DataColumn column;
-            DataRow row;
+            
 
             column = new DataColumn();
             column.AutoIncrement = false;
@@ -99,6 +99,14 @@ namespace DataModel
             column.ReadOnly = false;
             column.Unique = false;
             Data.Columns.Add(column);
+
+            
+            return Data;
+        }
+        public DataTable LLenarFilas()
+        {
+            DataTable Data = DenominacionesDataTable();
+            DataRow row;
 
             row = Data.NewRow();
             row["Denominacion"] = 1;
@@ -146,12 +154,33 @@ namespace DataModel
 
             return Data;
         }
+        public DataTable InventarioDataTable(int caja)
+        {
+            DataTable Data = DenominacionesDataTable();
 
-        //public DataTable InventarioDataTable()
-        //{
-        //    Caja_AppEntities5 teller = new Caja_AppEntities5();
-            
-        //}
+            DataColumn column = new DataColumn();
+            column.AutoIncrement = false;
+            column.Caption = "Tipo";
+            column.ColumnName = "Tipo";
+            column.DataType = typeof(string);
+            column.ReadOnly = true;
+            column.Unique = false;
+            Data.Columns.Add(column);
+
+            Caja_AppEntities6 teller = new Caja_AppEntities6();
+            var result = teller.GetInventario(caja);
+            foreach (var item in teller.GetInventario(caja))
+            {
+                DataRow row = Data.NewRow();
+                row["Denominacion"] = item.Valor;
+                row["Cantidad"] = item.Cantidad;
+                row["Monto"] = item.Valor * item.Cantidad;
+                row["Tipo"] = item.Descripcion;
+                Data.Rows.Add(row);
+            }
+
+            return Data;
+        }
         #endregion
     }
 

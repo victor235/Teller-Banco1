@@ -104,7 +104,7 @@ namespace TellerB1
         #region Metodos y eventos de tabla de Denominaciones
         void CompletarDtgv()
         {
-            DataTable Data = datamanager.DenominacionesDataTable();
+            DataTable Data = datamanager.LLenarFilas();
             dtgvDenominaciones.DataSource = Data;
             dtgvDenominaciones.Columns[2].ReadOnly = true;
             dtgvDenominaciones.AllowUserToAddRows = false;
@@ -154,7 +154,7 @@ namespace TellerB1
             if (confirmacion.succeeded)
             {
                 MessageBox.Show("Transaccion realizada exitosamente");
-                Caja_AppEntities5 teller = new Caja_AppEntities5();
+                Caja_AppEntities6 teller = new Caja_AppEntities6();
                 
                 teller = InstanciarTransaccion(teller);
                 teller = GuardarInventarios(teller);
@@ -163,7 +163,7 @@ namespace TellerB1
                 datamanager.SaveChanges(teller);
             }
         }
-        Caja_AppEntities5 InstanciarTransaccion(Caja_AppEntities5 teller)
+        Caja_AppEntities6 InstanciarTransaccion(Caja_AppEntities6 teller)
         {
             Transacciones transaccion = new Transacciones(TipoTransaccion.Deposito, deposito.Monto, deposito.Cuenta.Codigo,
                 usuario.Caja, usuario, new Bancos(1), deposito.Fecha);
@@ -171,7 +171,7 @@ namespace TellerB1
             teller = transaccion.GuardarTransaccion(teller);
             return teller;
         }
-        Caja_AppEntities5 GuardarInventarios(Caja_AppEntities5 teller)
+        Caja_AppEntities6 GuardarInventarios(Caja_AppEntities6 teller)
         {
             List<Inventarios> inventarios = new List<Inventarios>();
             foreach (DataGridViewRow row in dtgvDenominaciones.Rows)
@@ -192,7 +192,7 @@ namespace TellerB1
 
             return teller;
         }
-        Caja_AppEntities5 GuardarNuevoBalance(Caja_AppEntities5 teller)
+        Caja_AppEntities6 GuardarNuevoBalance(Caja_AppEntities6 teller)
         {
             usuario.Caja.Balance += deposito.Monto;
             teller = usuario.Caja.ActualizarBalance(teller);

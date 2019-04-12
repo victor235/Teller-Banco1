@@ -39,7 +39,7 @@ namespace DataModel
         public Bancos Banco { get => banco; set => banco = value; }
 
 
-        public Caja_AppEntities5 GuardarTransaccion(Caja_AppEntities5 teller)
+        public Caja_AppEntities6 GuardarTransaccion(Caja_AppEntities6 teller)
         {
             tblTransaccion transaccion = new tblTransaccion();
             transaccion.Banco = banco.Id;

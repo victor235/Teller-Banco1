@@ -26,7 +26,7 @@ namespace DataModel
         public Denominaciones Denominacion { get => denominacion; set => denominacion = value; }
         public int Cantidad { get => cantidad; set => cantidad = value; }
 
-        public Caja_AppEntities5 ActualizarInventario(Caja_AppEntities5 teller)
+        public Caja_AppEntities6 ActualizarInventario(Caja_AppEntities6 teller)
         {
             
             foreach (var inven in teller.tblInventario_Efectivo.Where(x=>x.Caja==caja.Id && x.tblDenominaciones.Valor==denominacion.Valor))

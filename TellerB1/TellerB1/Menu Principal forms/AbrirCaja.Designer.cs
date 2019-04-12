@@ -1,6 +1,6 @@
 ﻿namespace TellerB1
 {
-    partial class Cuadre
+    partial class AbrirCaja
     {
         /// <summary>
         /// Required designer variable.
@@ -67,6 +67,7 @@
             this.dtgvDenominaciones.Name = "dtgvDenominaciones";
             this.dtgvDenominaciones.Size = new System.Drawing.Size(563, 351);
             this.dtgvDenominaciones.TabIndex = 0;
+            this.dtgvDenominaciones.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvDenominaciones_CellEndEdit);
             // 
             // tbBalance
             // 
@@ -89,6 +90,7 @@
             this.btnAbrirCaja.TabIndex = 24;
             this.btnAbrirCaja.Text = "Abrir Caja";
             this.btnAbrirCaja.UseVisualStyleBackColor = false;
+            this.btnAbrirCaja.Click += new System.EventHandler(this.btnAbrirCaja_Click);
             // 
             // label4
             // 
@@ -100,7 +102,7 @@
             this.label4.TabIndex = 25;
             this.label4.Text = "Balance Total de Apertura";
             // 
-            // Cuadre
+            // AbrirCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -111,7 +113,7 @@
             this.Controls.Add(this.gbRecibo);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Cuadre";
+            this.Name = "AbrirCaja";
             this.Text = "Cuadre";
             this.Load += new System.EventHandler(this.Cuadre_Load);
             this.gbRecibo.ResumeLayout(false);

@@ -15,10 +15,10 @@ namespace DataModel
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class Caja_AppEntities5 : DbContext
+    public partial class Caja_AppEntities6 : DbContext
     {
-        public Caja_AppEntities5()
-            : base("name=Caja_AppEntities5")
+        public Caja_AppEntities6()
+            : base("name=Caja_AppEntities6")
         {
         }
     
@@ -39,6 +39,15 @@ namespace DataModel
         public virtual DbSet<tblTiposDeUsuario> tblTiposDeUsuario { get; set; }
         public virtual DbSet<tblTransaccion> tblTransaccion { get; set; }
         public virtual DbSet<tblUsuarios> tblUsuarios { get; set; }
+    
+        public virtual ObjectResult<GetInventario_Result> GetInventario(Nullable<int> caja)
+        {
+            var cajaParameter = caja.HasValue ?
+                new ObjectParameter("Caja", caja) :
+                new ObjectParameter("Caja", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetInventario_Result>("GetInventario", cajaParameter);
+        }
     
         public virtual int tblCajas_GetAll()
         {

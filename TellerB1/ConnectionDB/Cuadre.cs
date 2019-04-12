@@ -16,6 +16,14 @@ namespace DataModel
         Cajas caja;
         Usuario cajero;
 
+        public Cuadre(decimal balance_inicial,  DateTime fecha_apertura,  Cajas caja, Usuario cajero)
+        {
+            this.balance_inicial = balance_inicial;
+            this.fecha_apertura = fecha_apertura;
+            this.caja = caja;
+            this.cajero = cajero;
+        }
+
         public int Id { get => id; set => id = value; }
         public decimal Balance_inicial { get => balance_inicial; set => balance_inicial = value; }
         public decimal Balance_final { get => balance_final; set => balance_final = value; }
@@ -23,5 +31,18 @@ namespace DataModel
         public DateTime Fecha_cierre { get => fecha_cierre; set => fecha_cierre = value; }
         public Cajas Caja { get => caja; set => caja = value; }
         public Usuario Cajero { get => cajero; set => cajero = value; }
+
+        public Caja_AppEntities6 GuardarCuadre(Caja_AppEntities6 teller)
+        {
+            tblCuadres cuadres = new tblCuadres();
+            cuadres.Balance_Inicial = balance_inicial;
+            cuadres.Fecha_Apertura = fecha_apertura;
+            cuadres.Caja = caja.Id;
+            cuadres.Cajero = cajero.Codigo_Usuario;
+
+            teller.tblCuadres.Add(cuadres);
+
+            return teller;
+        }
     }
 }

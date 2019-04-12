@@ -151,21 +151,28 @@ namespace TellerB1
                 fdeposito.TopLevel = false;
                 Panel1.Controls.Add(fdeposito);
                 fdeposito.Show();
+
+                abrirCajaToolStripMenuItem.Enabled = false;
             }
             else
             {
                 Panel1.Controls.Clear();
-                Cuadre fcuadre = new Cuadre(cajero);
+                AbrirCaja fcuadre = new AbrirCaja(cajero);
                 fcuadre.TopLevel = false;
                 Panel1.Controls.Add(fcuadre);
                 fcuadre.Show();
+
+                depositoToolStripMenuItem.Enabled = false;
+                historialToolStripMenuItem.Enabled = false;
+                inventarioToolStripMenuItem.Enabled = false;
+                cerrarCajaToolStripMenuItem.Enabled = false;
             }
         }
 
         private void abrirCajaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Panel1.Controls.Clear();
-            Cuadre fcuadre = new Cuadre(cajero);
+            AbrirCaja fcuadre = new AbrirCaja(cajero);
             fcuadre.TopLevel = false;
             Panel1.Controls.Add(fcuadre);
             fcuadre.Show();

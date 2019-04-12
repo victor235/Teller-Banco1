@@ -58,6 +58,9 @@
     <Compile Include="Cuadre.cs" />
     <Compile Include="DataManager.cs" />
     <Compile Include="Denominaciones.cs" />
+    <Compile Include="GetInventario_Result.cs">
+      <DependentUpon>TellerEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Inventarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sucursal.cs" />

@@ -55,7 +55,7 @@ namespace DataModel
         {
             activo = true;
             contraseña = nueva;
-            Caja_AppEntities5 caja_AppEntities = new Caja_AppEntities5();
+            Caja_AppEntities6 caja_AppEntities = new Caja_AppEntities6();
             caja_AppEntities.tblUsuarios.Find(codigo_Usuario).Contraseña = contraseña;
             caja_AppEntities.tblUsuarios.Find(codigo_Usuario).Activo = true;
             caja_AppEntities.SaveChanges();
