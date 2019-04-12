@@ -17,8 +17,8 @@ namespace DataModel
         public int Id { get; set; }
         public decimal Balance_Inicial { get; set; }
         public System.DateTime Fecha_Apertura { get; set; }
-        public decimal Balance_Final { get; set; }
-        public System.DateTime Fecha_Cierre { get; set; }
+        public Nullable<decimal> Balance_Final { get; set; }
+        public Nullable<System.DateTime> Fecha_Cierre { get; set; }
         public int Caja { get; set; }
         public int Cajero { get; set; }
     

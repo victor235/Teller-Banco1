@@ -29,8 +29,8 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Balance_Inicial" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Fecha_Apertura" Type="datetime" Nullable="false" />
-          <Property Name="Balance_Final" Type="decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="Fecha_Cierre" Type="datetime" Nullable="false" />
+          <Property Name="Balance_Final" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Fecha_Cierre" Type="datetime" />
           <Property Name="Caja" Type="int" Nullable="false" />
           <Property Name="Cajero" Type="int" Nullable="false" />
         </EntityType>
@@ -395,8 +395,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Balance_Inicial" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Fecha_Apertura" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Balance_Final" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="Fecha_Cierre" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Balance_Final" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Fecha_Cierre" Type="DateTime" Precision="3" />
           <Property Name="Caja" Type="Int32" Nullable="false" />
           <Property Name="Cajero" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tblCajas" Relationship="Self.fk_cajas" FromRole="tblCuadres" ToRole="tblCajas" />
